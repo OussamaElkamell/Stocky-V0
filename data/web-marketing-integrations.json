@@ -1,0 +1,50 @@
+[
+  {
+    "id": "domain",
+    "name": "Domain",
+    "description": "Domain is the address of your website that people type in the browser URL bar to visit your website.",
+    "integrated": true,
+    "icon": "globe",
+    "settings": null
+  },
+  {
+    "id": "facebook-conversion-api",
+    "name": "Facebook Conversion API",
+    "description": "Facebook Conversion API is a server-side tool that lets you track key website and offline events directly to Facebook's servers.",
+    "integrated": false,
+    "icon": "facebook",
+    "settings": {
+      "fields": ["Access Token", "Pixel ID"]
+    }
+  },
+  {
+    "id": "google-analytics",
+    "name": "Google Analytics",
+    "description": "Google Analytics is a web analytics service offered by Google that tracks and reports website traffic.",
+    "integrated": false,
+    "icon": "bar-chart",
+    "settings": {
+      "fields": ["Tracking ID"]
+    }
+  },
+  {
+    "id": "clarity",
+    "name": "Clarity",
+    "description": "Clarity is a behavioral analytics tool that helps you understand how users are interacting with your website through session replays and heatmaps.",
+    "integrated": false,
+    "icon": "eye",
+    "settings": {
+      "fields": ["Project Key"]
+    }
+  },
+  {
+    "id": "ip-blocker",
+    "name": "IP Blocker",
+    "description": "Block unwanted visitors from passing orders.",
+    "integrated": false,
+    "icon": "shield",
+    "settings": {
+      "fields": ["Blocked IPs (comma-separated or one per line)"]
+    }
+  }
+]

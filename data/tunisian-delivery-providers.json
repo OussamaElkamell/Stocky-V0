@@ -1,0 +1,152 @@
+[
+  {
+    "id": "poste",
+    "name": "La Poste Tunisienne",
+    "logo": "/images/delivery/poste-tunisienne.png",
+    "description": "Service de livraison national officiel de la Tunisie",
+    "deliveryTime": "3-5 jours",
+    "trackingAvailable": true,
+    "coverage": "Nationale",
+    "priceRange": "Économique",
+    "contactInfo": {
+      "phone": "+216 71 888 888",
+      "email": "contact@poste.tn",
+      "website": "https://www.poste.tn"
+    }
+  },
+  {
+    "id": "aramex",
+    "name": "Aramex",
+    "logo": "/images/delivery/aramex.png",
+    "description": "Service de livraison international avec couverture nationale",
+    "deliveryTime": "1-3 jours",
+    "trackingAvailable": true,
+    "coverage": "Nationale et Internationale",
+    "priceRange": "Premium",
+    "contactInfo": {
+      "phone": "+216 71 960 960",
+      "email": "info@aramex.com.tn",
+      "website": "https://www.aramex.com"
+    }
+  },
+  {
+    "id": "express-delivery",
+    "name": "Express Delivery",
+    "logo": "/images/delivery/express-delivery.png",
+    "description": "Service de livraison rapide pour les zones urbaines",
+    "deliveryTime": "24 heures",
+    "trackingAvailable": true,
+    "coverage": "Principales villes",
+    "priceRange": "Standard",
+    "contactInfo": {
+      "phone": "+216 71 123 456",
+      "email": "contact@expressdelivery.tn",
+      "website": "https://www.expressdelivery.tn"
+    }
+  },
+  {
+    "id": "rapid-post",
+    "name": "Rapid Post",
+    "logo": "/images/delivery/rapid-post.png",
+    "description": "Livraison express pour documents et petits colis",
+    "deliveryTime": "24-48 heures",
+    "trackingAvailable": true,
+    "coverage": "Nationale",
+    "priceRange": "Standard",
+    "contactInfo": {
+      "phone": "+216 71 234 567",
+      "email": "info@rapidpost.tn",
+      "website": "https://www.rapidpost.tn"
+    }
+  },
+  {
+    "id": "tunisie-express",
+    "name": "Tunisie Express",
+    "logo": "/images/delivery/tunisie-express.png",
+    "description": "Service de messagerie express tunisien",
+    "deliveryTime": "1-2 jours",
+    "trackingAvailable": true,
+    "coverage": "Nationale",
+    "priceRange": "Standard",
+    "contactInfo": {
+      "phone": "+216 71 345 678",
+      "email": "contact@tunisieexpress.tn",
+      "website": "https://www.tunisieexpress.tn"
+    }
+  },
+  {
+    "id": "dhl",
+    "name": "DHL Tunisie",
+    "logo": "/images/delivery/dhl.png",
+    "description": "Service de livraison international premium",
+    "deliveryTime": "1-3 jours (international: 3-7 jours)",
+    "trackingAvailable": true,
+    "coverage": "Nationale et Internationale",
+    "priceRange": "Premium",
+    "contactInfo": {
+      "phone": "+216 71 860 860",
+      "email": "cs.tunisia@dhl.com",
+      "website": "https://www.dhl.com/tn-fr/"
+    }
+  },
+  {
+    "id": "fedex",
+    "name": "FedEx Tunisie",
+    "logo": "/images/delivery/fedex.png",
+    "description": "Service de livraison express international",
+    "deliveryTime": "1-2 jours (international: 2-5 jours)",
+    "trackingAvailable": true,
+    "coverage": "Nationale et Internationale",
+    "priceRange": "Premium",
+    "contactInfo": {
+      "phone": "+216 71 656 656",
+      "email": "customer.service@fedex.com.tn",
+      "website": "https://www.fedex.com/tn"
+    }
+  },
+  {
+    "id": "ups",
+    "name": "UPS Tunisie",
+    "logo": "/images/delivery/ups.png",
+    "description": "Service de livraison et logistique international",
+    "deliveryTime": "1-3 jours (international: 3-7 jours)",
+    "trackingAvailable": true,
+    "coverage": "Nationale et Internationale",
+    "priceRange": "Premium",
+    "contactInfo": {
+      "phone": "+216 71 789 789",
+      "email": "customerservice@ups.com.tn",
+      "website": "https://www.ups.com/tn"
+    }
+  },
+  {
+    "id": "city-express",
+    "name": "City Express",
+    "logo": "/images/delivery/city-express.png",
+    "description": "Service de livraison urbaine rapide",
+    "deliveryTime": "Même jour - 24 heures",
+    "trackingAvailable": true,
+    "coverage": "Tunis et grandes villes",
+    "priceRange": "Standard",
+    "contactInfo": {
+      "phone": "+216 71 456 789",
+      "email": "info@cityexpress.tn",
+      "website": "https://www.cityexpress.tn"
+    }
+  },
+  {
+    "id": "tnt",
+    "name": "TNT Tunisie",
+    "logo": "/images/delivery/tnt.png",
+    "description": "Service de livraison express international",
+    "deliveryTime": "1-3 jours (international: 2-6 jours)",
+    "trackingAvailable": true,
+    "coverage": "Nationale et Internationale",
+    "priceRange": "Premium",
+    "contactInfo": {
+      "phone": "+216 71 434 434",
+      "email": "customer.service@tnt.com.tn",
+      "website": "https://www.tnt.com/tn"
+    }
+  }
+]
