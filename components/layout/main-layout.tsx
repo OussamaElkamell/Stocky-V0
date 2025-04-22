@@ -45,11 +45,11 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
-
+import useAuth from '@/hooks/useAuth'
 export function MainLayout({ children }: { children: React.ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   const pathname = usePathname()
-
+  const { logout } = useAuth()
   // Handle mobile sidebar
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false)
 
@@ -134,17 +134,8 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
   // Add a new state for the logout confirmation dialog
   const [showLogoutConfirmation, setShowLogoutConfirmation] = useState(false)
 
-  // Add a function to handle the actual logout
-  const handleLogout = () => {
-    // Clear any stored authentication data
-    localStorage.removeItem("storei-auth-token")
-    sessionStorage.removeItem("storei-auth-token")
-
-    // In a real app, you might also want to call a logout API endpoint
-    // fetch("/api/auth/logout", { method: "POST" });
-
-    // Redirect to landing page
-    window.location.href = "/landing"
+  const handleLogout = async () => {
+    await logout()
   }
 
   return (

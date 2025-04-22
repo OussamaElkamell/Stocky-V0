@@ -9,26 +9,28 @@ import { FormInput } from "@/components/auth/form-input"
 import { PasswordInput } from "@/components/auth/password-input"
 import { FormCheckbox } from "@/components/auth/form-checkbox"
 import { FormError } from "@/components/auth/form-error"
+import useAuth from "@/hooks/useAuth";
 
 export default function SignUpPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "",
     email: "",
     password: "",
     confirmPassword: "",
     agreeToTerms: false,
   })
   const [errors, setErrors] = useState({
-    fullName: "",
+    name: "",
     email: "",
     password: "",
     confirmPassword: "",
     agreeToTerms: "",
     form: "",
   })
+  const { signup, loading, error } = useAuth();
 
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { name: any; value: any; type: any; checked: any } }) => {
     const { name, value, type, checked } = e.target
     setFormData({
       ...formData,
@@ -49,8 +51,8 @@ export default function SignUpPage() {
     const newErrors = { ...errors }
 
     // Validate full name
-    if (!formData.fullName.trim()) {
-      newErrors.fullName = "Full name is required"
+    if (!formData.name.trim()) {
+      newErrors.name = "Full name is required"
       isValid = false
     }
 
@@ -91,28 +93,26 @@ export default function SignUpPage() {
     return isValid
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+  
     if (validateForm()) {
-      setIsLoading(true)
-
       try {
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 1500))
-
-        // Redirect to dashboard or onboarding flow
-        window.location.href = "/dashboard"
-      } catch (error) {
+        await signup({
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+        });
+        // No need to redirect manually; `signup()` in the hook already does that
+      } catch (err) {
         setErrors({
           ...errors,
-          form: "An error occurred. Please try again.",
-        })
-      } finally {
-        setIsLoading(false)
+          form: "Signup failed. Please try again.",
+        });
       }
     }
-  }
-
+  };
+  
   return (
     <FuturisticAuthLayout title="Create Your Account" description="Start building your online store in minutes">
       <div className="space-y-6">
@@ -125,12 +125,12 @@ export default function SignUpPage() {
             transition={{ duration: 0.3, delay: 0.1 }}
           >
             <FormInput
-              id="fullName"
+              id="name"
               label="Full Name"
               placeholder="Enter your full name"
-              value={formData.fullName}
+              value={formData.name}
               onChange={handleChange}
-              error={errors.fullName}
+              error={errors.name}
               disabled={isLoading}
               labelClassName="text-blue-100"
               className="bg-[#1E293B] text-white border-[#334155] placeholder:text-slate-400"

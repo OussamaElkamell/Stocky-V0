@@ -11,8 +11,9 @@ import { FormCheckbox } from "@/components/auth/form-checkbox"
 import { FormError } from "@/components/auth/form-error"
 import { motion } from "framer-motion"
 import { keyframes } from "@emotion/react"
-
+import useAuth from '@/hooks/useAuth'
 export function LoginForm() {
+  const { login, loading, error } = useAuth()
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
   const [formData, setFormData] = useState({
@@ -26,7 +27,7 @@ export function LoginForm() {
     general: "",
   })
 
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { name: any; value: any; type: any; checked: any } }) => {
     const { name, value, type, checked } = e.target
     setFormData({
       ...formData,
@@ -65,49 +66,12 @@ export function LoginForm() {
     return isValid
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!validateForm()) return
 
-    if (!validateForm()) {
-      return
-    }
-
-    setIsLoading(true)
-    setErrors({ ...errors, general: "" })
-
-    try {
-      // In a real application, this would be an API call to your authentication endpoint
-      // For demo purposes, we'll simulate a successful login with a timeout
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-
-      // For demo, we'll accept any email with a password of "password123"
-      if (formData.password === "password123") {
-        // Store authentication token (in a real app, this would come from your API)
-        if (formData.rememberMe) {
-          localStorage.setItem("storei-auth-token", "demo-token-12345")
-        } else {
-          sessionStorage.setItem("storei-auth-token", "demo-token-12345")
-        }
-
-        // Redirect to dashboard
-        router.push("/dashboard")
-      } else {
-        setErrors({
-          ...errors,
-          general: "Email ou mot de passe incorrect",
-        })
-      }
-    } catch (error) {
-      console.error("Login error:", error)
-      setErrors({
-        ...errors,
-        general: "Une erreur est survenue. Veuillez réessayer.",
-      })
-    } finally {
-      setIsLoading(false)
-    }
+    await login(formData)
   }
-
   const inputVariants = {
     initial: { opacity: 0, y: 10 },
     animate: { opacity: 1, y: 0 },
@@ -233,3 +197,7 @@ const gradientAnimation = keyframes`
   50% { backgroundPosition: 100% 50%; }
   100% { backgroundPosition: 0% 50%; }
 `
+function login(formData: { email: string; password: string; rememberMe: boolean }) {
+  throw new Error("Function not implemented.")
+}
+
