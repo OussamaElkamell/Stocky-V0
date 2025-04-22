@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { DialogFooter } from "@/components/ui/dialog"
 
 import { useState } from "react"
@@ -13,6 +15,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { useInventory } from "@/components/inventory/inventory-context"
 import { useToast } from "@/hooks/use-toast"
+import { SafeImage } from "@/components/ui/safe-image"
 
 interface AddProductDialogProps {
   isOpen: boolean
@@ -27,8 +30,21 @@ export function AddProductDialog({ isOpen, onOpenChange }: AddProductDialogProps
   const [description, setDescription] = useState("")
   const [category, setCategory] = useState("")
   const [image, setImage] = useState("")
+  const [imageUrl, setImageUrl] = useState<string | null>(null)
   const [quantity, setQuantity] = useState(0)
   const [status, setStatus] = useState("in-stock")
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (file) {
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        setImageUrl(reader.result as string)
+        setImage(file.name)
+      }
+      reader.readAsDataURL(file)
+    }
+  }
 
   const handleAddProduct = () => {
     const newProduct = {
@@ -39,6 +55,7 @@ export function AddProductDialog({ isOpen, onOpenChange }: AddProductDialogProps
       quantity: quantity, // Replace with actual input value
       status: status, // Replace with actual select value
       lastUpdated: new Date().toISOString(),
+      image: imageUrl || "/placeholder.svg?height=60&width=60",
     }
     setInventoryItems([...inventoryItems, newProduct])
     onOpenChange(false) // Close the dialog
@@ -108,7 +125,12 @@ export function AddProductDialog({ isOpen, onOpenChange }: AddProductDialogProps
               Image
             </Label>
             <div className="col-span-3">
-              <Input id="image" type="file" onChange={(e) => setImage(e.target.value)} />
+              <Input id="image" type="file" onChange={handleImageChange} />
+              {imageUrl && (
+                <div className="mt-2">
+                  <SafeImage src={imageUrl} alt="Product Preview" width={100} height={100} />
+                </div>
+              )}
             </div>
           </div>
           <div className="grid grid-cols-4 items-center gap-4">

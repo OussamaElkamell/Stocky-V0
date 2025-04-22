@@ -158,7 +158,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
         <div className="p-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Store className="h-6 w-6 text-emerald-400" />
-            <span className={`font-bold text-xl ${!isSidebarOpen && "hidden"}`}>Storei</span>
+            <span className={`font-bold text-xl ${!isSidebarOpen && "hidden"}`}>Stocky</span>
           </div>
           <Button
             variant="ghost"

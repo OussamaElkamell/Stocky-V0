@@ -8,6 +8,7 @@ import { SearchBar } from "@/components/ui/search-bar"
 import { FilterBar } from "@/components/ui/filter-bar"
 import { StatusBadge } from "@/components/ui/status-badge"
 import { formatDate } from "@/utils/date-formatter"
+import { SafeImage } from "@/components/ui/safe-image"
 
 interface InventoryItem {
   id: number
@@ -17,6 +18,7 @@ interface InventoryItem {
   quantity: number
   status: string
   lastUpdated: string
+  image?: string
 }
 
 interface InventoryTableProps {
@@ -83,7 +85,13 @@ export function InventoryTable({
                   <TableRow key={item.id}>
                     <TableCell>
                       <div className="h-10 w-10 rounded bg-slate-100 flex items-center justify-center">
-                        <Package className="h-5 w-5 text-slate-500" />
+                        <SafeImage
+                          src={item.image || "/placeholder.svg?height=60&width=60"}
+                          alt={item.name}
+                          width={40}
+                          height={40}
+                          className="rounded-md object-cover"
+                        />
                       </div>
                     </TableCell>
                     <TableCell className="font-medium">{item.name}</TableCell>
