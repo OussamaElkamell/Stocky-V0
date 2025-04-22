@@ -2,6 +2,7 @@ import type React from "react"
 import { Inter } from "next/font/google"
 
 import { ThemeProvider } from "@/components/theme-provider"
+import { InventoryProvider } from "@/components/inventory/inventory-context"
 
 import "./globals.css"
 
@@ -22,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          {children}
+          <InventoryProvider>{children}</InventoryProvider>
         </ThemeProvider>
       </body>
     </html>

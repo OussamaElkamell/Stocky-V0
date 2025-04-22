@@ -4,96 +4,67 @@ import { useState } from "react"
 import { Plus } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-
 import { PageLayout } from "@/components/layout/page-layout"
 import { PageHeader } from "@/components/ui/page-header"
-
+import { useToast } from "@/hooks/use-toast"
 import { InventoryStats } from "@/components/inventory/inventory-stats"
 import { InventoryTable } from "@/components/inventory/inventory-table"
 import { AddProductDialog } from "@/components/inventory/add-product-dialog"
 import { BarcodeScannerDialog } from "@/components/inventory/barcode-scanner-dialog"
+import { useInventory } from "@/components/inventory/inventory-context"
+
+// Types
+interface InventoryItem {
+  id: number
+  name: string
+  sku: string
+  category: string
+  quantity: number
+  status: string
+  lastUpdated: string
+}
 
 export default function InventoryPage() {
   const [isAddProductOpen, setIsAddProductOpen] = useState(false)
   const [isScannerOpen, setIsScannerOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("all")
+  const { toast } = useToast()
+  const { inventoryItems, setInventoryItems } = useInventory()
 
-  // Sample inventory data
-  const inventoryItems = [
-    {
-      id: 1,
-      name: "T-shirt Premium",
-      sku: "TS-PREM-M-BLK",
-      category: "Vêtements",
-      quantity: 45,
-      status: "in-stock",
-      lastUpdated: "2023-04-01T10:23:00",
-    },
-    {
-      id: 2,
-      name: "Casquette Logo",
-      sku: "CAP-LOGO-BLU",
-      category: "Accessoires",
-      quantity: 12,
-      status: "low-stock",
-      lastUpdated: "2023-04-01T09:42:00",
-    },
-    {
-      id: 3,
-      name: "Chaussettes Sport",
-      sku: "SOCK-SPT-L-WHT",
-      category: "Vêtements",
-      quantity: 0,
-      status: "out-of-stock",
-      lastUpdated: "2023-04-01T08:15:00",
-    },
-    {
-      id: 4,
-      name: "Sac à dos",
-      sku: "BAG-PACK-BLK",
-      category: "Accessoires",
-      quantity: 23,
-      status: "in-stock",
-      lastUpdated: "2023-03-31T16:30:00",
-    },
-    {
-      id: 5,
-      name: "Gourde isotherme",
-      sku: "BTL-THRM-SLV",
-      category: "Accessoires",
-      quantity: 8,
-      status: "low-stock",
-      lastUpdated: "2023-03-31T14:45:00",
-    },
-    {
-      id: 6,
-      name: "Porte-clés",
-      sku: "KEY-RING-RED",
-      category: "Accessoires",
-      quantity: 67,
-      status: "in-stock",
-      lastUpdated: "2023-03-31T11:20:00",
-    },
-    {
-      id: 7,
-      name: "Pantalon Cargo",
-      sku: "PANT-CARGO-M-GRN",
-      category: "Vêtements",
-      quantity: 15,
-      status: "in-stock",
-      lastUpdated: "2023-03-30T16:15:00",
-    },
-    {
-      id: 8,
-      name: "Montre Sport",
-      sku: "WATCH-SPORT-BLK",
-      category: "Accessoires",
-      quantity: 0,
-      status: "out-of-stock",
-      lastUpdated: "2023-03-30T14:30:00",
-    },
-  ]
+  // Remove a product
+  const removeProduct = (id: number) => {
+    try {
+      setInventoryItems(inventoryItems.filter((item) => item.id !== id))
+      toast({
+        title: "Produit supprimé",
+        description: `Le produit a été supprimé de l'inventaire.`,
+      })
+    } catch (err) {
+      toast({
+        variant: "destructive",
+        title: "Erreur",
+        description: `Erreur lors de la suppression du produit de l'inventaire.`,
+      })
+    }
+  }
+
+  // Update a product
+  const updateProduct = (updatedProduct: InventoryItem) => {
+    try {
+      setInventoryItems(inventoryItems.map((item) => (item.id === updatedProduct.id ? updatedProduct : item)))
+      toast({
+        title: "Produit mis à jour",
+        description: `${updatedProduct.name} a été mis à jour.`,
+      })
+    } catch (err) {
+      toast({
+        variant: "destructive",
+        title: "Erreur",
+        description: `Erreur lors de la mise à jour du produit ${updatedProduct.name}.`,
+      })
+    }
+  }
 
   // Filter inventory items based on search and category
   const filteredItems = inventoryItems.filter((item) => {
