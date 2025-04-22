@@ -4,7 +4,7 @@ import type React from "react"
 
 import { DialogFooter } from "@/components/ui/dialog"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { DialogTrigger } from "@/components/ui/dialog"
 import { PlusIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -20,19 +20,40 @@ import { SafeImage } from "@/components/ui/safe-image"
 interface AddProductDialogProps {
   isOpen: boolean
   onOpenChange: (open: boolean) => void
+  mode: "add" | "edit"
+  initialProduct?: any // Optional: Initial product data for edit mode
+  onUpdateProduct?: (updatedProduct: any) => void // Optional: Callback for updating product
 }
 
-export function AddProductDialog({ isOpen, onOpenChange }: AddProductDialogProps) {
+export function AddProductDialog({
+  isOpen,
+  onOpenChange,
+  mode,
+  initialProduct,
+  onUpdateProduct,
+}: AddProductDialogProps) {
   const { setInventoryItems, inventoryItems } = useInventory()
   const { toast } = useToast()
 
-  const [name, setName] = useState("")
-  const [description, setDescription] = useState("")
-  const [category, setCategory] = useState("")
-  const [image, setImage] = useState("")
-  const [imageUrl, setImageUrl] = useState<string | null>(null)
-  const [quantity, setQuantity] = useState(0)
-  const [status, setStatus] = useState("in-stock")
+  const [name, setName] = useState(initialProduct?.name || "")
+  const [description, setDescription] = useState(initialProduct?.description || "")
+  const [category, setCategory] = useState(initialProduct?.category || "")
+  const [image, setImage] = useState(initialProduct?.image || "")
+  const [imageUrl, setImageUrl] = useState<string | null>(initialProduct?.image || null)
+  const [quantity, setQuantity] = useState(initialProduct?.quantity || 0)
+  const [status, setStatus] = useState(initialProduct?.status || "in-stock")
+
+  useEffect(() => {
+    if (initialProduct) {
+      setName(initialProduct.name)
+      setDescription(initialProduct.description)
+      setCategory(initialProduct.category)
+      setImage(initialProduct.image)
+      setImageUrl(initialProduct.image || null)
+      setQuantity(initialProduct.quantity)
+      setStatus(initialProduct.status)
+    }
+  }, [initialProduct])
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
@@ -47,34 +68,52 @@ export function AddProductDialog({ isOpen, onOpenChange }: AddProductDialogProps
   }
 
   const handleAddProduct = () => {
-    const newProduct = {
-      id: Date.now(), // Generate a unique ID
-      name: name,
-      sku: "NP-001", // Replace with actual input value
-      category: category, // Replace with actual select value
-      quantity: quantity, // Replace with actual input value
-      status: status, // Replace with actual select value
-      lastUpdated: new Date().toISOString(),
-      image: imageUrl || "/placeholder.svg?height=60&width=60",
+    if (mode === "add") {
+      const newProduct = {
+        id: Date.now(), // Generate a unique ID
+        name: name,
+        sku: "NP-001", // Replace with actual input value
+        category: category, // Replace with actual select value
+        quantity: quantity, // Replace with actual input value
+        status: status, // Replace with actual select value
+        lastUpdated: new Date().toISOString(),
+        image: imageUrl || "/placeholder.svg?height=60&width=60",
+      }
+      setInventoryItems([...inventoryItems, newProduct])
+      toast({
+        title: "Produit ajouté",
+        description: `${name} a été ajouté à l'inventaire.`,
+      })
+    } else if (mode === "edit" && initialProduct && onUpdateProduct) {
+      const updatedProduct = {
+        ...initialProduct,
+        name: name,
+        description: description,
+        category: category,
+        quantity: quantity,
+        status: status,
+        image: imageUrl || "/placeholder.svg?height=60&width=60",
+        lastUpdated: new Date().toISOString(),
+      }
+      onUpdateProduct(updatedProduct)
+      toast({
+        title: "Produit mis à jour",
+        description: `${name} a été mis à jour dans l'inventaire.`,
+      })
     }
-    setInventoryItems([...inventoryItems, newProduct])
     onOpenChange(false) // Close the dialog
-    toast({
-      title: "Produit ajouté",
-      description: `${name} a été ajouté à l'inventaire.`,
-    })
   }
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogTrigger asChild>
         <Button className="bg-emerald-600 hover:bg-emerald-700">
-          <PlusIcon className="h-4 w-4 mr-1" /> Ajouter un produit
+          <PlusIcon className="h-4 w-4 mr-1" /> {mode === "add" ? "Ajouter un produit" : "Modifier le produit"}
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
-          <DialogTitle>Ajouter un nouveau produit</DialogTitle>
+          <DialogTitle>{mode === "add" ? "Ajouter un nouveau produit" : "Modifier le produit"}</DialogTitle>
           <DialogDescription>
             Remplissez les informations du produit. Cliquez sur Enregistrer lorsque vous avez terminé.
           </DialogDescription>

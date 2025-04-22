@@ -27,6 +27,9 @@ interface InventoryTableProps {
   onSearchChange: (query: string) => void
   selectedCategory: string
   onCategoryChange: (category: string) => void
+  onRemoveProduct: (id: number) => void
+  onUpdateProduct: (updatedProduct: InventoryItem) => void
+  onOpenEditDialog: (product: InventoryItem) => void
 }
 
 export function InventoryTable({
@@ -35,6 +38,9 @@ export function InventoryTable({
   onSearchChange,
   selectedCategory,
   onCategoryChange,
+  onRemoveProduct,
+  onUpdateProduct,
+  onOpenEditDialog,
 }: InventoryTableProps) {
   return (
     <Card>
@@ -104,11 +110,16 @@ export function InventoryTable({
                     <TableCell>{formatDate(item.lastUpdated)}</TableCell>
                     <TableCell className="text-right">
                       <div className="flex justify-end gap-2">
-                        <Button variant="ghost" size="icon" className="h-8 w-8">
+                        <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => onOpenEditDialog(item)}>
                           <Settings className="h-4 w-4" />
                           <span className="sr-only">Modifier</span>
                         </Button>
-                        <Button variant="ghost" size="icon" className="h-8 w-8 text-rose-500">
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="h-8 w-8 text-rose-500"
+                          onClick={() => onRemoveProduct(item.id)}
+                        >
                           <X className="h-4 w-4" />
                           <span className="sr-only">Supprimer</span>
                         </Button>

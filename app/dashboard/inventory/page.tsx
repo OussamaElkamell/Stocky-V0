@@ -22,6 +22,7 @@ interface InventoryItem {
   quantity: number
   status: string
   lastUpdated: string
+  image?: string
 }
 
 export default function InventoryPage() {
@@ -31,6 +32,8 @@ export default function InventoryPage() {
   const [selectedCategory, setSelectedCategory] = useState("all")
   const { toast } = useToast()
   const { inventoryItems, setInventoryItems } = useInventory()
+  const [selectedProduct, setSelectedProduct] = useState<InventoryItem | null>(null)
+  const [isEditProductOpen, setIsEditProductOpen] = useState(false)
 
   // Remove a product
   const removeProduct = (id: number) => {
@@ -80,10 +83,22 @@ export default function InventoryPage() {
     return true
   })
 
+  const handleOpenEditDialog = (product: InventoryItem) => {
+    setSelectedProduct(product)
+    setIsEditProductOpen(true)
+  }
+
   const headerActions = (
     <>
       <BarcodeScannerDialog isOpen={isScannerOpen} onOpenChange={setIsScannerOpen} />
-      <AddProductDialog isOpen={isAddProductOpen} onOpenChange={setIsAddProductOpen} />
+      <AddProductDialog isOpen={isAddProductOpen} onOpenChange={setIsAddProductOpen} mode="add" />
+      <AddProductDialog
+        isOpen={isEditProductOpen}
+        onOpenChange={setIsEditProductOpen}
+        mode="edit"
+        initialProduct={selectedProduct}
+        onUpdateProduct={updateProduct}
+      />
     </>
   )
 
@@ -105,6 +120,9 @@ export default function InventoryPage() {
         onSearchChange={setSearchQuery}
         selectedCategory={selectedCategory}
         onCategoryChange={setSelectedCategory}
+        onRemoveProduct={removeProduct}
+        onUpdateProduct={updateProduct}
+        onOpenEditDialog={handleOpenEditDialog}
       />
 
       {/* Floating Add Button (Mobile) */}
