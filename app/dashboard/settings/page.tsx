@@ -58,75 +58,74 @@ export default function SettingsPage() {
       <PageHeader title="Paramètres" description="Gérez les paramètres de votre compte et de votre boutique" />
 
       <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
-        <aside className="-mx-4 lg:w-1/5">
-          <TabsList className="flex flex-col h-auto justify-start p-0 bg-transparent">
-            <TabsTrigger
-              value="profile"
-              className="flex items-center justify-start gap-2 px-4 py-2 text-left w-full data-[state=active]:bg-slate-100 rounded-none"
-            >
-              <User className="h-4 w-4" />
-              <span>Profil</span>
-            </TabsTrigger>
-            <TabsTrigger
-              value="store"
-              className="flex items-center justify-start gap-2 px-4 py-2 text-left w-full data-[state=active]:bg-slate-100 rounded-none"
-            >
-              <Store className="h-4 w-4" />
-              <span>Boutique</span>
-            </TabsTrigger>
-            <TabsTrigger
-              value="billing"
-              className="flex items-center justify-start gap-2 px-4 py-2 text-left w-full data-[state=active]:bg-slate-100 rounded-none"
-            >
-              <CreditCard className="h-4 w-4" />
-              <span>Facturation</span>
-            </TabsTrigger>
-            <TabsTrigger
-              value="notifications"
-              className="flex items-center justify-start gap-2 px-4 py-2 text-left w-full data-[state=active]:bg-slate-100 rounded-none"
-            >
-              <Bell className="h-4 w-4" />
-              <span>Notifications</span>
-            </TabsTrigger>
-            <TabsTrigger
-              value="security"
-              className="flex items-center justify-start gap-2 px-4 py-2 text-left w-full data-[state=active]:bg-slate-100 rounded-none"
-            >
-              <Lock className="h-4 w-4" />
-              <span>Sécurité</span>
-            </TabsTrigger>
-            <TabsTrigger
-              value="hardware"
-              className="flex items-center justify-start gap-2 px-4 py-2 text-left w-full data-[state=active]:bg-slate-100 rounded-none"
-            >
-              <Smartphone className="h-4 w-4" />
-              <span>Matériel</span>
-            </TabsTrigger>
-            <TabsTrigger
-              value="team"
-              className="flex items-center justify-start gap-2 px-4 py-2 text-left w-full data-[state=active]:bg-slate-100 rounded-none"
-            >
-              <Users className="h-4 w-4" />
-              <span>Équipe</span>
-            </TabsTrigger>
-            <TabsTrigger
-              value="integrations"
-              className="flex items-center justify-start gap-2 px-4 py-2 text-left w-full data-[state=active]:bg-slate-100 rounded-none"
-            >
-              <Globe className="h-4 w-4" />
-              <span>Intégrations</span>
-            </TabsTrigger>
-            <TabsTrigger
-              value="help"
-              className="flex items-center justify-start gap-2 px-4 py-2 text-left w-full data-[state=active]:bg-slate-100 rounded-none"
-            >
-              <HelpCircle className="h-4 w-4" />
-              <span>Aide</span>
-            </TabsTrigger>
-          </TabsList>
-        </aside>
+        <aside className="-mx-4 lg:w-1/5"></aside>
         <div className="flex-1 lg:max-w-3xl">
           <Tabs value={activeTab} onValueChange={setActiveTab}>
+            <TabsList className="flex flex-col h-auto justify-start p-0 bg-transparent">
+              <TabsTrigger
+                value="profile"
+                className="flex items-center justify-start gap-2 px-4 py-2 text-left w-full data-[state=active]:bg-slate-100 rounded-none"
+              >
+                <User className="h-4 w-4" />
+                <span>Profil</span>
+              </TabsTrigger>
+              <TabsTrigger
+                value="store"
+                className="flex items-center justify-start gap-2 px-4 py-2 text-left w-full data-[state=active]:bg-slate-100 rounded-none"
+              >
+                <Store className="h-4 w-4" />
+                <span>Boutique</span>
+              </TabsTrigger>
+              <TabsTrigger
+                value="billing"
+                className="flex items-center justify-start gap-2 px-4 py-2 text-left w-full data-[state=active]:bg-slate-100 rounded-none"
+              >
+                <CreditCard className="h-4 w-4" />
+                <span>Facturation</span>
+              </TabsTrigger>
+              <TabsTrigger
+                value="notifications"
+                className="flex items-center justify-start gap-2 px-4 py-2 text-left w-full data-[state=active]:bg-slate-100 rounded-none"
+              >
+                <Bell className="h-4 w-4" />
+                <span>Notifications</span>
+              </TabsTrigger>
+              <TabsTrigger
+                value="security"
+                className="flex items-center justify-start gap-2 px-4 py-2 text-left w-full data-[state=active]:bg-slate-100 rounded-none"
+              >
+                <Lock className="h-4 w-4" />
+                <span>Sécurité</span>
+              </TabsTrigger>
+              <TabsTrigger
+                value="hardware"
+                className="flex items-center justify-start gap-2 px-4 py-2 text-left w-full data-[state=active]:bg-slate-100 rounded-none"
+              >
+                <Smartphone className="h-4 w-4" />
+                <span>Matériel</span>
+              </TabsTrigger>
+              <TabsTrigger
+                value="team"
+                className="flex items-center justify-start gap-2 px-4 py-2 text-left w-full data-[state=active]:bg-slate-100 rounded-none"
+              >
+                <Users className="h-4 w-4" />
+                <span>Équipe</span>
+              </TabsTrigger>
+              <TabsTrigger
+                value="integrations"
+                className="flex items-center justify-start gap-2 px-4 py-2 text-left w-full data-[state=active]:bg-slate-100 rounded-none"
+              >
+                <Globe className="h-4 w-4" />
+                <span>Intégrations</span>
+              </TabsTrigger>
+              <TabsTrigger
+                value="help"
+                className="flex items-center justify-start gap-2 px-4 py-2 text-left w-full data-[state=active]:bg-slate-100 rounded-none"
+              >
+                <HelpCircle className="h-4 w-4" />
+                <span>Aide</span>
+              </TabsTrigger>
+            </TabsList>
             <TabsContent value="profile" className="space-y-6">
               <Card>
                 <CardHeader>
