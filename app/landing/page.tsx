@@ -47,95 +47,97 @@ export default function LandingPage() {
 
   // Animate cursor position
   useEffect(() => {
-    const animateCursor = () => {
-      setCursorPosition((prev) => ({
-        x: prev.x + (mousePosition.x - prev.x) * 0.1,
-        y: prev.y + (mousePosition.y - prev.y) * 0.1,
-      }))
-      requestAnimationFrame(animateCursor)
-    }
+    if (typeof window !== 'undefined') {
+      const animateCursor = () => {
+        setCursorPosition((prev) => ({
+          x: prev.x + (mousePosition.x - prev.x) * 0.1,
+          y: prev.y + (mousePosition.y - prev.y) * 0.1,
+        }))
+        requestAnimationFrame(animateCursor)
+      }
 
-    const animationFrame = requestAnimationFrame(animateCursor)
-    return () => cancelAnimationFrame(animationFrame)
+      const animationFrame = requestAnimationFrame(animateCursor)
+      return () => cancelAnimationFrame(animationFrame)
+    }
   }, [mousePosition])
 
   // Animate particles
   useEffect(() => {
-    if (!particlesRef.current) return
+    if (typeof window !== 'undefined' && particlesRef.current) {
+      const canvas = particlesRef.current
+      const ctx = canvas.getContext("2d")
+      const particles = []
+      const particleCount = 50
 
-    const canvas = particlesRef.current
-    const ctx = canvas.getContext("2d")
-    const particles = []
-    const particleCount = 50
+      // Set canvas size
+      const resizeCanvas = () => {
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+      }
 
-    // Set canvas size
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
+      resizeCanvas()
+      window.addEventListener("resize", resizeCanvas)
 
-    resizeCanvas()
-    window.addEventListener("resize", resizeCanvas)
-
-    // Create particles
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 2 + 1,
-        color: `rgba(28, 100, 242, ${Math.random() * 0.5 + 0.1})`,
-        speedX: Math.random() * 1 - 0.5,
-        speedY: Math.random() * 1 - 0.5,
-      })
-    }
-
-    // Animate particles
-    const animateParticles = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-      // Draw particles
-      particles.forEach((particle) => {
-        ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
-        ctx.fillStyle = particle.color
-        ctx.fill()
-
-        // Move particles
-        particle.x += particle.speedX
-        particle.y += particle.speedY
-
-        // Bounce off edges
-        if (particle.x < 0 || particle.x > canvas.width) {
-          particle.speedX *= -1
-        }
-        if (particle.y < 0 || particle.y > canvas.height) {
-          particle.speedY *= -1
-        }
-
-        // Connect particles that are close to each other
-        particles.forEach((otherParticle) => {
-          const dx = particle.x - otherParticle.x
-          const dy = particle.y - otherParticle.y
-          const distance = Math.sqrt(dx * dx + dy * dy)
-
-          if (distance < 100) {
-            ctx.beginPath()
-            ctx.strokeStyle = `rgba(28, 100, 242, ${0.2 - distance / 500})`
-            ctx.lineWidth = 0.5
-            ctx.moveTo(particle.x, particle.y)
-            ctx.lineTo(otherParticle.x, otherParticle.y)
-            ctx.stroke()
-          }
+      // Create particles
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 2 + 1,
+          color: `rgba(28, 100, 242, ${Math.random() * 0.5 + 0.1})`,
+          speedX: Math.random() * 1 - 0.5,
+          speedY: Math.random() * 1 - 0.5,
         })
-      })
+      }
 
-      requestAnimationFrame(animateParticles)
-    }
+      // Animate particles
+      const animateParticles = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-    const animationFrame = requestAnimationFrame(animateParticles)
-    return () => {
-      cancelAnimationFrame(animationFrame)
-      window.removeEventListener("resize", resizeCanvas)
+        // Draw particles
+        particles.forEach((particle) => {
+          ctx.beginPath()
+          ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
+          ctx.fillStyle = particle.color
+          ctx.fill()
+
+          // Move particles
+          particle.x += particle.speedX
+          particle.y += particle.speedY
+
+          // Bounce off edges
+          if (particle.x < 0 || particle.x > canvas.width) {
+            particle.speedX *= -1
+          }
+          if (particle.y < 0 || particle.y > canvas.height) {
+            particle.speedY *= -1
+          }
+
+          // Connect particles that are close to each other
+          particles.forEach((otherParticle) => {
+            const dx = particle.x - otherParticle.x
+            const dy = particle.y - otherParticle.y
+            const distance = Math.sqrt(dx * dx + dy * dy)
+
+            if (distance < 100) {
+              ctx.beginPath()
+              ctx.strokeStyle = `rgba(28, 100, 242, ${0.2 - distance / 500})`
+              ctx.lineWidth = 0.5
+              ctx.moveTo(particle.x, particle.y)
+              ctx.lineTo(otherParticle.x, otherParticle.y)
+              ctx.stroke()
+            }
+          })
+        })
+
+        requestAnimationFrame(animateParticles)
+      }
+
+      const animationFrame = requestAnimationFrame(animateParticles)
+      return () => {
+        cancelAnimationFrame(animationFrame)
+        window.removeEventListener("resize", resizeCanvas)
+      }
     }
   }, [])
 
@@ -780,7 +782,7 @@ export default function LandingPage() {
             {[1, 2, 3, 4, 5, 6].map((i) => (
               <div key={i} className="h-8 relative group">
                 <img
-                  src={`/placeholder.svg?key=v9amd&height=32&width=120&text=LOGO ${i}`}
+                  src={`/placeholder.svg?key=ypt93&key=v9amd&height=32&width=120&text=LOGO ${i}`}
                   alt={`Company logo ${i}`}
                   className="h-full w-auto filter grayscale group-hover:grayscale-0 transition-all duration-300"
                 />
