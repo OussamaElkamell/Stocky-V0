@@ -4,9 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import {
   ArrowLeft,
-  Box,
   CheckCircle,
-  Globe,
   BarChart3,
   ShoppingCart,
   QrCode,
@@ -16,13 +14,13 @@ import {
   MapPin,
   Truck,
   Gift,
-  Smartphone,
   Menu,
   X,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from "framer-motion"
+import { Globe, Box, Smartphone } from "@/components/icons"
 
 // Particle component for background effects
 const Particle = ({ className = "" }) => {
@@ -79,7 +77,7 @@ const AnimatedGradient = () => {
 }
 
 // Animated feature card
-const FeatureCard = ({ icon, title, description, index }) => {
+const AnimatedFeatureCard = ({ icon, title, description, index }) => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
@@ -130,6 +128,18 @@ const FeatureCard = ({ icon, title, description, index }) => {
   )
 }
 
+function FeatureCard({ icon, title, description }) {
+  return (
+    <Card className="h-full">
+      <CardContent className="p-6 space-y-4">
+        <div className="rounded-full bg-blue-500/20 w-12 h-12 flex items-center justify-center">{icon}</div>
+        <h3 className="text-lg font-semibold">{title}</h3>
+        <p>{description}</p>
+      </CardContent>
+    </Card>
+  )
+}
+
 export default function FeaturesPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { scrollYProgress } = useScroll()
@@ -151,16 +161,42 @@ export default function FeaturesPage() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
+    if (typeof window !== "undefined") {
+      const handleMouseMove = (e) => {
+        setMousePosition({ x: e.clientX, y: e.clientY })
+      }
 
-    window.addEventListener("mousemove", handleMouseMove)
+      window.addEventListener("mousemove", handleMouseMove)
 
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove)
+      return () => {
+        window.removeEventListener("mousemove", handleMouseMove)
+      }
     }
   }, [])
+
+  // State to store parallax style
+  const [parallaxStyle, setParallaxStyle] = useState({})
+
+  // Update parallax style on the client side
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const updateParallaxStyle = () => {
+        const strength = 80
+        const x = (window.innerWidth / 2 - mousePosition.x) / strength
+        const y = (window.innerHeight / 2 - mousePosition.y) / strength
+        setParallaxStyle({ transform: `translate(${x}px, ${y}px)` })
+      }
+
+      updateParallaxStyle() // Initial update
+
+      // Update on mouse movement
+      window.addEventListener("mousemove", updateParallaxStyle)
+
+      return () => {
+        window.removeEventListener("mousemove", updateParallaxStyle)
+      }
+    }
+  }, [mousePosition])
 
   return (
     <div className="flex min-h-screen flex-col bg-[#F4F6F8] relative overflow-hidden">
@@ -313,11 +349,11 @@ export default function FeaturesPage() {
           className="absolute top-1/2 left-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-r from-blue-500/20 to-indigo-500/20 blur-3xl -z-10"
           style={{
             x: useTransform(
-              () => mousePosition.x - window.innerWidth / 2,
+              () => mousePosition.x - (typeof window !== "undefined" ? window.innerWidth / 2 : 0),
               (value) => -value / 20,
             ),
             y: useTransform(
-              () => mousePosition.y - window.innerHeight / 2,
+              () => mousePosition.y - (typeof window !== "undefined" ? window.innerHeight / 2 : 0),
               (value) => -value / 20,
             ),
             opacity: 0.7,
@@ -372,13 +408,9 @@ export default function FeaturesPage() {
             animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.7, delay: 0.8 }}
           >
-            <Link href="/">
+            <Link href="/dashboard">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-[#1C64F2] text-[#1C64F2] relative overflow-hidden group"
-                >
+                <Button variant="outline" className="border-[#1C64F2] text-[#1C64F2] relative overflow-hidden group">
                   <motion.span
                     className="absolute inset-0 bg-[#1C64F2]/10 transform origin-left"
                     initial={{ scaleX: 0 }}
@@ -408,73 +440,73 @@ export default function FeaturesPage() {
           animate={featuresInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <FeatureCard
+          <AnimatedFeatureCard
             icon={<Globe className="text-[#1C64F2]" />}
             title="No-code store builder"
             description="Create beautiful online stores without writing a single line of code. Our intuitive drag-and-drop interface makes it easy to design your perfect store."
             index={0}
           />
-          <FeatureCard
+          <AnimatedFeatureCard
             icon={<Box className="text-[#1C64F2]" />}
             title="Real-time inventory tracking"
             description="Keep track of your stock levels across all channels in real-time. Get alerts when inventory is running low and automate reordering."
             index={1}
           />
-          <FeatureCard
+          <AnimatedFeatureCard
             icon={<Smartphone className="text-[#1C64F2]" />}
             title="Offline mode with auto sync"
             description="Continue working without internet and sync automatically when back online. Perfect for businesses with unreliable connections."
             index={2}
           />
-          <FeatureCard
+          <AnimatedFeatureCard
             icon={<QrCode className="text-[#1C64F2]" />}
             title="Barcode/QR product scan"
             description="Quickly add and manage products by scanning barcodes or QR codes. Speed up inventory management and reduce errors."
             index={3}
           />
-          <FeatureCard
+          <AnimatedFeatureCard
             icon={<ImageIcon className="text-[#1C64F2]" />}
             title="Image recognition"
             description="Automatically identify products using advanced image recognition. Simply take a photo and let our AI do the rest."
             index={4}
           />
-          <FeatureCard
+          <AnimatedFeatureCard
             icon={<Lock className="text-[#1C64F2]" />}
             title="Private catalog mode"
             description="Create exclusive catalogs for specific customer segments. Perfect for B2B businesses with different pricing tiers."
             index={5}
           />
-          <FeatureCard
+          <AnimatedFeatureCard
             icon={<Users className="text-[#1C64F2]" />}
             title="Client space (B2B/B2C)"
             description="Dedicated portals for both business and consumer customers. Provide a personalized experience for each customer type."
             index={6}
           />
-          <FeatureCard
+          <AnimatedFeatureCard
             icon={<MapPin className="text-[#1C64F2]" />}
             title="RFID-based stock geolocation"
             description="Locate your inventory precisely with RFID technology. Never lose track of your products in large warehouses again."
             index={7}
           />
-          <FeatureCard
+          <AnimatedFeatureCard
             icon={<Truck className="text-[#1C64F2]" />}
             title="Delivery tracking"
             description="Monitor shipments and provide customers with real-time updates. Improve customer satisfaction with transparent delivery processes."
             index={8}
           />
-          <FeatureCard
+          <AnimatedFeatureCard
             icon={<ShoppingCart className="text-[#1C64F2]" />}
             title="POS system with ticket printing"
             description="Complete point-of-sale system for in-person transactions. Print receipts, manage cash, and track sales all in one place."
             index={9}
           />
-          <FeatureCard
+          <AnimatedFeatureCard
             icon={<Gift className="text-[#1C64F2]" />}
             title="Loyalty programs"
             description="Create and manage customer loyalty programs to boost retention. Reward your best customers and encourage repeat business."
             index={10}
           />
-          <FeatureCard
+          <AnimatedFeatureCard
             icon={<BarChart3 className="text-[#1C64F2]" />}
             title="Mobile & web sync"
             description="Seamless synchronization between mobile and web platforms. Manage your business from anywhere, on any device."
@@ -899,11 +931,7 @@ export default function FeaturesPage() {
               transition={{ duration: 0.5, delay: 0.6 }}
             >
               <Link href="/dashboard">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Button
                     size="lg"
                     className="w-full sm:w-auto bg-white text-[#1C64F2] hover:bg-white/90 relative overflow-hidden group"
@@ -920,11 +948,7 @@ export default function FeaturesPage() {
               </Link>
 
               <Link href="/pricing">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Button
                     size="lg"
                     variant="outline"
@@ -992,7 +1016,7 @@ export default function FeaturesPage() {
             {[
               {
                 title: "Product",
-                links: ["Features", "Templates", "Pricing", "Integrations", "API"],
+                links: ["Features", "Pricing", "Integrations", "API"],
               },
               {
                 title: "Resources",
@@ -1037,8 +1061,7 @@ export default function FeaturesPage() {
             className="mt-12 pt-8 border-t text-center text-sm text-[#5F6C7B]"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0 }}
           >
             © {new Date().getFullYear()} Storei. All rights reserved.
           </motion.div>
