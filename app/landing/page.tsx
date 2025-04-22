@@ -2,26 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
-import {
-  ArrowRight,
-  Box,
-  CheckCircle,
-  Globe,
-  BarChart3,
-  ShoppingCart,
-  QrCode,
-  ImageIcon,
-  Lock,
-  Users,
-  MapPin,
-  Truck,
-  Gift,
-  Smartphone,
-  ChevronRight,
-  Menu,
-  X,
-  Sparkles,
-} from "lucide-react"
+import { ArrowRight, Box, CheckCircle, Globe, BarChart3, ShoppingCart, QrCode, ImageIcon, Lock, Users, MapPin, Truck, Gift, Smartphone, ChevronRight, Menu, X, Sparkles } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
@@ -54,13 +35,15 @@ export default function LandingPage() {
 
   // Handle mouse movement for parallax effects
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
+    if (typeof window !== 'undefined') {
+      const handleMouseMove = (e) => {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+      };
 
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
+    }
+  }, []);
 
   // Animate cursor position
   useEffect(() => {
@@ -797,7 +780,7 @@ export default function LandingPage() {
             {[1, 2, 3, 4, 5, 6].map((i) => (
               <div key={i} className="h-8 relative group">
                 <img
-                  src={`/placeholder.svg?height=32&width=120&text=LOGO ${i}`}
+                  src={`/placeholder.svg?key=v9amd&height=32&width=120&text=LOGO ${i}`}
                   alt={`Company logo ${i}`}
                   className="h-full w-auto filter grayscale group-hover:grayscale-0 transition-all duration-300"
                 />

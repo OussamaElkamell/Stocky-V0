@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Box, CheckCircle, ChevronRight, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from "framer-motion"
+import { ArrowRight } from "lucide-react"
 
 // Particle component for background effects
 const Particle = ({ className = "" }) => {
@@ -94,6 +95,30 @@ export default function HowItWorksPage() {
       window.removeEventListener("mousemove", handleMouseMove)
     }
   }, [])
+
+  // State to store parallax style
+  const [parallaxStyle, setParallaxStyle] = useState({})
+
+  // Update parallax style on the client side
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const updateParallaxStyle = () => {
+        const strength = 80
+        const x = (window.innerWidth / 2 - mousePosition.x) / strength
+        const y = (window.innerHeight / 2 - mousePosition.y) / strength
+        setParallaxStyle({ transform: `translate(${x}px, ${y}px)` })
+      }
+
+      updateParallaxStyle() // Initial update
+
+      // Update on mouse movement
+      window.addEventListener("mousemove", updateParallaxStyle)
+
+      return () => {
+        window.removeEventListener("mousemove", updateParallaxStyle)
+      }
+    }
+  }, [mousePosition])
 
   return (
     <div className="flex min-h-screen flex-col bg-[#F4F6F8] relative overflow-hidden">
@@ -211,7 +236,6 @@ export default function HowItWorksPage() {
               <nav className="mt-8 space-y-6">
                 {[
                   { name: "Features", href: "/features", active: false },
-                  { name: "How It Works", href: '/how  href: "/features', active: false },
                   { name: "How It Works", href: "/how-it-works", active: true },
                   { name: "Pricing", href: "/pricing", active: false },
                 ].map((item) => (
@@ -250,11 +274,11 @@ export default function HowItWorksPage() {
           className="absolute top-1/2 left-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-r from-blue-500/20 to-indigo-500/20 blur-3xl -z-10"
           style={{
             x: useTransform(
-              () => mousePosition.x - window.innerWidth / 2,
+              () => mousePosition.x - (typeof window !== "undefined" ? window.innerWidth / 2 : 0),
               (value) => -value / 20,
             ),
             y: useTransform(
-              () => mousePosition.y - window.innerHeight / 2,
+              () => mousePosition.y - (typeof window !== "undefined" ? window.innerHeight / 2 : 0),
               (value) => -value / 20,
             ),
             opacity: 0.7,
@@ -389,7 +413,7 @@ export default function HowItWorksPage() {
                       <motion.div
                         className={`rounded-full w-8 h-8 flex items-center justify-center text-sm font-medium ${activeStep === step.step ? "bg-[#1C64F2] text-white" : "bg-gray-100 text-[#5F6C7B]"}`}
                         whileHover={{ scale: 1.1 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 10 }}
                       >
                         {step.step}
                       </motion.div>
@@ -410,9 +434,9 @@ export default function HowItWorksPage() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <motion.div
-                className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg blur opacity-20 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"
+                className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"
                 animate={{
-                  opacity: [0.1, 0.2, 0.1],
+                  opacity: [0.2, 0.3, 0.2],
                 }}
                 transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY }}
               />
@@ -617,405 +641,6 @@ export default function HowItWorksPage() {
         </motion.div>
       </motion.section>
 
-      {/* Detailed Steps */}
-      <section className="container py-16" ref={detailedRef}>
-        <motion.h2
-          className="text-2xl font-bold text-[#153E75] mb-12 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={detailedInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.5 }}
-        >
-          Detailed Process
-        </motion.h2>
-
-        <div className="space-y-16">
-          {/* Step 1 */}
-          <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-            initial={{ opacity: 0, y: 100 }}
-            animate={detailedInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <div className="order-2 lg:order-1">
-              <motion.div
-                className="inline-block rounded-lg bg-[#1C64F2]/10 px-3 py-1 text-sm text-[#1C64F2] mb-4"
-                initial={{ opacity: 0, x: -20 }}
-                animate={detailedInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                Step 1
-              </motion.div>
-
-              <motion.h3
-                className="text-2xl font-bold text-[#153E75] mb-4"
-                initial={{ opacity: 0 }}
-                animate={detailedInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-              >
-                Create Your Store
-              </motion.h3>
-
-              <motion.p
-                className="text-[#5F6C7B] mb-6"
-                initial={{ opacity: 0 }}
-                animate={detailedInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-              >
-                Getting started with Storei is simple. Choose from our library of professionally designed templates,
-                each optimized for different industries and business types. Customize your store's look and feel to
-                match your brand identity.
-              </motion.p>
-
-              <motion.div
-                className="space-y-4"
-                initial={{ opacity: 0 }}
-                animate={detailedInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.5, delay: 0.7 }}
-              >
-                {[
-                  {
-                    title: "Choose a template",
-                    description:
-                      "Browse our template gallery and select the one that best fits your business needs. All templates are mobile-responsive and optimized for conversions.",
-                  },
-                  {
-                    title: "Customize your design",
-                    description:
-                      "Use our intuitive drag-and-drop editor to customize colors, fonts, layouts, and more. No coding skills required.",
-                  },
-                  {
-                    title: "Configure your settings",
-                    description: "Set up your store name, domain, payment methods, shipping options, and tax settings.",
-                  },
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    className="bg-white/80 backdrop-blur-sm p-4 rounded-lg border border-blue-100 hover:shadow-md transition-all duration-300 hover:-translate-y-1"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={detailedInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.4, delay: 0.7 + i * 0.1 }}
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <h4 className="font-semibold text-[#153E75] mb-2">{item.title}</h4>
-                    <p className="text-sm text-[#5F6C7B]">{item.description}</p>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-
-            <motion.div
-              className="order-1 lg:order-2"
-              initial={{ opacity: 0, x: 100 }}
-              animate={detailedInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 100 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <motion.div className="rounded-xl border overflow-hidden shadow-lg relative" whileHover={{ scale: 1.03 }}>
-                <motion.div
-                  className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"
-                  animate={{
-                    opacity: [0.2, 0.3, 0.2],
-                  }}
-                  transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY }}
-                />
-                <img
-                  src="/placeholder.svg?height=400&width=600&text=Store Creation Process"
-                  alt="Store creation process"
-                  className="w-full h-auto relative z-10"
-                />
-              </motion.div>
-            </motion.div>
-          </motion.div>
-
-          {/* Step 2 */}
-          <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-            initial={{ opacity: 0, y: 100 }}
-            animate={detailedInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <motion.div
-              initial={{ opacity: 0, x: -100 }}
-              animate={detailedInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              <motion.div className="rounded-xl border overflow-hidden shadow-lg relative" whileHover={{ scale: 1.03 }}>
-                <motion.div
-                  className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"
-                  animate={{
-                    opacity: [0.2, 0.3, 0.2],
-                  }}
-                  transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY }}
-                />
-                <img
-                  src="/placeholder.svg?height=400&width=600&text=Product Management Process"
-                  alt="Product management process"
-                  className="w-full h-auto relative z-10"
-                />
-              </motion.div>
-            </motion.div>
-
-            <div>
-              <motion.div
-                className="inline-block rounded-lg bg-[#1C64F2]/10 px-3 py-1 text-sm text-[#1C64F2] mb-4"
-                initial={{ opacity: 0, x: 20 }}
-                animate={detailedInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
-                transition={{ duration: 0.5, delay: 0.9 }}
-              >
-                Step 2
-              </motion.div>
-
-              <motion.h3
-                className="text-2xl font-bold text-[#153E75] mb-4"
-                initial={{ opacity: 0 }}
-                animate={detailedInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.5, delay: 1 }}
-              >
-                Add Your Products
-              </motion.h3>
-
-              <motion.p
-                className="text-[#5F6C7B] mb-6"
-                initial={{ opacity: 0 }}
-                animate={detailedInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.5, delay: 1.1 }}
-              >
-                Storei offers multiple ways to add products to your store, making the process quick and efficient.
-                Whether you have a few products or thousands, our platform can handle it.
-              </motion.p>
-
-              <motion.div
-                className="space-y-4"
-                initial={{ opacity: 0 }}
-                animate={detailedInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.5, delay: 1.2 }}
-              >
-                {[
-                  {
-                    title: "Manual entry",
-                    description:
-                      "Add products one by one with our easy-to-use product editor. Add images, descriptions, prices, and variants.",
-                  },
-                  {
-                    title: "Bulk import",
-                    description:
-                      "Import products in bulk using CSV or Excel files. Perfect for stores with large inventories.",
-                  },
-                  {
-                    title: "Barcode scanning",
-                    description:
-                      "Use our mobile app to scan product barcodes and automatically add them to your inventory.",
-                  },
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    className="bg-white/80 backdrop-blur-sm p-4 rounded-lg border border-blue-100 hover:shadow-md transition-all duration-300 hover:-translate-y-1"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={detailedInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.4, delay: 1.2 + i * 0.1 }}
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <h4 className="font-semibold text-[#153E75] mb-2">{item.title}</h4>
-                    <p className="text-sm text-[#5F6C7B]">{item.description}</p>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* Step 3 */}
-          <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-            initial={{ opacity: 0, y: 100 }}
-            animate={detailedInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
-            transition={{ duration: 0.8, delay: 1 }}
-          >
-            <div className="order-2 lg:order-1">
-              <motion.div
-                className="inline-block rounded-lg bg-[#1C64F2]/10 px-3 py-1 text-sm text-[#1C64F2] mb-4"
-                initial={{ opacity: 0, x: -20 }}
-                animate={detailedInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                transition={{ duration: 0.5, delay: 1.2 }}
-              >
-                Step 3
-              </motion.div>
-
-              <motion.h3
-                className="text-2xl font-bold text-[#153E75] mb-4"
-                initial={{ opacity: 0 }}
-                animate={detailedInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.5, delay: 1.3 }}
-              >
-                Track Your Inventory
-              </motion.h3>
-
-              <motion.p
-                className="text-[#5F6C7B] mb-6"
-                initial={{ opacity: 0 }}
-                animate={detailedInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.5, delay: 1.4 }}
-              >
-                Storei's inventory management system gives you real-time visibility into your stock levels across all
-                sales channels. Never oversell or run out of popular items again.
-              </motion.p>
-
-              <motion.div
-                className="space-y-4"
-                initial={{ opacity: 0 }}
-                animate={detailedInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.5, delay: 1.5 }}
-              >
-                {[
-                  {
-                    title: "Real-time tracking",
-                    description:
-                      "Monitor stock levels in real-time across all your sales channels, including your online store, physical locations, and marketplaces.",
-                  },
-                  {
-                    title: "Low stock alerts",
-                    description:
-                      "Set up automatic alerts when inventory reaches a specified threshold, so you can reorder before running out.",
-                  },
-                  {
-                    title: "RFID integration",
-                    description:
-                      "Use RFID technology to track the exact location of your inventory in warehouses and stores.",
-                  },
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    className="bg-white/80 backdrop-blur-sm p-4 rounded-lg border border-blue-100 hover:shadow-md transition-all duration-300 hover:-translate-y-1"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={detailedInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.4, delay: 1.5 + i * 0.1 }}
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <h4 className="font-semibold text-[#153E75] mb-2">{item.title}</h4>
-                    <p className="text-sm text-[#5F6C7B]">{item.description}</p>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-
-            <motion.div
-              className="order-1 lg:order-2"
-              initial={{ opacity: 0, x: 100 }}
-              animate={detailedInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 100 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-            >
-              <motion.div className="rounded-xl border overflow-hidden shadow-lg relative" whileHover={{ scale: 1.03 }}>
-                <motion.div
-                  className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"
-                  animate={{
-                    opacity: [0.2, 0.3, 0.2],
-                  }}
-                  transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY }}
-                />
-                <img
-                  src="/placeholder.svg?height=400&width=600&text=Inventory Tracking Process"
-                  alt="Inventory tracking process"
-                  className="w-full h-auto relative z-10"
-                />
-              </motion.div>
-            </motion.div>
-          </motion.div>
-
-          {/* Step 4 */}
-          <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-            initial={{ opacity: 0, y: 100 }}
-            animate={detailedInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
-          >
-            <motion.div
-              initial={{ opacity: 0, x: -100 }}
-              animate={detailedInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }}
-              transition={{ duration: 0.8, delay: 1.6 }}
-            >
-              <motion.div className="rounded-xl border overflow-hidden shadow-lg relative" whileHover={{ scale: 1.03 }}>
-                <motion.div
-                  className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"
-                  animate={{
-                    opacity: [0.2, 0.3, 0.2],
-                  }}
-                  transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY }}
-                />
-                <img
-                  src="/placeholder.svg?height=400&width=600&text=Order Processing Process"
-                  alt="Order processing process"
-                  className="w-full h-auto relative z-10"
-                />
-              </motion.div>
-            </motion.div>
-
-            <div>
-              <motion.div
-                className="inline-block rounded-lg bg-[#1C64F2]/10 px-3 py-1 text-sm text-[#1C64F2] mb-4"
-                initial={{ opacity: 0, x: 20 }}
-                animate={detailedInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
-                transition={{ duration: 0.5, delay: 1.7 }}
-              >
-                Step 4
-              </motion.div>
-
-              <motion.h3
-                className="text-2xl font-bold text-[#153E75] mb-4"
-                initial={{ opacity: 0 }}
-                animate={detailedInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.5, delay: 1.8 }}
-              >
-                Sell & Ship
-              </motion.h3>
-
-              <motion.p
-                className="text-[#5F6C7B] mb-6"
-                initial={{ opacity: 0 }}
-                animate={detailedInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.5, delay: 1.9 }}
-              >
-                Process orders efficiently and keep your customers informed every step of the way. Storei streamlines
-                your order fulfillment process from payment to delivery.
-              </motion.p>
-
-              <motion.div
-                className="space-y-4"
-                initial={{ opacity: 0 }}
-                animate={detailedInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.5, delay: 2 }}
-              >
-                {[
-                  {
-                    title: "Order management",
-                    description: "View and manage all orders in one place, regardless of which channel they came from.",
-                  },
-                  {
-                    title: "Shipping integration",
-                    description:
-                      "Print shipping labels, generate packing slips, and get discounted shipping rates from major carriers.",
-                  },
-                  {
-                    title: "Customer notifications",
-                    description:
-                      "Automatically send order confirmations, shipping updates, and delivery notifications to keep customers informed.",
-                  },
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    className="bg-white/80 backdrop-blur-sm p-4 rounded-lg border border-blue-100 hover:shadow-md transition-all duration-300 hover:-translate-y-1"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={detailedInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.4, delay: 2 + i * 0.1 }}
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <h4 className="font-semibold text-[#153E75] mb-2">{item.title}</h4>
-                    <p className="text-sm text-[#5F6C7B]">{item.description}</p>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <section className="container py-16" ref={faqRef}>
         <motion.div
@@ -1094,192 +719,117 @@ export default function HowItWorksPage() {
           {Array.from({ length: 20 }).map((_, i) => (
             <motion.div
               key={i}
-              className="absolute rounded-full bg-white/10"
+              className="absolute w-1 h-1 bg-white rounded-full opacity-30"
               style={{
-                width: Math.random() * 10 + 2,
-                height: Math.random() * 10 + 2,
                 top: `${Math.random() * 100}%`,
                 left: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -30],
-                opacity: [0, 0.5, 0],
-              }}
-              transition={{
-                duration: Math.random() * 2 + 1,
-                repeat: Number.POSITIVE_INFINITY,
-                delay: Math.random() * 5,
+                animation: `float ${5 + Math.random() * 10}s linear infinite`,
               }}
             />
           ))}
 
           <div className="mx-auto max-w-2xl text-center space-y-8 relative z-10">
-            <motion.h2
-              className="text-3xl font-bold tracking-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={ctaInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              Ready to get started?
-            </motion.h2>
-
-            <motion.p
-              className="text-white/80"
-              initial={{ opacity: 0 }}
-              animate={ctaInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
+            <h2 className="text-3xl font-bold tracking-tight">Ready to transform your business?</h2>
+            <p className="text-white/80">
               Join thousands of businesses already using Storei to build and manage their online stores.
-            </motion.p>
-
-            <motion.div
-              className="flex flex-col sm:flex-row justify-center gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={ctaInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-            >
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link href="/dashboard">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  <Button
-                    size="lg"
-                    className="w-full sm:w-auto bg-white text-[#1C64F2] hover:bg-white/90 relative overflow-hidden group"
-                  >
-                    <motion.span
-                      className="absolute inset-0 bg-[#1C64F2]/10 transform origin-left"
-                      initial={{ scaleX: 0 }}
-                      whileHover={{ scaleX: 1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                    <span className="relative z-10">Get Started Free</span>
-                  </Button>
-                </motion.div>
-              </Link>
-
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
                 <Button
                   size="lg"
-                  variant="outline"
-                  className="w-full sm:w-auto border-white/20 text-white hover:bg-white/10 relative overflow-hidden group"
+                  className="w-full sm:w-auto bg-white text-[#1C64F2] hover:bg-white/90 group shadow-lg shadow-blue-500/20"
                 >
-                  <motion.span
-                    className="absolute inset-0 bg-white/10 transform origin-left"
-                    initial={{ scaleX: 0 }}
-                    whileHover={{ scaleX: 1 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                  <span className="relative z-10">Schedule a Demo</span>
+                  Get Started Free
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
-              </motion.div>
-            </motion.div>
+              </Link>
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full sm:w-auto border-white/20 text-white hover:bg-white/10 backdrop-blur-sm"
+              >
+                Schedule a Demo
+              </Button>
+            </div>
           </div>
         </motion.div>
       </motion.section>
 
       {/* Footer */}
-      <footer className="border-t py-12 md:py-16 bg-white relative overflow-hidden">
-        <motion.div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-[#F4F6F8] to-transparent" />
-
+      <footer className="border-t py-12 md:py-16 bg-white">
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
-            <motion.div
-              className="col-span-2"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <motion.div
-                className="flex items-center gap-2 mb-4"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
+            <div className="col-span-2">
+              <Link href="/" className="flex items-center gap-2 mb-4 group">
                 <Box className="h-6 w-6 text-[#1C64F2]" />
                 <span className="text-xl font-bold text-[#153E75]">Storei</span>
-              </motion.div>
-
+              </Link>
               <p className="text-sm text-[#5F6C7B] mb-4">Build and manage your online store with no code required.</p>
-
               <div className="flex gap-4">
                 {["twitter", "facebook", "instagram", "linkedin"].map((social) => (
-                  <motion.div
+                  <Link
                     key={social}
-                    whileHover={{ scale: 1.2, rotate: 5 }}
-                    whileTap={{ scale: 0.9 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    href={`#${social}`}
+                    className="text-[#5F6C7B] hover:text-[#1C64F2] transition-colors duration-300"
                   >
-                    <Link href={`#${social}`} className="text-[#5F6C7B] hover:text-[#1C64F2]">
-                      <div className="h-8 w-8 flex items-center justify-center rounded-full bg-[#F4F6F8] hover:bg-blue-100 transition-colors duration-300">
-                        <span className="sr-only">{social}</span>
-                        {/* Placeholder for social icons */}
-                        <div className="h-4 w-4" />
-                      </div>
-                    </Link>
-                  </motion.div>
+                    <div className="h-8 w-8 flex items-center justify-center rounded-full bg-[#F4F6F8] hover:bg-blue-100 transition-colors duration-300">
+                      <span className="sr-only">{social}</span>
+                      {/* Placeholder for social icons */}
+                      <div className="h-4 w-4" />
+                    </div>
+                  </Link>
                 ))}
               </div>
-            </motion.div>
-
-            {[
-              {
-                title: "Product",
-                links: ["Features", "Templates", "Pricing", "Integrations", "API"],
-              },
-              {
-                title: "Resources",
-                links: ["Documentation", "Guides", "Blog", "Support", "Community"],
-              },
-              {
-                title: "Company",
-                links: ["About", "Careers", "Contact", "Privacy Policy", "Terms of Service"],
-              },
-            ].map((column, columnIndex) => (
-              <motion.div
-                key={column.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 * columnIndex }}
-                viewport={{ once: true }}
-              >
-                <h3 className="font-semibold mb-4 text-[#153E75]">{column.title}</h3>
-                <ul className="space-y-2">
-                  {column.links.map((item, itemIndex) => (
-                    <motion.li
-                      key={item}
-                      initial={{ opacity: 0, x: -10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.1 * columnIndex + 0.05 * itemIndex }}
-                      viewport={{ once: true }}
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4 text-[#153E75]">Product</h3>
+              <ul className="space-y-2">
+                {["Features", "Pricing", "Integrations", "API"].map((item) => (
+                  <li key={item}>
+                    <Link
+                      href="#"
+                      className="text-sm text-[#5F6C7B] hover:text-[#1C64F2] transition-colors duration-300"
                     >
-                      <Link
-                        href="#"
-                        className="text-sm text-[#5F6C7B] hover:text-[#1C64F2] transition-colors duration-200"
-                      >
-                        {item}
-                      </Link>
-                    </motion.li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4 text-[#153E75]">Resources</h3>
+              <ul className="space-y-2">
+                {["Documentation", "Guides", "Blog", "Support", "Community"].map((item) => (
+                  <li key={item}>
+                    <Link
+                      href="#"
+                      className="text-sm text-[#5F6C7B] hover:text-[#1C64F2] transition-colors duration-300"
+                    >
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4 text-[#153E75]">Company</h3>
+              <ul className="space-y-2">
+                {["About", "Careers", "Contact", "Privacy Policy", "Terms of Service"].map((item) => (
+                  <li key={item}>
+                    <Link
+                      href="#"
+                      className="text-sm text-[#5F6C7B] hover:text-[#1C64F2] transition-colors duration-300"
+                    >
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-
-          <motion.div
-            className="mt-12 pt-8 border-t text-center text-sm text-[#5F6C7B]"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
+          <div className="mt-12 pt-8 border-t text-center text-sm text-[#5F6C7B]">
             © {new Date().getFullYear()} Storei. All rights reserved.
-          </motion.div>
+          </div>
         </div>
       </footer>
     </div>

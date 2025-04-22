@@ -2,21 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
-import {
-  ArrowLeft,
-  CheckCircle,
-  BarChart3,
-  ShoppingCart,
-  QrCode,
-  ImageIcon,
-  Lock,
-  Users,
-  MapPin,
-  Truck,
-  Gift,
-  Menu,
-  X,
-} from "lucide-react"
+import { ArrowLeft, CheckCircle, BarChart3, ShoppingCart, QrCode, ImageIcon, Lock, Users, MapPin, Truck, Gift, Menu, X } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from "framer-motion"
@@ -161,18 +147,15 @@ export default function FeaturesPage() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const handleMouseMove = (e) => {
-        setMousePosition({ x: e.clientX, y: e.clientY })
-      }
+    if (typeof window !== 'undefined') {
+     const handleMouseMove = (e) => {
+       setMousePosition({ x: e.clientX, y: e.clientY });
+     };
 
-      window.addEventListener("mousemove", handleMouseMove)
-
-      return () => {
-        window.removeEventListener("mousemove", handleMouseMove)
-      }
+     window.addEventListener("mousemove", handleMouseMove);
+     return () => window.removeEventListener("mousemove", handleMouseMove);
     }
-  }, [])
+  }, []);
 
   // State to store parallax style
   const [parallaxStyle, setParallaxStyle] = useState({})

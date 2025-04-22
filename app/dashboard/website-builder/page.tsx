@@ -3,57 +3,7 @@
 import type React from "react"
 
 import { useState, useRef, useEffect, useCallback } from "react"
-import {
-  Eye,
-  Save,
-  Undo2,
-  Redo2,
-  Upload,
-  ChevronDown,
-  Laptop,
-  Smartphone,
-  Tablet,
-  Type,
-  ImageIcon,
-  ShoppingBag,
-  Grid3X3,
-  Square,
-  Heading,
-  ListOrdered,
-  AlignLeft,
-  PanelLeft,
-  PanelRight,
-  X,
-  Plus,
-  Move,
-  Copy,
-  Trash2,
-  LayoutGrid,
-  FileText,
-  FormInput,
-  Mail,
-  Grip,
-  Clock,
-  Search,
-  Users,
-  FileCode,
-  Sparkles,
-  Layers,
-  SmartphoneIcon,
-  Monitor,
-  TabletIcon,
-  ArrowRight,
-  MessageSquare,
-  History,
-  Globe,
-  FileSearch,
-  Share2,
-  Bookmark,
-  Star,
-  FolderPlus,
-  CreditCard,
-  LayersIcon,
-} from "lucide-react"
+import { Eye, Save, Undo2, Redo2, Upload, ChevronDown, Laptop, Smartphone, Tablet, Type, ImageIcon, ShoppingBag, Grid3X3, Square, Heading, ListOrdered, AlignLeft, PanelLeft, PanelRight, X, Plus, Move, Copy, Trash2, LayoutGrid, FileText, FormInput, Mail, Grip, Clock, Search, Users, FileCode, Sparkles, Layers, SmartphoneIcon, Monitor, TabletIcon, ArrowRight, MessageSquare, History, Globe, FileSearch, Share2, Bookmark, Star, FolderPlus, CreditCard, LayersIcon } from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -84,7 +34,7 @@ import { Progress } from "@/components/ui/progress"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { AlertTriangle, CheckCircleIcon, InfoIcon, PencilIcon } from "lucide-react"
+import { AlertTriangle, CheckCircleIcon, InfoIcon, PencilIcon } from 'lucide-react'
 
 export default function WebsiteBuilder() {
   const [activeDevice, setActiveDevice] = useState<"desktop" | "tablet" | "mobile">("desktop")
@@ -184,7 +134,7 @@ export default function WebsiteBuilder() {
   // Mock function to handle drag over
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault()
-    if (workspaceRef.current) {
+    if (typeof window !== 'undefined' && workspaceRef.current) {
       const rect = workspaceRef.current.getBoundingClientRect()
       const x = e.clientX - rect.left
       const y = e.clientY - rect.top
@@ -1974,7 +1924,7 @@ export default function WebsiteBuilder() {
                   <div className="flex items-center gap-2">
                     <div className="relative">
                       <Avatar className="h-8 w-8">
-                        <AvatarImage src={user.avatar} alt={user.name} />
+                        <AvatarImage src={user.avatar || "/placeholder.svg"} alt={user.name} />
                         <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
                       </Avatar>
                       {user.active && (

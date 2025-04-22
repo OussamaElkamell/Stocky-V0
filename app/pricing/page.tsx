@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
-import { Box, CheckCircle, X, ArrowRight, Sparkles } from "lucide-react"
+import { Box, CheckCircle, X, ArrowRight, Sparkles } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -34,13 +34,15 @@ export default function PricingPage() {
 
   // Handle mouse movement for parallax effects
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
+    if (typeof window !== 'undefined') {
+      const handleMouseMove = (e) => {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+      };
 
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
+    }
+  }, []);
 
   // Animate cursor position
   useEffect(() => {
