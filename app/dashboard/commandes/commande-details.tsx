@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { format } from "date-fns"
-import { fr } from "date-fns/locale"
+import { format } from "date-fns";
+import { fr } from "date-fns/locale";
 import {
   CheckCircleIcon,
   ClockIcon,
@@ -12,118 +12,15 @@ import {
   PrinterIcon,
   TruckIcon,
   XCircleIcon,
-} from "lucide-react"
+} from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-
-// Types pour les produits de commande
-interface ProduitCommande {
-  id: string
-  nom: string
-  sku: string
-  prix: number
-  quantite: number
-  image?: string
-}
-
-// Types pour les commandes (étendu pour les détails)
-type CommandeStatus = "en-attente" | "en-preparation" | "expediee" | "livree" | "annulee"
-
-interface Commande {
-  id: string
-  numero: string
-  date: Date
-  client: {
-    nom: string
-    email: string
-    avatar?: string
-  }
-  montant: number
-  status: CommandeStatus
-  paiement: "payé" | "en attente" | "remboursé"
-  produits: number
-  adresseLivraison?: {
-    rue: string
-    ville: string
-    codePostal: string
-    pays: string
-  }
-  adresseFacturation?: {
-    rue: string
-    ville: string
-    codePostal: string
-    pays: string
-  }
-  methodePaiement?: string
-  detailsProduits?: ProduitCommande[]
-  notes?: string
-  historique?: {
-    date: Date
-    statut: string
-    description: string
-  }[]
-}
-
-// Données de démonstration pour les détails de commande
-const produitsDemo: ProduitCommande[] = [
-  {
-    id: "prod-1",
-    nom: "T-shirt Premium",
-    sku: "TS-001",
-    prix: 29.99,
-    quantite: 2,
-    image: "/placeholder.svg?height=80&width=80",
-  },
-  {
-    id: "prod-2",
-    nom: "Jean Slim Fit",
-    sku: "JS-002",
-    prix: 59.99,
-    quantite: 1,
-    image: "/placeholder.svg?height=80&width=80",
-  },
-  {
-    id: "prod-3",
-    nom: "Chaussettes Pack de 3",
-    sku: "CS-003",
-    prix: 9.99,
-    quantite: 1,
-    image: "/placeholder.svg?height=80&width=80",
-  },
-]
-
-const historiqueDemo = [
-  {
-    date: new Date(2023, 3, 15, 10, 30),
-    statut: "Commande créée",
-    description: "Commande passée par le client",
-  },
-  {
-    date: new Date(2023, 3, 15, 11, 45),
-    statut: "Paiement confirmé",
-    description: "Paiement par carte bancaire accepté",
-  },
-  {
-    date: new Date(2023, 3, 16, 9, 15),
-    statut: "En préparation",
-    description: "Commande en cours de préparation dans l'entrepôt",
-  },
-  {
-    date: new Date(2023, 3, 17, 14, 20),
-    statut: "Expédiée",
-    description: "Commande expédiée via Colissimo",
-  },
-  {
-    date: new Date(2023, 3, 19, 11, 10),
-    statut: "Livrée",
-    description: "Commande livrée au client",
-  },
-]
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Commande, CommandeStatus } from "./models/commande";
 
 // Fonction pour obtenir l'icône et la couleur du statut
 function getStatusInfo(status: CommandeStatus) {
@@ -135,7 +32,7 @@ function getStatusInfo(status: CommandeStatus) {
         bgColor: "bg-amber-50",
         borderColor: "border-amber-200",
         label: "En attente",
-      }
+      };
     case "en-preparation":
       return {
         icon: PackageIcon,
@@ -143,7 +40,7 @@ function getStatusInfo(status: CommandeStatus) {
         bgColor: "bg-blue-50",
         borderColor: "border-blue-200",
         label: "En préparation",
-      }
+      };
     case "expediee":
       return {
         icon: TruckIcon,
@@ -151,7 +48,7 @@ function getStatusInfo(status: CommandeStatus) {
         bgColor: "bg-purple-50",
         borderColor: "border-purple-200",
         label: "Expédiée",
-      }
+      };
     case "livree":
       return {
         icon: CheckCircleIcon,
@@ -159,7 +56,7 @@ function getStatusInfo(status: CommandeStatus) {
         bgColor: "bg-emerald-50",
         borderColor: "border-emerald-200",
         label: "Livrée",
-      }
+      };
     case "annulee":
       return {
         icon: XCircleIcon,
@@ -167,7 +64,7 @@ function getStatusInfo(status: CommandeStatus) {
         bgColor: "bg-rose-50",
         borderColor: "border-rose-200",
         label: "Annulée",
-      }
+      };
   }
 }
 
@@ -175,25 +72,14 @@ export function CommandeDetails({ commande }: { commande: Commande }) {
   // Enrichir la commande avec des données de démonstration si nécessaire
   const commandeComplete: Commande = {
     ...commande,
-    adresseLivraison: commande.adresseLivraison || {
-      rue: "123 Rue de la Paix",
-      ville: "Paris",
-      codePostal: "75001",
-      pays: "France",
-    },
-    adresseFacturation: commande.adresseFacturation || {
-      rue: "123 Rue de la Paix",
-      ville: "Paris",
-      codePostal: "75001",
-      pays: "France",
-    },
-    methodePaiement: commande.methodePaiement || "Carte bancaire",
-    detailsProduits: commande.detailsProduits || produitsDemo,
-    historique: commande.historique || historiqueDemo,
-  }
+    adresseLivraison: commande.adresseLivraison,
+    methodePaiement: commande.methodePaiement,
+    detailsProduits: commande.detailsProduits,
+    historique: commande.historique,
+  };
 
-  const statusInfo = getStatusInfo(commandeComplete.status)
-  const StatusIcon = statusInfo.icon
+  const statusInfo = getStatusInfo(commandeComplete.status);
+  const StatusIcon = statusInfo.icon;
 
   return (
     <div className="space-y-6">
@@ -211,13 +97,16 @@ export function CommandeDetails({ commande }: { commande: Commande }) {
               {commandeComplete.paiement === "payé"
                 ? "Payée"
                 : commandeComplete.paiement === "en attente"
-                  ? "Paiement en attente"
-                  : "Remboursée"}
+                ? "Paiement en attente"
+                : "Remboursée"}
             </span>
           </div>
           <div className="flex items-center gap-2 mt-2">
             <Avatar className="h-8 w-8">
-              <AvatarImage src={commandeComplete.client.avatar} alt={commandeComplete.client.nom} />
+              <AvatarImage
+                src={commandeComplete.client.avatar}
+                alt={commandeComplete.client.nom}
+              />
               <AvatarFallback>
                 {commandeComplete.client.nom.charAt(0)}
                 {commandeComplete.client.nom.split(" ")[1]?.charAt(0)}
@@ -225,7 +114,9 @@ export function CommandeDetails({ commande }: { commande: Commande }) {
             </Avatar>
             <div>
               <div className="font-medium">{commandeComplete.client.nom}</div>
-              <div className="text-xs text-muted-foreground">{commandeComplete.client.email}</div>
+              <div className="text-xs text-muted-foreground">
+                {commandeComplete.client.email}
+              </div>
             </div>
           </div>
         </div>
@@ -253,7 +144,10 @@ export function CommandeDetails({ commande }: { commande: Commande }) {
             <CardContent className="p-4">
               <div className="space-y-4">
                 {commandeComplete.detailsProduits?.map((produit) => (
-                  <div key={produit.id} className="flex items-center gap-4 py-2">
+                  <div
+                    key={produit.id}
+                    className="flex items-center gap-4 py-2"
+                  >
                     <div className="h-20 w-20 rounded-md overflow-hidden bg-muted flex-shrink-0">
                       <img
                         src={produit.image || "/placeholder.svg"}
@@ -263,20 +157,28 @@ export function CommandeDetails({ commande }: { commande: Commande }) {
                     </div>
                     <div className="flex-1 min-w-0">
                       <h4 className="font-medium">{produit.nom}</h4>
-                      <p className="text-sm text-muted-foreground">SKU: {produit.sku}</p>
+                      <p className="text-sm text-muted-foreground">
+                        SKU: {produit.sku}
+                      </p>
                       <div className="flex items-center gap-2 mt-1">
                         <span className="text-sm">
-                          {produit.prix.toLocaleString("fr-FR", { style: "currency", currency: "EUR" })}
+                          {produit.prix.toLocaleString("fr-FR", {
+                            style: "currency",
+                            currency: "EUR",
+                          })}
                         </span>
                         <span className="text-sm text-muted-foreground">×</span>
                         <span className="text-sm">{produit.quantite}</span>
                       </div>
                     </div>
                     <div className="font-medium">
-                      {(produit.prix * produit.quantite).toLocaleString("fr-FR", {
-                        style: "currency",
-                        currency: "EUR",
-                      })}
+                      {(produit.prix * produit.quantite).toLocaleString(
+                        "fr-FR",
+                        {
+                          style: "currency",
+                          currency: "EUR",
+                        }
+                      )}
                     </div>
                   </div>
                 ))}
@@ -285,7 +187,10 @@ export function CommandeDetails({ commande }: { commande: Commande }) {
                   <div className="flex justify-between">
                     <span className="text-sm">Sous-total</span>
                     <span>
-                      {commandeComplete.montant.toLocaleString("fr-FR", { style: "currency", currency: "EUR" })}
+                      {commandeComplete.montant.toLocaleString("fr-FR", {
+                        style: "currency",
+                        currency: "EUR",
+                      })}
                     </span>
                   </div>
                   <div className="flex justify-between">
@@ -295,14 +200,20 @@ export function CommandeDetails({ commande }: { commande: Commande }) {
                   <div className="flex justify-between">
                     <span className="text-sm">TVA (20%)</span>
                     <span>
-                      {(commandeComplete.montant * 0.2).toLocaleString("fr-FR", { style: "currency", currency: "EUR" })}
+                      {(commandeComplete.montant * 0.2).toLocaleString(
+                        "fr-FR",
+                        { style: "currency", currency: "EUR" }
+                      )}
                     </span>
                   </div>
                   <Separator />
                   <div className="flex justify-between font-medium">
                     <span>Total</span>
                     <span>
-                      {commandeComplete.montant.toLocaleString("fr-FR", { style: "currency", currency: "EUR" })}
+                      {commandeComplete.montant.toLocaleString("fr-FR", {
+                        style: "currency",
+                        currency: "EUR",
+                      })}
                     </span>
                   </div>
                 </div>
@@ -322,7 +233,8 @@ export function CommandeDetails({ commande }: { commande: Commande }) {
                   <p>{commandeComplete.client.nom}</p>
                   <p>{commandeComplete.adresseLivraison?.rue}</p>
                   <p>
-                    {commandeComplete.adresseLivraison?.codePostal} {commandeComplete.adresseLivraison?.ville}
+                    {commandeComplete.adresseLivraison?.codePostal}{" "}
+                    {commandeComplete.adresseLivraison?.ville}
                   </p>
                   <p>{commandeComplete.adresseLivraison?.pays}</p>
                 </div>
@@ -338,7 +250,8 @@ export function CommandeDetails({ commande }: { commande: Commande }) {
                   <p>{commandeComplete.client.nom}</p>
                   <p>{commandeComplete.adresseFacturation?.rue}</p>
                   <p>
-                    {commandeComplete.adresseFacturation?.codePostal} {commandeComplete.adresseFacturation?.ville}
+                    {commandeComplete.adresseFacturation?.codePostal}{" "}
+                    {commandeComplete.adresseFacturation?.ville}
                   </p>
                   <p>{commandeComplete.adresseFacturation?.pays}</p>
                 </div>
@@ -362,20 +275,24 @@ export function CommandeDetails({ commande }: { commande: Commande }) {
                         commandeComplete.paiement === "payé"
                           ? "text-emerald-500"
                           : commandeComplete.paiement === "en attente"
-                            ? "text-amber-500"
-                            : "text-rose-500"
+                          ? "text-amber-500"
+                          : "text-rose-500"
                       }
                     >
                       {commandeComplete.paiement === "payé"
                         ? "Payé"
                         : commandeComplete.paiement === "en attente"
-                          ? "En attente"
-                          : "Remboursé"}
+                        ? "En attente"
+                        : "Remboursé"}
                     </span>
                   </div>
                   <div className="flex justify-between">
                     <span>Date:</span>
-                    <span>{format(commandeComplete.date, "dd/MM/yyyy", { locale: fr })}</span>
+                    <span>
+                      {format(commandeComplete.date, "dd/MM/yyyy", {
+                        locale: fr,
+                      })}
+                    </span>
                   </div>
                 </div>
               </CardContent>
@@ -402,15 +319,15 @@ export function CommandeDetails({ commande }: { commande: Commande }) {
                         commandeComplete.status === "livree"
                           ? "text-emerald-500"
                           : commandeComplete.status === "expediee"
-                            ? "text-purple-500"
-                            : "text-muted-foreground"
+                          ? "text-purple-500"
+                          : "text-muted-foreground"
                       }
                     >
                       {commandeComplete.status === "livree"
                         ? "Livrée"
                         : commandeComplete.status === "expediee"
-                          ? "En transit"
-                          : "En préparation"}
+                        ? "En transit"
+                        : "En préparation"}
                     </span>
                   </div>
                 </div>
@@ -422,36 +339,45 @@ export function CommandeDetails({ commande }: { commande: Commande }) {
           <Card>
             <CardContent className="p-4">
               <div className="space-y-4">
-                {commandeComplete.historique?.map((event, index) => (
-                  <div key={index} className="flex gap-4">
-                    <div className="flex flex-col items-center">
-                      <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-                        {index === 0 ? (
-                          <ClockIcon className="h-4 w-4 text-primary" />
-                        ) : index === commandeComplete.historique!.length - 1 ? (
-                          <CheckCircleIcon className="h-4 w-4 text-emerald-500" />
-                        ) : (
-                          <div className="h-4 w-4 rounded-full bg-primary" />
+                {commandeComplete.historique?.map((event, index) => {
+                  const statusInfo = getStatusInfo(event.statut as CommandeStatus);
+                  return (
+                    <div key={index} className="flex gap-4">
+                      <div className="flex flex-col items-center">
+                        <div
+                          className={`h-8 w-8 rounded-full flex items-center justify-center ${statusInfo.bgColor}`}
+                        >
+                          <statusInfo.icon
+                            className={`h-4 w-4 ${statusInfo.color}`}
+                          />
+                        </div>
+                        {index < commandeComplete.historique!.length - 1 && (
+                          <div
+                            className={`w-0.5 h-full ${statusInfo.borderColor}`}
+                          />
                         )}
                       </div>
-                      {index < commandeComplete.historique!.length - 1 && <div className="w-0.5 h-full bg-border" />}
-                    </div>
-                    <div className="flex-1 pb-4">
-                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1">
-                        <h4 className="font-medium">{event.statut}</h4>
-                        <span className="text-xs text-muted-foreground">
-                          {format(event.date, "dd MMM yyyy, HH:mm", { locale: fr })}
-                        </span>
+                      <div className="flex-1 pb-4">
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1">
+                          <h4 className="font-medium">{statusInfo.label}</h4>
+                          <span className="text-xs text-muted-foreground">
+                            {format(event.date, "dd MMM yyyy, HH:mm", {
+                              locale: fr,
+                            })}
+                          </span>
+                        </div>
+                        <p className="text-sm text-muted-foreground mt-1">
+                          {event.description}
+                        </p>
                       </div>
-                      <p className="text-sm text-muted-foreground mt-1">{event.description}</p>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </CardContent>
           </Card>
         </TabsContent>
       </Tabs>
     </div>
-  )
+  );
 }

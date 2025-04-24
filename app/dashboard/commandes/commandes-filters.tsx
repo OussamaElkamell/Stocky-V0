@@ -61,23 +61,39 @@ const facets: Facet[] = [
   },
 ]
 
-export function CommandesFilters() {
-  const [selectedOptions, setSelectedOptions] = useState<Record<string, string[]>>({})
-
-  const selectedFacetOptionCount = Object.values(selectedOptions).reduce((count, options) => count + options.length, 0)
+export function CommandesFilters({
+  value,
+  onChange,
+}: {
+  value: Record<string, string[]>
+  onChange: (filters: Record<string, string[]>) => void
+}) {
+  const selectedFacetOptionCount = Object.values(value).reduce(
+    (count, options) => count + options.length,
+    0
+  )
 
   function toggleOption(facetId: string, optionId: string) {
-    const facetOptions = selectedOptions[facetId] || []
-    setSelectedOptions({
-      ...selectedOptions,
-      [facetId]: facetOptions.includes(optionId)
-        ? facetOptions.filter((id) => id !== optionId)
-        : [...facetOptions, optionId],
-    })
+    const facetOptions = value[facetId] || []
+    const newOptions = facetOptions.includes(optionId)
+      ? facetOptions.filter((id) => id !== optionId)
+      : [...facetOptions, optionId]
+
+    const newFilters = {
+      ...value,
+      [facetId]: newOptions,
+    }
+
+    // Remove empty arrays from filters
+    if (newFilters[facetId].length === 0) {
+      delete newFilters[facetId]
+    }
+
+    onChange(newFilters)
   }
 
   function clearOptions() {
-    setSelectedOptions({})
+    onChange({})
   }
 
   return (
@@ -99,7 +115,7 @@ export function CommandesFilters() {
                       {selectedFacetOptionCount} sélectionnés
                     </Badge>
                   ) : (
-                    Object.entries(selectedOptions).map(([facetId, options]) =>
+                    Object.entries(value).map(([facetId, options]) =>
                       options.map((optionId) => {
                         const facet = facets.find((f) => f.id === facetId)
                         const option = facet?.options.find((o) => o.id === optionId)
@@ -112,7 +128,7 @@ export function CommandesFilters() {
                             {option?.name}
                           </Badge>
                         )
-                      }),
+                      })
                     )
                   )}
                 </div>
@@ -128,12 +144,12 @@ export function CommandesFilters() {
               {facets.map((facet) => (
                 <CommandGroup key={facet.id} heading={facet.name}>
                   {facet.options.map((option) => {
-                    const isSelected = (selectedOptions[facet.id] || []).includes(option.id)
+                    const isSelected = (value[facet.id] || []).includes(option.id)
                     return (
                       <CommandItem key={option.id} onSelect={() => toggleOption(facet.id, option.id)}>
                         <div
                           className={`mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-primary ${
-                            isSelected ? "bg-primary text-primary-foreground" : "opacity-50 [&_svg]:invisible"
+                            isSelected ? 'bg-primary text-primary-foreground' : 'opacity-50 [&_svg]:invisible'
                           }`}
                         >
                           <CheckIcon className="h-3 w-3" />
@@ -167,6 +183,7 @@ export function CommandesFilters() {
     </div>
   )
 }
+
 
 function PlusIcon(props: React.ComponentProps<"svg">) {
   return (

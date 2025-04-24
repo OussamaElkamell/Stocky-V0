@@ -1,0 +1,3775 @@
+[
+  {
+    "id": "1987d195-ddb7-40e5-8732-78d833c41d79",
+    "numero": "A10000",
+    "date": "2025-02-24T16:41:29.099332",
+    "client": {
+      "nom": "Jean Richard",
+      "email": "jean.richard@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/44.jpg"
+    },
+    "montant": 179.98,
+    "status": "expediee",
+    "paiement": "remboursé",
+    "produits": 1,
+    "adresseLivraison": {
+      "rue": "boulevard Haussmann",
+      "ville": "Lyon",
+      "codePostal": "11958",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "boulevard Haussmann",
+      "ville": "Lyon",
+      "codePostal": "19724",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "a02ab862-d70b-4517-9129-ea3809425f93",
+        "quantite": 2
+      }
+    ],
+    "notes": "Appeler avant livraison",
+    "historique": [
+      {
+        "date": "2025-02-24T16:41:29.099332",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2025-02-25T16:41:29.099332",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      }
+    ]
+  },
+  {
+    "id": "1f8db97a-33d7-4a49-8419-2f4b3f692546",
+    "numero": "A10001",
+    "date": "2025-02-22T16:41:29.100184",
+    "client": {
+      "nom": "Julie Moreau",
+      "email": "julie.moreau@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/1.jpg"
+    },
+    "montant": 939.92,
+    "status": "annulee",
+    "paiement": "remboursé",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "boulevard Haussmann",
+      "ville": "Toulouse",
+      "codePostal": "79074",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de Rivoli",
+      "ville": "Paris",
+      "codePostal": "25445",
+      "pays": "France"
+    },
+    "methodePaiement": "PayPal",
+    "detailsProduits": [
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "11357386-02bf-4cf9-a78a-3cff5c855ea5",
+        "quantite": 2
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "de0992e3-949d-441f-9738-c0e11040ccc2",
+        "quantite": 3
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "b6c656e5-a67e-47a7-9934-6f43b8e19cf8",
+        "quantite": 3
+      }
+    ],
+    "notes": "Livrer en soirée",
+    "historique": [
+      {
+        "date": "2025-02-22T16:41:29.100184",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      },
+      {
+        "date": "2025-02-23T16:41:29.100184",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      }
+    ]
+  },
+  {
+    "id": "8f5ab8f3-de3a-42fd-9f1c-7c64813d3c0f",
+    "numero": "A10002",
+    "date": "2025-04-09T16:41:29.100893",
+    "client": {
+      "nom": "Claire Petit",
+      "email": "claire.petit@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/44.jpg"
+    },
+    "montant": 399.98,
+    "status": "annulee",
+    "paiement": "en attente",
+    "produits": 1,
+    "adresseLivraison": {
+      "rue": "boulevard Haussmann",
+      "ville": "Lyon",
+      "codePostal": "22823",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "avenue Victor Hugo",
+      "ville": "Marseille",
+      "codePostal": "93056",
+      "pays": "France"
+    },
+    "methodePaiement": "PayPal",
+    "detailsProduits": [
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "af5525ee-2dac-40fd-b39d-85994969a0dd",
+        "quantite": 2
+      }
+    ],
+    "notes": "Livrer en soirée",
+    "historique": [
+      {
+        "date": "2025-04-09T16:41:29.100893",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2025-04-10T16:41:29.100893",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2025-04-11T16:41:29.100893",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      },
+      {
+        "date": "2025-04-12T16:41:29.100893",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      }
+    ]
+  },
+  {
+    "id": "e0741376-e5cd-430f-9856-258b311ac15c",
+    "numero": "A10003",
+    "date": "2025-02-02T16:41:29.101040",
+    "client": {
+      "nom": "Jean Blanc",
+      "email": "jean.blanc@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/45.jpg"
+    },
+    "montant": 239.97,
+    "status": "en-attente",
+    "paiement": "en attente",
+    "produits": 1,
+    "adresseLivraison": {
+      "rue": "rue Lafayette",
+      "ville": "Nice",
+      "codePostal": "72979",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue Lafayette",
+      "ville": "Nice",
+      "codePostal": "72570",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Casque Audio",
+        "sku": "CSK-321",
+        "prix": 79.99,
+        "image": "https://example.com/img4.png",
+        "id": "35aa14ef-5ec5-466e-8100-57028fc33257",
+        "quantite": 3
+      }
+    ],
+    "notes": "Pas de notes",
+    "historique": [
+      {
+        "date": "2025-02-02T16:41:29.101040",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      }
+    ]
+  },
+  {
+    "id": "44462627-7482-415a-9aa0-f5258cd51d01",
+    "numero": "A10004",
+    "date": "2025-03-07T16:41:29.101808",
+    "client": {
+      "nom": "Jean Martin",
+      "email": "jean.martin@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/12.jpg"
+    },
+    "montant": 739.93,
+    "status": "livree",
+    "paiement": "remboursé",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "avenue Victor Hugo",
+      "ville": "Nice",
+      "codePostal": "45610",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue Lafayette",
+      "ville": "Toulouse",
+      "codePostal": "89120",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "0e45fdd3-b9c4-44a1-8f6f-b2faee913530",
+        "quantite": 3
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "65fb5c3e-ccbd-4e1c-930a-d5c9228d93ae",
+        "quantite": 3
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "908a568b-4d51-4666-b60d-efead6f319bd",
+        "quantite": 1
+      }
+    ],
+    "notes": "Livrer en soirée",
+    "historique": [
+      {
+        "date": "2025-03-07T16:41:29.101808",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      }
+    ]
+  },
+  {
+    "id": "b6431298-13cb-4b60-b4c8-5bfc4f2a017a",
+    "numero": "A10005",
+    "date": "2024-12-17T16:41:29.102015",
+    "client": {
+      "nom": "Chloé Petit",
+      "email": "chloé.petit@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/14.jpg"
+    },
+    "montant": 219.97,
+    "status": "en-preparation",
+    "paiement": "en attente",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "rue Lafayette",
+      "ville": "Toulouse",
+      "codePostal": "75010",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de la Paix",
+      "ville": "Lyon",
+      "codePostal": "15567",
+      "pays": "France"
+    },
+    "methodePaiement": "PayPal",
+    "detailsProduits": [
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "18de30fa-04bf-4883-a00e-204d9adc64c2",
+        "quantite": 1
+      },
+      {
+        "nom": "Casque Audio",
+        "sku": "CSK-321",
+        "prix": 79.99,
+        "image": "https://example.com/img4.png",
+        "id": "e558e3f0-40b7-4639-b0c0-d90bc9d13cf8",
+        "quantite": 2
+      }
+    ],
+    "notes": "Livrer en soirée",
+    "historique": [
+      {
+        "date": "2024-12-17T16:41:29.102015",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      },
+      {
+        "date": "2024-12-18T16:41:29.102015",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      },
+      {
+        "date": "2024-12-19T16:41:29.102015",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2024-12-20T16:41:29.102015",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      }
+    ]
+  },
+  {
+    "id": "0b7dc99e-0a8a-4b5f-bb6f-63982442e325",
+    "numero": "A10006",
+    "date": "2025-03-05T16:41:29.102115",
+    "client": {
+      "nom": "Luc Henry",
+      "email": "luc.henry@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/82.jpg"
+    },
+    "montant": 499.94,
+    "status": "livree",
+    "paiement": "en attente",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "rue Lafayette",
+      "ville": "Lyon",
+      "codePostal": "59152",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "boulevard Haussmann",
+      "ville": "Lyon",
+      "codePostal": "96870",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "3863234d-0645-4bd3-be25-f8bc4ebc0dfc",
+        "quantite": 1
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "f889914f-a878-41d4-b156-6012a51cd41a",
+        "quantite": 3
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "4dcce2dc-39c4-4c2b-8ed0-34b0470c1df8",
+        "quantite": 2
+      }
+    ],
+    "notes": "Appeler avant livraison",
+    "historique": [
+      {
+        "date": "2025-03-05T16:41:29.102115",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2025-03-06T16:41:29.102115",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2025-03-07T16:41:29.102115",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      }
+    ]
+  },
+  {
+    "id": "ec220f94-324e-43d4-bcce-6849226edca7",
+    "numero": "A10007",
+    "date": "2025-03-24T16:41:29.102211",
+    "client": {
+      "nom": "Marc Durand",
+      "email": "marc.durand@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/76.jpg"
+    },
+    "montant": 359.97,
+    "status": "en-attente",
+    "paiement": "remboursé",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "rue de la Paix",
+      "ville": "Paris",
+      "codePostal": "91602",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de la Paix",
+      "ville": "Lyon",
+      "codePostal": "12549",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "62f9c10a-c9b4-43f6-984b-c6674ccc2dfc",
+        "quantite": 1
+      },
+      {
+        "nom": "Casque Audio",
+        "sku": "CSK-321",
+        "prix": 79.99,
+        "image": "https://example.com/img4.png",
+        "id": "c559b1ff-6bed-478b-9053-9fd4e8fa635c",
+        "quantite": 2
+      }
+    ],
+    "notes": "",
+    "historique": [
+      {
+        "date": "2025-03-24T16:41:29.102211",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2025-03-25T16:41:29.102211",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2025-03-26T16:41:29.102211",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      },
+      {
+        "date": "2025-03-27T16:41:29.102211",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      }
+    ]
+  },
+  {
+    "id": "007c549f-21fa-47ee-ada2-e2b435f930dd",
+    "numero": "A10008",
+    "date": "2025-04-20T16:41:29.102304",
+    "client": {
+      "nom": "Léa Dupont",
+      "email": "léa.dupont@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/68.jpg"
+    },
+    "montant": 929.93,
+    "status": "livree",
+    "paiement": "remboursé",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "rue de la Paix",
+      "ville": "Nice",
+      "codePostal": "74291",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "boulevard Haussmann",
+      "ville": "Toulouse",
+      "codePostal": "20381",
+      "pays": "France"
+    },
+    "methodePaiement": "Virement",
+    "detailsProduits": [
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "3960a1e3-6ae5-4eab-b441-244c5a32175e",
+        "quantite": 1
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "f85dd065-9bbb-49ca-b7d9-68c44d0c3ec9",
+        "quantite": 3
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "500be235-211a-47ba-b75a-051460fab214",
+        "quantite": 3
+      }
+    ],
+    "notes": "Livrer en soirée",
+    "historique": [
+      {
+        "date": "2025-04-20T16:41:29.102304",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      },
+      {
+        "date": "2025-04-21T16:41:29.102304",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2025-04-22T16:41:29.102304",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2025-04-23T16:41:29.102304",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      }
+    ]
+  },
+  {
+    "id": "24b55d91-4a5a-4085-b631-dfb31f9c373d",
+    "numero": "A10009",
+    "date": "2025-01-24T16:41:29.102411",
+    "client": {
+      "nom": "Jean Henry",
+      "email": "jean.henry@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/97.jpg"
+    },
+    "montant": 249.97,
+    "status": "en-preparation",
+    "paiement": "payé",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "rue Lafayette",
+      "ville": "Nice",
+      "codePostal": "37800",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de Rivoli",
+      "ville": "Marseille",
+      "codePostal": "28198",
+      "pays": "France"
+    },
+    "methodePaiement": "Virement",
+    "detailsProduits": [
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "6eecdb4f-71d3-4a7c-9bf5-d568d46ae244",
+        "quantite": 1
+      },
+      {
+        "nom": "Casque Audio",
+        "sku": "CSK-321",
+        "prix": 79.99,
+        "image": "https://example.com/img4.png",
+        "id": "93593b3f-20f6-404e-a51a-1700732b9eea",
+        "quantite": 2
+      }
+    ],
+    "notes": "Appeler avant livraison",
+    "historique": [
+      {
+        "date": "2025-01-24T16:41:29.102411",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2025-01-25T16:41:29.102411",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      }
+    ]
+  },
+  {
+    "id": "beb016cc-1c8f-40a0-b726-d8a793ac3e06",
+    "numero": "A10010",
+    "date": "2025-04-18T16:41:29.102495",
+    "client": {
+      "nom": "Sophie Dupont",
+      "email": "sophie.dupont@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/28.jpg"
+    },
+    "montant": 559.93,
+    "status": "en-attente",
+    "paiement": "remboursé",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "boulevard Haussmann",
+      "ville": "Nice",
+      "codePostal": "16408",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue Lafayette",
+      "ville": "Nice",
+      "codePostal": "19108",
+      "pays": "France"
+    },
+    "methodePaiement": "Virement",
+    "detailsProduits": [
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "9d17b6e4-873a-4dc1-aee3-932de69f340e",
+        "quantite": 3
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "ec4bf79f-5087-49b9-805f-8a13b2afdfa6",
+        "quantite": 1
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "4da835e6-c908-4168-aded-f01d4de6428e",
+        "quantite": 3
+      }
+    ],
+    "notes": "Livrer en soirée",
+    "historique": [
+      {
+        "date": "2025-04-18T16:41:29.102495",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2025-04-19T16:41:29.102495",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      },
+      {
+        "date": "2025-04-20T16:41:29.102495",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      },
+      {
+        "date": "2025-04-21T16:41:29.102495",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      }
+    ]
+  },
+  {
+    "id": "0e0205e0-0846-4796-a299-7c1e1a4f3d27",
+    "numero": "A10011",
+    "date": "2024-12-04T16:41:29.102585",
+    "client": {
+      "nom": "Marc Moreau",
+      "email": "marc.moreau@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/43.jpg"
+    },
+    "montant": 199.99,
+    "status": "en-preparation",
+    "paiement": "en attente",
+    "produits": 1,
+    "adresseLivraison": {
+      "rue": "rue Lafayette",
+      "ville": "Nice",
+      "codePostal": "36141",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "boulevard Haussmann",
+      "ville": "Marseille",
+      "codePostal": "20700",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "d5997eb5-e43a-4cf2-a7d4-52ed0d8f4d13",
+        "quantite": 1
+      }
+    ],
+    "notes": "Appeler avant livraison",
+    "historique": [
+      {
+        "date": "2024-12-04T16:41:29.102585",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      },
+      {
+        "date": "2024-12-05T16:41:29.102585",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      },
+      {
+        "date": "2024-12-06T16:41:29.102585",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2024-12-07T16:41:29.102585",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      }
+    ]
+  },
+  {
+    "id": "24c83fe6-2d17-4c82-be94-0e9f5c729b54",
+    "numero": "A10012",
+    "date": "2024-11-29T16:41:29.102680",
+    "client": {
+      "nom": "Jean Henry",
+      "email": "jean.henry@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/29.jpg"
+    },
+    "montant": 589.94,
+    "status": "expediee",
+    "paiement": "remboursé",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "boulevard Haussmann",
+      "ville": "Nice",
+      "codePostal": "47398",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de la Paix",
+      "ville": "Nice",
+      "codePostal": "35371",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "f2632f9d-fabe-40ec-90ef-9a841a15d307",
+        "quantite": 2
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "f8b1fa0c-8540-4ec4-9a90-f985f29a8b0d",
+        "quantite": 1
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "9869686c-bae4-49a6-920f-c547e620aaca",
+        "quantite": 3
+      }
+    ],
+    "notes": "Pas de notes",
+    "historique": [
+      {
+        "date": "2024-11-29T16:41:29.102680",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      },
+      {
+        "date": "2024-11-30T16:41:29.102680",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2024-12-01T16:41:29.102680",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2024-12-02T16:41:29.102680",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      }
+    ]
+  },
+  {
+    "id": "2afd16a3-c007-418e-b36e-f0f91f7dc989",
+    "numero": "A10013",
+    "date": "2025-02-21T16:41:29.102894",
+    "client": {
+      "nom": "Julie Moreau",
+      "email": "julie.moreau@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/48.jpg"
+    },
+    "montant": 719.95,
+    "status": "en-preparation",
+    "paiement": "payé",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "rue de la Paix",
+      "ville": "Lyon",
+      "codePostal": "39620",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de la Paix",
+      "ville": "Nice",
+      "codePostal": "37569",
+      "pays": "France"
+    },
+    "methodePaiement": "Virement",
+    "detailsProduits": [
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "46c5cdc2-c4c6-4f90-878e-3a6bc18a90fa",
+        "quantite": 3
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "40965229-c68f-46c9-9cb9-9218db5ba101",
+        "quantite": 2
+      }
+    ],
+    "notes": "",
+    "historique": [
+      {
+        "date": "2025-02-21T16:41:29.102894",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2025-02-22T16:41:29.102894",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      }
+    ]
+  },
+  {
+    "id": "daf07cf9-ae3a-47b8-b8ee-a880490d5c8d",
+    "numero": "A10014",
+    "date": "2025-01-18T16:41:29.102970",
+    "client": {
+      "nom": "Antoine Richard",
+      "email": "antoine.richard@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/29.jpg"
+    },
+    "montant": 1119.93,
+    "status": "en-preparation",
+    "paiement": "remboursé",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "avenue Victor Hugo",
+      "ville": "Lyon",
+      "codePostal": "44152",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de la Paix",
+      "ville": "Marseille",
+      "codePostal": "92049",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "d433f660-eb7b-4286-a76e-8eb5be0f88e5",
+        "quantite": 2
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "68fa0e97-4643-47ee-9c04-e9312722c66d",
+        "quantite": 3
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "c804ede2-47d0-4f28-b4c1-64987b4e7749",
+        "quantite": 2
+      }
+    ],
+    "notes": "Appeler avant livraison",
+    "historique": [
+      {
+        "date": "2025-01-18T16:41:29.102970",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      }
+    ]
+  },
+  {
+    "id": "ca1c06b7-64c6-41fd-aed6-214379b2a300",
+    "numero": "A10015",
+    "date": "2024-11-23T16:41:29.103034",
+    "client": {
+      "nom": "Léa Chevalier",
+      "email": "léa.chevalier@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/62.jpg"
+    },
+    "montant": 209.97,
+    "status": "livree",
+    "paiement": "en attente",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "boulevard Haussmann",
+      "ville": "Marseille",
+      "codePostal": "75654",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de la Paix",
+      "ville": "Lyon",
+      "codePostal": "70495",
+      "pays": "France"
+    },
+    "methodePaiement": "Virement",
+    "detailsProduits": [
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "428ee8fb-105e-44e2-ba20-154b78f681d5",
+        "quantite": 2
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "2d9a6710-3697-4deb-ae50-a23c434d9f98",
+        "quantite": 1
+      }
+    ],
+    "notes": "Appeler avant livraison",
+    "historique": [
+      {
+        "date": "2024-11-23T16:41:29.103034",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2024-11-24T16:41:29.103034",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2024-11-25T16:41:29.103034",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      }
+    ]
+  },
+  {
+    "id": "f2723f71-ee6d-4155-979f-b5dc73e440ff",
+    "numero": "A10016",
+    "date": "2025-04-02T16:41:29.103102",
+    "client": {
+      "nom": "Chloé Chevalier",
+      "email": "chloé.chevalier@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/28.jpg"
+    },
+    "montant": 179.98,
+    "status": "annulee",
+    "paiement": "en attente",
+    "produits": 1,
+    "adresseLivraison": {
+      "rue": "boulevard Haussmann",
+      "ville": "Toulouse",
+      "codePostal": "65154",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue Lafayette",
+      "ville": "Marseille",
+      "codePostal": "85313",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "5e8d363c-1c84-406f-9a6e-608f9b9e2a02",
+        "quantite": 2
+      }
+    ],
+    "notes": "Appeler avant livraison",
+    "historique": [
+      {
+        "date": "2025-04-02T16:41:29.103102",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      }
+    ]
+  },
+  {
+    "id": "49256974-4fa5-45df-af2c-82861f4fb75c",
+    "numero": "A10017",
+    "date": "2024-10-26T16:41:29.103167",
+    "client": {
+      "nom": "Antoine Lemoine",
+      "email": "antoine.lemoine@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/48.jpg"
+    },
+    "montant": 379.97,
+    "status": "en-attente",
+    "paiement": "en attente",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "rue Lafayette",
+      "ville": "Lyon",
+      "codePostal": "62011",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de Rivoli",
+      "ville": "Nice",
+      "codePostal": "17059",
+      "pays": "France"
+    },
+    "methodePaiement": "PayPal",
+    "detailsProduits": [
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "e8fdaecf-6133-4646-b333-ff090bd6ca79",
+        "quantite": 1
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "1c4199b6-f12f-4756-b2fc-70fa09e18e60",
+        "quantite": 2
+      }
+    ],
+    "notes": "Pas de notes",
+    "historique": [
+      {
+        "date": "2024-10-26T16:41:29.103167",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2024-10-27T16:41:29.103167",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      }
+    ]
+  },
+  {
+    "id": "c518c3e6-05fd-4ecb-8f06-8796b0d741ca",
+    "numero": "A10018",
+    "date": "2025-01-03T16:41:29.103245",
+    "client": {
+      "nom": "Luc Richard",
+      "email": "luc.richard@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/25.jpg"
+    },
+    "montant": 379.97,
+    "status": "expediee",
+    "paiement": "en attente",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "rue Lafayette",
+      "ville": "Lyon",
+      "codePostal": "50728",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de Rivoli",
+      "ville": "Marseille",
+      "codePostal": "30296",
+      "pays": "France"
+    },
+    "methodePaiement": "Virement",
+    "detailsProduits": [
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "737a545c-85fd-4148-87a5-3feaa5e14b3e",
+        "quantite": 1
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "feb55133-94a7-42ee-a861-48f0d321a3ea",
+        "quantite": 1
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "b540552f-dffe-40a1-b021-36aecf13982f",
+        "quantite": 1
+      }
+    ],
+    "notes": "Pas de notes",
+    "historique": [
+      {
+        "date": "2025-01-03T16:41:29.103245",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      },
+      {
+        "date": "2025-01-04T16:41:29.103245",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2025-01-05T16:41:29.103245",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2025-01-06T16:41:29.103245",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      }
+    ]
+  },
+  {
+    "id": "de54a81f-3903-47fb-8742-5fe0598d5803",
+    "numero": "A10019",
+    "date": "2024-10-28T16:41:29.103454",
+    "client": {
+      "nom": "Léa Dupont",
+      "email": "léa.dupont@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/52.jpg"
+    },
+    "montant": 989.92,
+    "status": "en-preparation",
+    "paiement": "en attente",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "avenue Victor Hugo",
+      "ville": "Paris",
+      "codePostal": "21507",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "boulevard Haussmann",
+      "ville": "Marseille",
+      "codePostal": "75739",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "c0885159-88aa-4975-b955-b95c1598b104",
+        "quantite": 3
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "a8d51e78-f3a4-4ec2-b964-ab916875d33f",
+        "quantite": 2
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "c1b714ec-b877-4de1-83ef-5e5da1ab485b",
+        "quantite": 3
+      }
+    ],
+    "notes": "",
+    "historique": [
+      {
+        "date": "2024-10-28T16:41:29.103454",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      },
+      {
+        "date": "2024-10-29T16:41:29.103454",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2024-10-30T16:41:29.103454",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2024-10-31T16:41:29.103454",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      }
+    ]
+  },
+  {
+    "id": "ed07212d-255f-4d09-a742-98f1763bcf02",
+    "numero": "A10020",
+    "date": "2025-01-27T16:41:29.103616",
+    "client": {
+      "nom": "Noah Lemoine",
+      "email": "noah.lemoine@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/59.jpg"
+    },
+    "montant": 389.95,
+    "status": "expediee",
+    "paiement": "en attente",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "rue de Rivoli",
+      "ville": "Nice",
+      "codePostal": "50232",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue Lafayette",
+      "ville": "Marseille",
+      "codePostal": "73962",
+      "pays": "France"
+    },
+    "methodePaiement": "Virement",
+    "detailsProduits": [
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "397e59f1-b519-42b6-b694-eec183d1c1fa",
+        "quantite": 2
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "d8137153-1392-40f5-b5ab-f21d235c6f36",
+        "quantite": 3
+      }
+    ],
+    "notes": "Pas de notes",
+    "historique": [
+      {
+        "date": "2025-01-27T16:41:29.103616",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      },
+      {
+        "date": "2025-01-28T16:41:29.103616",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2025-01-29T16:41:29.103616",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      },
+      {
+        "date": "2025-01-30T16:41:29.103616",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      }
+    ]
+  },
+  {
+    "id": "e4f8a124-6002-4625-a1c2-70435c7aa1ce",
+    "numero": "A10021",
+    "date": "2024-11-18T16:41:29.103802",
+    "client": {
+      "nom": "Thomas Durand",
+      "email": "thomas.durand@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/83.jpg"
+    },
+    "montant": 1269.92,
+    "status": "en-preparation",
+    "paiement": "en attente",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "rue de la Paix",
+      "ville": "Paris",
+      "codePostal": "96684",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "boulevard Haussmann",
+      "ville": "Paris",
+      "codePostal": "71042",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "f8030247-471d-4a59-a48b-e18ea7770eb1",
+        "quantite": 2
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "00a0c69d-f0a1-418a-a82d-cacbd92db094",
+        "quantite": 3
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "fcff2951-a035-4342-8087-8f95823daeab",
+        "quantite": 3
+      }
+    ],
+    "notes": "",
+    "historique": [
+      {
+        "date": "2024-11-18T16:41:29.103802",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      },
+      {
+        "date": "2024-11-19T16:41:29.103802",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2024-11-20T16:41:29.103802",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2024-11-21T16:41:29.103802",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      }
+    ]
+  },
+  {
+    "id": "351abb1f-9e72-42ae-953d-123f59926e86",
+    "numero": "A10022",
+    "date": "2025-01-11T16:41:29.104084",
+    "client": {
+      "nom": "Thomas Richard",
+      "email": "thomas.richard@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/35.jpg"
+    },
+    "montant": 759.92,
+    "status": "annulee",
+    "paiement": "payé",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "avenue Victor Hugo",
+      "ville": "Paris",
+      "codePostal": "54499",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de Rivoli",
+      "ville": "Marseille",
+      "codePostal": "81085",
+      "pays": "France"
+    },
+    "methodePaiement": "PayPal",
+    "detailsProduits": [
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "cf17f15e-2aee-4827-a4c3-8f459c1782c5",
+        "quantite": 3
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "42e976a0-d074-4dd0-87bc-010abeb8b8be",
+        "quantite": 2
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "7632c570-dcea-4235-9250-86b419c7b93e",
+        "quantite": 3
+      }
+    ],
+    "notes": "Livrer en soirée",
+    "historique": [
+      {
+        "date": "2025-01-11T16:41:29.104084",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      },
+      {
+        "date": "2025-01-12T16:41:29.104084",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2025-01-13T16:41:29.104084",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2025-01-14T16:41:29.104084",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      }
+    ]
+  },
+  {
+    "id": "7bd155f2-d43f-403c-a633-552f4f5c7775",
+    "numero": "A10023",
+    "date": "2025-02-16T16:41:29.104197",
+    "client": {
+      "nom": "Chloé Robert",
+      "email": "chloé.robert@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/80.jpg"
+    },
+    "montant": 339.97,
+    "status": "en-attente",
+    "paiement": "remboursé",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "avenue Victor Hugo",
+      "ville": "Lyon",
+      "codePostal": "38390",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de Rivoli",
+      "ville": "Lyon",
+      "codePostal": "81786",
+      "pays": "France"
+    },
+    "methodePaiement": "PayPal",
+    "detailsProduits": [
+      {
+        "nom": "Casque Audio",
+        "sku": "CSK-321",
+        "prix": 79.99,
+        "image": "https://example.com/img4.png",
+        "id": "571c2902-57dc-43ca-b306-cad2058eb8e4",
+        "quantite": 1
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "b5212fd2-c84e-412a-a807-3f51208e208f",
+        "quantite": 1
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "6d07d13f-5480-4bf6-a28c-ced626ac9ab1",
+        "quantite": 1
+      }
+    ],
+    "notes": "Pas de notes",
+    "historique": [
+      {
+        "date": "2025-02-16T16:41:29.104197",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2025-02-17T16:41:29.104197",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      },
+      {
+        "date": "2025-02-18T16:41:29.104197",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2025-02-19T16:41:29.104197",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      }
+    ]
+  },
+  {
+    "id": "b48ac57d-806e-4ab4-9b30-b74a0b5db884",
+    "numero": "A10024",
+    "date": "2024-11-10T16:41:29.104353",
+    "client": {
+      "nom": "Noah Martin",
+      "email": "noah.martin@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/50.jpg"
+    },
+    "montant": 539.94,
+    "status": "en-preparation",
+    "paiement": "en attente",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "rue de la Paix",
+      "ville": "Toulouse",
+      "codePostal": "24282",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de Rivoli",
+      "ville": "Toulouse",
+      "codePostal": "37920",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "632d859c-7150-4183-8ae8-6f9e667203f9",
+        "quantite": 3
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "e10e2905-4915-4b53-ae2d-1ff048339093",
+        "quantite": 3
+      }
+    ],
+    "notes": "Pas de notes",
+    "historique": [
+      {
+        "date": "2024-11-10T16:41:29.104353",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      },
+      {
+        "date": "2024-11-11T16:41:29.104353",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2024-11-12T16:41:29.104353",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2024-11-13T16:41:29.104353",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      }
+    ]
+  },
+  {
+    "id": "77b76373-4e2c-4708-9d58-4805c2c459e9",
+    "numero": "A10025",
+    "date": "2025-01-20T16:41:29.104608",
+    "client": {
+      "nom": "Jean Moreau",
+      "email": "jean.moreau@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/99.jpg"
+    },
+    "montant": 179.97,
+    "status": "expediee",
+    "paiement": "en attente",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "avenue Victor Hugo",
+      "ville": "Nice",
+      "codePostal": "80304",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de la Paix",
+      "ville": "Lyon",
+      "codePostal": "65283",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "c2e92f62-9b94-48ec-874f-905f600aa633",
+        "quantite": 1
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "a66b4998-d355-4579-87fc-6c18ae12a65b",
+        "quantite": 2
+      }
+    ],
+    "notes": "",
+    "historique": [
+      {
+        "date": "2025-01-20T16:41:29.104608",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2025-01-21T16:41:29.104608",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      }
+    ]
+  },
+  {
+    "id": "5c92ee64-775d-42dc-8f07-8942911336da",
+    "numero": "A10026",
+    "date": "2025-01-04T16:41:29.104736",
+    "client": {
+      "nom": "Chloé Chevalier",
+      "email": "chloé.chevalier@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/48.jpg"
+    },
+    "montant": 239.96,
+    "status": "annulee",
+    "paiement": "en attente",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "rue de Rivoli",
+      "ville": "Marseille",
+      "codePostal": "54084",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de la Paix",
+      "ville": "Lyon",
+      "codePostal": "54545",
+      "pays": "France"
+    },
+    "methodePaiement": "Virement",
+    "detailsProduits": [
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "4c871adf-19f8-4a1e-84eb-3bdcd165c7d9",
+        "quantite": 2
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "7e2b37d0-fbff-467b-b24d-15bcd179d0df",
+        "quantite": 2
+      }
+    ],
+    "notes": "Livrer en soirée",
+    "historique": [
+      {
+        "date": "2025-01-04T16:41:29.104736",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      },
+      {
+        "date": "2025-01-05T16:41:29.104736",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2025-01-06T16:41:29.104736",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      }
+    ]
+  },
+  {
+    "id": "4f627a38-337e-4f80-b411-bdbbafbd0cfc",
+    "numero": "A10027",
+    "date": "2024-12-30T16:41:29.104847",
+    "client": {
+      "nom": "Marc Petit",
+      "email": "marc.petit@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/79.jpg"
+    },
+    "montant": 159.98,
+    "status": "livree",
+    "paiement": "en attente",
+    "produits": 1,
+    "adresseLivraison": {
+      "rue": "rue de Rivoli",
+      "ville": "Toulouse",
+      "codePostal": "81828",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "boulevard Haussmann",
+      "ville": "Marseille",
+      "codePostal": "20112",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Casque Audio",
+        "sku": "CSK-321",
+        "prix": 79.99,
+        "image": "https://example.com/img4.png",
+        "id": "b29c625f-7a79-4150-97f9-64d38be5c78f",
+        "quantite": 2
+      }
+    ],
+    "notes": "",
+    "historique": [
+      {
+        "date": "2024-12-30T16:41:29.104847",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      }
+    ]
+  },
+  {
+    "id": "9383bd95-103e-43dd-8eef-0ed0e1e191c2",
+    "numero": "A10028",
+    "date": "2025-01-12T16:41:29.104951",
+    "client": {
+      "nom": "Sophie Robert",
+      "email": "sophie.robert@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/50.jpg"
+    },
+    "montant": 749.95,
+    "status": "livree",
+    "paiement": "en attente",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "rue de la Paix",
+      "ville": "Lyon",
+      "codePostal": "74560",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de la Paix",
+      "ville": "Paris",
+      "codePostal": "81478",
+      "pays": "France"
+    },
+    "methodePaiement": "Virement",
+    "detailsProduits": [
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "8393a109-3791-42ea-b49b-f3f5b4c8fa3f",
+        "quantite": 1
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "aea2a300-6e4c-47f0-b731-de59310c6a6a",
+        "quantite": 1
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "a9448d7e-39ca-4de5-b597-f2ba5886c353",
+        "quantite": 3
+      }
+    ],
+    "notes": "Appeler avant livraison",
+    "historique": [
+      {
+        "date": "2025-01-12T16:41:29.104951",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2025-01-13T16:41:29.104951",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2025-01-14T16:41:29.104951",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      },
+      {
+        "date": "2025-01-15T16:41:29.104951",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      }
+    ]
+  },
+  {
+    "id": "0906be56-5944-4498-9639-2d5229f196f1",
+    "numero": "A10029",
+    "date": "2025-01-12T16:41:29.105068",
+    "client": {
+      "nom": "Chloé Richard",
+      "email": "chloé.richard@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/58.jpg"
+    },
+    "montant": 939.92,
+    "status": "en-attente",
+    "paiement": "en attente",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "avenue Victor Hugo",
+      "ville": "Nice",
+      "codePostal": "87282",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de la Paix",
+      "ville": "Toulouse",
+      "codePostal": "31098",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "97107728-0420-4ed7-adec-6ab215839e8d",
+        "quantite": 3
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "66c04978-c38e-4fb0-82c9-0f7aa15289f4",
+        "quantite": 3
+      },
+      {
+        "nom": "Casque Audio",
+        "sku": "CSK-321",
+        "prix": 79.99,
+        "image": "https://example.com/img4.png",
+        "id": "377833ab-9b75-4941-8ed8-0548a275e229",
+        "quantite": 2
+      }
+    ],
+    "notes": "",
+    "historique": [
+      {
+        "date": "2025-01-12T16:41:29.105068",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      }
+    ]
+  },
+  {
+    "id": "d6c18baf-c38d-40ba-8cca-e86f3a0406a3",
+    "numero": "A10030",
+    "date": "2024-11-25T16:41:29.105161",
+    "client": {
+      "nom": "Luc Dubois",
+      "email": "luc.dubois@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/49.jpg"
+    },
+    "montant": 399.98,
+    "status": "en-attente",
+    "paiement": "payé",
+    "produits": 1,
+    "adresseLivraison": {
+      "rue": "boulevard Haussmann",
+      "ville": "Lyon",
+      "codePostal": "62961",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "avenue Victor Hugo",
+      "ville": "Nice",
+      "codePostal": "85851",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "b2c8359d-d785-47d9-a9cf-88a63cd3d2b4",
+        "quantite": 2
+      }
+    ],
+    "notes": "Livrer en soirée",
+    "historique": [
+      {
+        "date": "2024-11-25T16:41:29.105161",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2024-11-26T16:41:29.105161",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      }
+    ]
+  },
+  {
+    "id": "68fd97b9-c912-40c9-97c7-5ba2b43c60cd",
+    "numero": "A10031",
+    "date": "2024-11-12T16:41:29.105230",
+    "client": {
+      "nom": "Luc Lopez",
+      "email": "luc.lopez@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/12.jpg"
+    },
+    "montant": 449.95,
+    "status": "en-attente",
+    "paiement": "en attente",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "boulevard Haussmann",
+      "ville": "Lyon",
+      "codePostal": "51011",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue Lafayette",
+      "ville": "Toulouse",
+      "codePostal": "78980",
+      "pays": "France"
+    },
+    "methodePaiement": "Virement",
+    "detailsProduits": [
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "637311ce-67dc-4116-9136-4493382a473e",
+        "quantite": 2
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "13bb558d-ae64-4cdd-99b6-6285f212bcc6",
+        "quantite": 2
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "724dca31-27de-4783-bc0d-8b4f431bc97e",
+        "quantite": 1
+      }
+    ],
+    "notes": "Livrer en soirée",
+    "historique": [
+      {
+        "date": "2024-11-12T16:41:29.105230",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      }
+    ]
+  },
+  {
+    "id": "444ba108-7540-40b8-812c-493278711426",
+    "numero": "A10032",
+    "date": "2024-12-11T16:41:29.105338",
+    "client": {
+      "nom": "Emma Lemoine",
+      "email": "emma.lemoine@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/97.jpg"
+    },
+    "montant": 179.97,
+    "status": "en-preparation",
+    "paiement": "remboursé",
+    "produits": 1,
+    "adresseLivraison": {
+      "rue": "rue de Rivoli",
+      "ville": "Nice",
+      "codePostal": "19279",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de la Paix",
+      "ville": "Lyon",
+      "codePostal": "92233",
+      "pays": "France"
+    },
+    "methodePaiement": "Virement",
+    "detailsProduits": [
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "2d0d0629-df54-4aaa-9450-aa9bac90bbc2",
+        "quantite": 3
+      }
+    ],
+    "notes": "Pas de notes",
+    "historique": [
+      {
+        "date": "2024-12-11T16:41:29.105338",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2024-12-12T16:41:29.105338",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2024-12-13T16:41:29.105338",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2024-12-14T16:41:29.105338",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      }
+    ]
+  },
+  {
+    "id": "3a7e9d72-e465-49bb-8c2e-0ef98429714b",
+    "numero": "A10033",
+    "date": "2025-01-03T16:41:29.105417",
+    "client": {
+      "nom": "Chloé Dupont",
+      "email": "chloé.dupont@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/58.jpg"
+    },
+    "montant": 269.97,
+    "status": "annulee",
+    "paiement": "remboursé",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "rue de la Paix",
+      "ville": "Nice",
+      "codePostal": "16371",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de Rivoli",
+      "ville": "Lyon",
+      "codePostal": "65184",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "e120fb9f-8577-4fab-a822-05e9e3f2d2b0",
+        "quantite": 2
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "af9ffd8c-f922-45c7-982a-076aafaa79b7",
+        "quantite": 1
+      }
+    ],
+    "notes": "Livrer en soirée",
+    "historique": [
+      {
+        "date": "2025-01-03T16:41:29.105417",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2025-01-04T16:41:29.105417",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      }
+    ]
+  },
+  {
+    "id": "a11d5265-91fe-459e-bf60-47d148770de1",
+    "numero": "A10034",
+    "date": "2025-04-22T16:41:29.105499",
+    "client": {
+      "nom": "Hugo Dupont",
+      "email": "hugo.dupont@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/67.jpg"
+    },
+    "montant": 359.96,
+    "status": "annulee",
+    "paiement": "en attente",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "rue Lafayette",
+      "ville": "Toulouse",
+      "codePostal": "81970",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de Rivoli",
+      "ville": "Marseille",
+      "codePostal": "76075",
+      "pays": "France"
+    },
+    "methodePaiement": "Virement",
+    "detailsProduits": [
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "8bccde02-f922-4199-bc69-0ea0b94101e5",
+        "quantite": 3
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "91309eb5-4834-465e-9034-9e17eed72054",
+        "quantite": 1
+      }
+    ],
+    "notes": "Appeler avant livraison",
+    "historique": [
+      {
+        "date": "2025-04-22T16:41:29.105499",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      }
+    ]
+  },
+  {
+    "id": "c04c81ed-f39d-461a-a2ab-b996ff002ec4",
+    "numero": "A10035",
+    "date": "2024-12-07T16:41:29.105593",
+    "client": {
+      "nom": "Sophie Robert",
+      "email": "sophie.robert@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/10.jpg"
+    },
+    "montant": 119.98,
+    "status": "expediee",
+    "paiement": "payé",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "rue Lafayette",
+      "ville": "Toulouse",
+      "codePostal": "19329",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "avenue Victor Hugo",
+      "ville": "Marseille",
+      "codePostal": "49862",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "37b47a15-359d-4597-b1f3-bdc960e125e1",
+        "quantite": 1
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "2b60cc82-b599-4612-83ca-d8cd9b295fa9",
+        "quantite": 1
+      }
+    ],
+    "notes": "",
+    "historique": [
+      {
+        "date": "2024-12-07T16:41:29.105593",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2024-12-08T16:41:29.105593",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2024-12-09T16:41:29.105593",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2024-12-10T16:41:29.105593",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      }
+    ]
+  },
+  {
+    "id": "c24c2623-254d-41e2-a6ca-8995a8e4909e",
+    "numero": "A10036",
+    "date": "2025-01-31T16:41:29.105681",
+    "client": {
+      "nom": "Claire Dubois",
+      "email": "claire.dubois@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/85.jpg"
+    },
+    "montant": 779.94,
+    "status": "livree",
+    "paiement": "remboursé",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "boulevard Haussmann",
+      "ville": "Lyon",
+      "codePostal": "54008",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de la Paix",
+      "ville": "Marseille",
+      "codePostal": "50625",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "83f4757b-6ab8-4d78-93fb-913e8697b914",
+        "quantite": 3
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "03781f82-791d-43c5-9e1c-6fdfb5740f50",
+        "quantite": 2
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "512f5590-5392-4e45-8aec-4f94522ea315",
+        "quantite": 1
+      }
+    ],
+    "notes": "Livrer en soirée",
+    "historique": [
+      {
+        "date": "2025-01-31T16:41:29.105681",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2025-02-01T16:41:29.105681",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      }
+    ]
+  },
+  {
+    "id": "bbb240cb-7a0e-4835-9d99-71cca837fbdc",
+    "numero": "A10037",
+    "date": "2024-11-09T16:41:29.105783",
+    "client": {
+      "nom": "Luc Dubois",
+      "email": "luc.dubois@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/34.jpg"
+    },
+    "montant": 519.96,
+    "status": "expediee",
+    "paiement": "en attente",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "avenue Victor Hugo",
+      "ville": "Paris",
+      "codePostal": "84507",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de la Paix",
+      "ville": "Marseille",
+      "codePostal": "59362",
+      "pays": "France"
+    },
+    "methodePaiement": "Virement",
+    "detailsProduits": [
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "68cb6b1c-d234-4b4f-a37c-ead112b8a5f6",
+        "quantite": 2
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "ac084f12-e8af-41d6-a112-a8868072f27d",
+        "quantite": 2
+      }
+    ],
+    "notes": "Livrer en soirée",
+    "historique": [
+      {
+        "date": "2024-11-09T16:41:29.105783",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      },
+      {
+        "date": "2024-11-10T16:41:29.105783",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      }
+    ]
+  },
+  {
+    "id": "f36b4332-b52d-4fe7-a9a6-722b9f6781ef",
+    "numero": "A10038",
+    "date": "2024-12-29T16:41:29.105876",
+    "client": {
+      "nom": "Noah Henry",
+      "email": "noah.henry@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/11.jpg"
+    },
+    "montant": 119.98,
+    "status": "expediee",
+    "paiement": "remboursé",
+    "produits": 1,
+    "adresseLivraison": {
+      "rue": "avenue Victor Hugo",
+      "ville": "Nice",
+      "codePostal": "55525",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de la Paix",
+      "ville": "Nice",
+      "codePostal": "44660",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "9568ba2f-2bf9-4e13-9040-2c8ca6c67a4b",
+        "quantite": 2
+      }
+    ],
+    "notes": "Appeler avant livraison",
+    "historique": [
+      {
+        "date": "2024-12-29T16:41:29.105876",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2024-12-30T16:41:29.105876",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      },
+      {
+        "date": "2024-12-31T16:41:29.105876",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2025-01-01T16:41:29.105876",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      }
+    ]
+  },
+  {
+    "id": "e32fc162-2672-4f90-bf77-1d7f43a0df4e",
+    "numero": "A10039",
+    "date": "2024-10-31T16:41:29.105963",
+    "client": {
+      "nom": "Emma Durand",
+      "email": "emma.durand@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/76.jpg"
+    },
+    "montant": 379.97,
+    "status": "annulee",
+    "paiement": "payé",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "boulevard Haussmann",
+      "ville": "Toulouse",
+      "codePostal": "77553",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue Lafayette",
+      "ville": "Marseille",
+      "codePostal": "94591",
+      "pays": "France"
+    },
+    "methodePaiement": "PayPal",
+    "detailsProduits": [
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "cec4dc40-8dbd-40e4-b472-250f2e83c8bc",
+        "quantite": 1
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "4d29ef79-03d5-497d-add6-ba5e6d00a60d",
+        "quantite": 1
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "03d056fc-4080-4491-a932-1f92374ccd94",
+        "quantite": 1
+      }
+    ],
+    "notes": "Pas de notes",
+    "historique": [
+      {
+        "date": "2024-10-31T16:41:29.105963",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2024-11-01T16:41:29.105963",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2024-11-02T16:41:29.105963",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      }
+    ]
+  },
+  {
+    "id": "7983ea54-1c82-4ea7-abef-c2c0f0a510a3",
+    "numero": "A10040",
+    "date": "2025-03-05T16:41:29.106057",
+    "client": {
+      "nom": "Alice Martin",
+      "email": "alice.martin@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/3.jpg"
+    },
+    "montant": 259.96,
+    "status": "annulee",
+    "paiement": "payé",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "boulevard Haussmann",
+      "ville": "Lyon",
+      "codePostal": "99982",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue Lafayette",
+      "ville": "Marseille",
+      "codePostal": "79506",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Casque Audio",
+        "sku": "CSK-321",
+        "prix": 79.99,
+        "image": "https://example.com/img4.png",
+        "id": "b923adf4-2f58-4dad-8329-0b82fd765076",
+        "quantite": 1
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "3d6365fd-f6c5-455a-960f-0e2407142c7c",
+        "quantite": 3
+      }
+    ],
+    "notes": "Appeler avant livraison",
+    "historique": [
+      {
+        "date": "2025-03-05T16:41:29.106057",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      }
+    ]
+  },
+  {
+    "id": "07115b39-3fc3-428c-b39c-39ab698fddeb",
+    "numero": "A10041",
+    "date": "2024-11-29T16:41:29.106142",
+    "client": {
+      "nom": "Claire Petit",
+      "email": "claire.petit@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/3.jpg"
+    },
+    "montant": 279.98,
+    "status": "en-preparation",
+    "paiement": "en attente",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "rue Lafayette",
+      "ville": "Paris",
+      "codePostal": "22297",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue Lafayette",
+      "ville": "Lyon",
+      "codePostal": "87401",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Casque Audio",
+        "sku": "CSK-321",
+        "prix": 79.99,
+        "image": "https://example.com/img4.png",
+        "id": "9e20e6b1-2fdb-40a8-a45b-63cc90015fb9",
+        "quantite": 1
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "2bb98ab0-7be6-4f2d-bf00-46a02d937a1a",
+        "quantite": 1
+      }
+    ],
+    "notes": "Livrer en soirée",
+    "historique": [
+      {
+        "date": "2024-11-29T16:41:29.106142",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2024-11-30T16:41:29.106142",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      }
+    ]
+  },
+  {
+    "id": "61b734ca-7235-44d2-90a4-9d91aaaf7eaa",
+    "numero": "A10042",
+    "date": "2025-01-18T16:41:29.106232",
+    "client": {
+      "nom": "Hugo Chevalier",
+      "email": "hugo.chevalier@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/89.jpg"
+    },
+    "montant": 59.99,
+    "status": "expediee",
+    "paiement": "remboursé",
+    "produits": 1,
+    "adresseLivraison": {
+      "rue": "boulevard Haussmann",
+      "ville": "Paris",
+      "codePostal": "10027",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue Lafayette",
+      "ville": "Lyon",
+      "codePostal": "84570",
+      "pays": "France"
+    },
+    "methodePaiement": "PayPal",
+    "detailsProduits": [
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "1535da0d-2de0-4432-a3d2-a77cf5016843",
+        "quantite": 1
+      }
+    ],
+    "notes": "Pas de notes",
+    "historique": [
+      {
+        "date": "2025-01-18T16:41:29.106232",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      }
+    ]
+  },
+  {
+    "id": "e2b096b2-4924-49fe-a795-aa880dc0166c",
+    "numero": "A10043",
+    "date": "2024-11-02T16:41:29.106300",
+    "client": {
+      "nom": "Claire Moreau",
+      "email": "claire.moreau@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/46.jpg"
+    },
+    "montant": 989.92,
+    "status": "en-preparation",
+    "paiement": "remboursé",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "rue de Rivoli",
+      "ville": "Lyon",
+      "codePostal": "62336",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "boulevard Haussmann",
+      "ville": "Lyon",
+      "codePostal": "42508",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "7e98e79e-54ad-4619-b0aa-08795ec12d48",
+        "quantite": 2
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "d358c1b4-70b7-4982-b208-0f51c314423d",
+        "quantite": 3
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "ed43a651-cba0-404c-8649-621e809f15d7",
+        "quantite": 3
+      }
+    ],
+    "notes": "Livrer en soirée",
+    "historique": [
+      {
+        "date": "2024-11-02T16:41:29.106300",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2024-11-03T16:41:29.106300",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2024-11-04T16:41:29.106300",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      },
+      {
+        "date": "2024-11-05T16:41:29.106300",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      }
+    ]
+  },
+  {
+    "id": "2ec06b45-a34b-4e1d-980b-4a644779fb8b",
+    "numero": "A10044",
+    "date": "2024-11-21T16:41:29.106405",
+    "client": {
+      "nom": "Chloé Dubois",
+      "email": "chloé.dubois@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/76.jpg"
+    },
+    "montant": 179.97,
+    "status": "en-attente",
+    "paiement": "payé",
+    "produits": 1,
+    "adresseLivraison": {
+      "rue": "avenue Victor Hugo",
+      "ville": "Nice",
+      "codePostal": "41106",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de la Paix",
+      "ville": "Nice",
+      "codePostal": "50994",
+      "pays": "France"
+    },
+    "methodePaiement": "Virement",
+    "detailsProduits": [
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "9301d5c5-3b6b-4b0f-9fc5-40a80c1f24c2",
+        "quantite": 3
+      }
+    ],
+    "notes": "Livrer en soirée",
+    "historique": [
+      {
+        "date": "2024-11-21T16:41:29.106405",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      }
+    ]
+  },
+  {
+    "id": "42ca2850-0bbd-45aa-b698-b55d4a5217e0",
+    "numero": "A10045",
+    "date": "2025-03-25T16:41:29.106471",
+    "client": {
+      "nom": "Hugo Martin",
+      "email": "hugo.martin@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/41.jpg"
+    },
+    "montant": 279.98,
+    "status": "en-preparation",
+    "paiement": "remboursé",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "rue de Rivoli",
+      "ville": "Paris",
+      "codePostal": "80992",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "boulevard Haussmann",
+      "ville": "Marseille",
+      "codePostal": "31465",
+      "pays": "France"
+    },
+    "methodePaiement": "PayPal",
+    "detailsProduits": [
+      {
+        "nom": "Casque Audio",
+        "sku": "CSK-321",
+        "prix": 79.99,
+        "image": "https://example.com/img4.png",
+        "id": "9da134dc-35e7-49ec-a0ef-a22ecd0f8a33",
+        "quantite": 1
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "3159ad4d-7514-411c-997c-581f69a31c58",
+        "quantite": 1
+      }
+    ],
+    "notes": "Pas de notes",
+    "historique": [
+      {
+        "date": "2025-03-25T16:41:29.106471",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      }
+    ]
+  },
+  {
+    "id": "b5f9ed36-0952-43e1-bca2-0f74667e4051",
+    "numero": "A10046",
+    "date": "2024-12-03T16:41:29.106580",
+    "client": {
+      "nom": "Manon Dubois",
+      "email": "manon.dubois@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/34.jpg"
+    },
+    "montant": 59.99,
+    "status": "annulee",
+    "paiement": "payé",
+    "produits": 1,
+    "adresseLivraison": {
+      "rue": "rue de Rivoli",
+      "ville": "Marseille",
+      "codePostal": "48472",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue Lafayette",
+      "ville": "Marseille",
+      "codePostal": "79301",
+      "pays": "France"
+    },
+    "methodePaiement": "PayPal",
+    "detailsProduits": [
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "3f896d3e-16cc-453d-a364-72a373bc5d6a",
+        "quantite": 1
+      }
+    ],
+    "notes": "Livrer en soirée",
+    "historique": [
+      {
+        "date": "2024-12-03T16:41:29.106580",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2024-12-04T16:41:29.106580",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2024-12-05T16:41:29.106580",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      },
+      {
+        "date": "2024-12-06T16:41:29.106580",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      }
+    ]
+  },
+  {
+    "id": "615bf3ba-0f70-4a5d-85aa-4e0869fdf200",
+    "numero": "A10047",
+    "date": "2024-11-17T16:41:29.106660",
+    "client": {
+      "nom": "Luc Durand",
+      "email": "luc.durand@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/81.jpg"
+    },
+    "montant": 319.95,
+    "status": "annulee",
+    "paiement": "payé",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "boulevard Haussmann",
+      "ville": "Marseille",
+      "codePostal": "96051",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de Rivoli",
+      "ville": "Paris",
+      "codePostal": "28870",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "126d5832-5d26-4aaf-8dbb-082386af3b01",
+        "quantite": 2
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "5db46d51-f3ae-4079-8f8f-7078b3be9d0a",
+        "quantite": 2
+      },
+      {
+        "nom": "Casque Audio",
+        "sku": "CSK-321",
+        "prix": 79.99,
+        "image": "https://example.com/img4.png",
+        "id": "c07eaf13-96ab-48ac-9164-69a10bf900f7",
+        "quantite": 1
+      }
+    ],
+    "notes": "Pas de notes",
+    "historique": [
+      {
+        "date": "2024-11-17T16:41:29.106660",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      }
+    ]
+  },
+  {
+    "id": "14ed066b-a496-4f32-b716-275f8a7bec06",
+    "numero": "A10048",
+    "date": "2025-03-15T16:41:29.106762",
+    "client": {
+      "nom": "Jean Blanc",
+      "email": "jean.blanc@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/59.jpg"
+    },
+    "montant": 789.93,
+    "status": "annulee",
+    "paiement": "en attente",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "rue Lafayette",
+      "ville": "Lyon",
+      "codePostal": "16528",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de la Paix",
+      "ville": "Marseille",
+      "codePostal": "70640",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "e6b76008-03f4-4d6b-8ab0-1c27d6d05b24",
+        "quantite": 2
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "c4eb3c77-b9ab-491e-a128-f808c6d9b9d6",
+        "quantite": 3
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "5e9ca035-f85f-4009-a974-36cc213bb5f1",
+        "quantite": 2
+      }
+    ],
+    "notes": "",
+    "historique": [
+      {
+        "date": "2025-03-15T16:41:29.106762",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      },
+      {
+        "date": "2025-03-16T16:41:29.106762",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      }
+    ]
+  },
+  {
+    "id": "83074d12-19ed-4c49-b021-59564e2dee0d",
+    "numero": "A10049",
+    "date": "2025-02-28T16:41:29.106855",
+    "client": {
+      "nom": "Antoine Blanc",
+      "email": "antoine.blanc@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/64.jpg"
+    },
+    "montant": 1199.94,
+    "status": "expediee",
+    "paiement": "remboursé",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "rue Lafayette",
+      "ville": "Nice",
+      "codePostal": "64562",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue Lafayette",
+      "ville": "Paris",
+      "codePostal": "15824",
+      "pays": "France"
+    },
+    "methodePaiement": "PayPal",
+    "detailsProduits": [
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "cab026c1-15fc-4f8e-baf9-8bb29d1dd2b8",
+        "quantite": 3
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "9385c53e-b2be-4039-a626-8b71cf7e71d6",
+        "quantite": 3
+      }
+    ],
+    "notes": "Pas de notes",
+    "historique": [
+      {
+        "date": "2025-02-28T16:41:29.106855",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      }
+    ]
+  },
+  {
+    "id": "1e355859-d9cc-45d0-8aff-51f7c670932d",
+    "numero": "A10050",
+    "date": "2025-04-10T16:41:29.106939",
+    "client": {
+      "nom": "Hugo Dubois",
+      "email": "hugo.dubois@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/41.jpg"
+    },
+    "montant": 959.93,
+    "status": "en-attente",
+    "paiement": "en attente",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "rue Lafayette",
+      "ville": "Lyon",
+      "codePostal": "79848",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "avenue Victor Hugo",
+      "ville": "Lyon",
+      "codePostal": "82519",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "c11d599c-e987-44e7-a97d-812a6b3f0c39",
+        "quantite": 2
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "bfffd431-00ed-4a57-a34c-c18e8e6c7b4d",
+        "quantite": 3
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "0f574ff5-714c-4b95-9444-bdf947bf21f1",
+        "quantite": 2
+      }
+    ],
+    "notes": "Appeler avant livraison",
+    "historique": [
+      {
+        "date": "2025-04-10T16:41:29.106939",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2025-04-11T16:41:29.106939",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      },
+      {
+        "date": "2025-04-12T16:41:29.106939",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      }
+    ]
+  },
+  {
+    "id": "6dd8f885-fec2-4afd-bfee-c416a5bb6c44",
+    "numero": "A10051",
+    "date": "2024-12-09T16:41:29.107030",
+    "client": {
+      "nom": "Marc Petit",
+      "email": "marc.petit@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/32.jpg"
+    },
+    "montant": 509.94,
+    "status": "en-preparation",
+    "paiement": "remboursé",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "boulevard Haussmann",
+      "ville": "Nice",
+      "codePostal": "81511",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "boulevard Haussmann",
+      "ville": "Nice",
+      "codePostal": "99791",
+      "pays": "France"
+    },
+    "methodePaiement": "Virement",
+    "detailsProduits": [
+      {
+        "nom": "Casque Audio",
+        "sku": "CSK-321",
+        "prix": 79.99,
+        "image": "https://example.com/img4.png",
+        "id": "58ce4ea7-8895-4c72-9fda-5d1097bb2974",
+        "quantite": 3
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "ee4b991d-8a32-4aad-837b-76e6d632b5aa",
+        "quantite": 2
+      },
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "55d0495d-241b-4edc-9ca2-28dbe2eb0fe1",
+        "quantite": 1
+      }
+    ],
+    "notes": "Pas de notes",
+    "historique": [
+      {
+        "date": "2024-12-09T16:41:29.107030",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2024-12-10T16:41:29.107030",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      },
+      {
+        "date": "2024-12-11T16:41:29.107030",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      }
+    ]
+  },
+  {
+    "id": "d251c6be-9c50-4bdd-a255-8c5cb5de4d4f",
+    "numero": "A10052",
+    "date": "2025-01-06T16:41:29.107122",
+    "client": {
+      "nom": "Emma Lemoine",
+      "email": "emma.lemoine@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/17.jpg"
+    },
+    "montant": 259.96,
+    "status": "en-preparation",
+    "paiement": "remboursé",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "boulevard Haussmann",
+      "ville": "Marseille",
+      "codePostal": "93842",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de Rivoli",
+      "ville": "Toulouse",
+      "codePostal": "22844",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Casque Audio",
+        "sku": "CSK-321",
+        "prix": 79.99,
+        "image": "https://example.com/img4.png",
+        "id": "6823c8ac-4daf-4f58-b9f0-b7dc92027173",
+        "quantite": 1
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "6cd65100-6ba5-403e-ae81-5d312a649579",
+        "quantite": 3
+      }
+    ],
+    "notes": "Pas de notes",
+    "historique": [
+      {
+        "date": "2025-01-06T16:41:29.107122",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2025-01-07T16:41:29.107122",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2025-01-08T16:41:29.107122",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      }
+    ]
+  },
+  {
+    "id": "9791dd5a-30b7-421f-82ab-656d1a587598",
+    "numero": "A10053",
+    "date": "2024-11-29T16:41:29.107213",
+    "client": {
+      "nom": "Chloé Fontaine",
+      "email": "chloé.fontaine@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/66.jpg"
+    },
+    "montant": 619.93,
+    "status": "expediee",
+    "paiement": "payé",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "avenue Victor Hugo",
+      "ville": "Toulouse",
+      "codePostal": "70729",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de Rivoli",
+      "ville": "Marseille",
+      "codePostal": "55674",
+      "pays": "France"
+    },
+    "methodePaiement": "Virement",
+    "detailsProduits": [
+      {
+        "nom": "Casque Audio",
+        "sku": "CSK-321",
+        "prix": 79.99,
+        "image": "https://example.com/img4.png",
+        "id": "6e9a9889-b21b-4e54-b683-1a8d73db0e05",
+        "quantite": 3
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "15023ff6-f62d-413e-a79f-bcf910b5d447",
+        "quantite": 3
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "dedc7973-bebd-4b1c-8d46-2eebcf384a49",
+        "quantite": 1
+      }
+    ],
+    "notes": "",
+    "historique": [
+      {
+        "date": "2024-11-29T16:41:29.107213",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2024-11-30T16:41:29.107213",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2024-12-01T16:41:29.107213",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      },
+      {
+        "date": "2024-12-02T16:41:29.107213",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      }
+    ]
+  },
+  {
+    "id": "bfefb77d-656c-4bd9-872b-b2ef213605c6",
+    "numero": "A10054",
+    "date": "2025-01-11T16:41:29.107309",
+    "client": {
+      "nom": "Luc Bernard",
+      "email": "luc.bernard@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/13.jpg"
+    },
+    "montant": 89.99,
+    "status": "en-preparation",
+    "paiement": "remboursé",
+    "produits": 1,
+    "adresseLivraison": {
+      "rue": "rue de la Paix",
+      "ville": "Lyon",
+      "codePostal": "95686",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de Rivoli",
+      "ville": "Marseille",
+      "codePostal": "26602",
+      "pays": "France"
+    },
+    "methodePaiement": "PayPal",
+    "detailsProduits": [
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "ffca9819-a9df-4a80-bc82-c3f2d92f9f0c",
+        "quantite": 1
+      }
+    ],
+    "notes": "Pas de notes",
+    "historique": [
+      {
+        "date": "2025-01-11T16:41:29.107309",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      },
+      {
+        "date": "2025-01-12T16:41:29.107309",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2025-01-13T16:41:29.107309",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2025-01-14T16:41:29.107309",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      }
+    ]
+  },
+  {
+    "id": "7f7c9a58-6034-4a73-a3d9-83a5582566cd",
+    "numero": "A10055",
+    "date": "2025-04-10T16:41:29.107386",
+    "client": {
+      "nom": "Sophie Moreau",
+      "email": "sophie.moreau@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/1.jpg"
+    },
+    "montant": 579.96,
+    "status": "expediee",
+    "paiement": "payé",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "avenue Victor Hugo",
+      "ville": "Paris",
+      "codePostal": "24943",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue de la Paix",
+      "ville": "Marseille",
+      "codePostal": "81047",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "a04f2bbe-642a-49da-9b6c-03b5b02a7366",
+        "quantite": 2
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "e6074970-f2a0-4a39-a500-a84484ce41b8",
+        "quantite": 2
+      }
+    ],
+    "notes": "",
+    "historique": [
+      {
+        "date": "2025-04-10T16:41:29.107386",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2025-04-11T16:41:29.107386",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      }
+    ]
+  },
+  {
+    "id": "744b3304-016d-44bb-90a2-cc21394671cc",
+    "numero": "A10056",
+    "date": "2024-12-30T16:41:29.107468",
+    "client": {
+      "nom": "Emma Lemoine",
+      "email": "emma.lemoine@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/96.jpg"
+    },
+    "montant": 1039.93,
+    "status": "en-attente",
+    "paiement": "payé",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "rue de Rivoli",
+      "ville": "Paris",
+      "codePostal": "59741",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "avenue Victor Hugo",
+      "ville": "Marseille",
+      "codePostal": "17829",
+      "pays": "France"
+    },
+    "methodePaiement": "Virement",
+    "detailsProduits": [
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "5a725b43-1f82-4551-a673-5abf9e938da3",
+        "quantite": 3
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "81875d6d-07ec-49b0-a58b-9b24cd2973a4",
+        "quantite": 1
+      },
+      {
+        "nom": "Casque Audio",
+        "sku": "CSK-321",
+        "prix": 79.99,
+        "image": "https://example.com/img4.png",
+        "id": "9788eb04-cc38-44e8-bf7b-f853022b2009",
+        "quantite": 3
+      }
+    ],
+    "notes": "Appeler avant livraison",
+    "historique": [
+      {
+        "date": "2024-12-30T16:41:29.107468",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      },
+      {
+        "date": "2024-12-31T16:41:29.107468",
+        "statut": "livree",
+        "description": "Statut changé à livree"
+      },
+      {
+        "date": "2025-01-01T16:41:29.107468",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2025-01-02T16:41:29.107468",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      }
+    ]
+  },
+  {
+    "id": "70f8b738-5515-4986-8391-654d7e20b314",
+    "numero": "A10057",
+    "date": "2025-02-15T16:41:29.107570",
+    "client": {
+      "nom": "Hugo Dupont",
+      "email": "hugo.dupont@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/41.jpg"
+    },
+    "montant": 1019.92,
+    "status": "en-preparation",
+    "paiement": "remboursé",
+    "produits": 3,
+    "adresseLivraison": {
+      "rue": "boulevard Haussmann",
+      "ville": "Marseille",
+      "codePostal": "40146",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue Lafayette",
+      "ville": "Lyon",
+      "codePostal": "49613",
+      "pays": "France"
+    },
+    "methodePaiement": "Virement",
+    "detailsProduits": [
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "df716796-0573-4d9a-87f5-5aa85c9f5207",
+        "quantite": 2
+      },
+      {
+        "nom": "Casque Audio",
+        "sku": "CSK-321",
+        "prix": 79.99,
+        "image": "https://example.com/img4.png",
+        "id": "82d75ea2-8ac8-46d4-aba9-3156a546fbe7",
+        "quantite": 3
+      },
+      {
+        "nom": "Écran 24 pouces",
+        "sku": "SCR-789",
+        "prix": 199.99,
+        "image": "https://example.com/img3.png",
+        "id": "d026dc05-7a30-4062-afdf-1c62ae6c0f08",
+        "quantite": 3
+      }
+    ],
+    "notes": "Appeler avant livraison",
+    "historique": [
+      {
+        "date": "2025-02-15T16:41:29.107570",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2025-02-16T16:41:29.107570",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2025-02-17T16:41:29.107570",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      }
+    ]
+  },
+  {
+    "id": "605f1ce8-5cb0-4687-9534-ef60cb6e228f",
+    "numero": "A10058",
+    "date": "2025-03-11T16:41:29.107666",
+    "client": {
+      "nom": "Chloé Durand",
+      "email": "chloé.durand@example.com",
+      "avatar": "https://randomuser.me/api/portraits/women/87.jpg"
+    },
+    "montant": 149.98,
+    "status": "en-preparation",
+    "paiement": "en attente",
+    "produits": 2,
+    "adresseLivraison": {
+      "rue": "avenue Victor Hugo",
+      "ville": "Lyon",
+      "codePostal": "64732",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "boulevard Haussmann",
+      "ville": "Toulouse",
+      "codePostal": "56574",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Clavier Mécanique",
+        "sku": "CLV-123",
+        "prix": 89.99,
+        "image": "https://example.com/img1.png",
+        "id": "981de792-6d14-4361-b547-9775cadb2ce9",
+        "quantite": 1
+      },
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "82ed5e6c-3ebf-497a-8d69-8c7751f8ec80",
+        "quantite": 1
+      }
+    ],
+    "notes": "",
+    "historique": [
+      {
+        "date": "2025-03-11T16:41:29.107666",
+        "statut": "en-attente",
+        "description": "Statut changé à en-attente"
+      },
+      {
+        "date": "2025-03-12T16:41:29.107666",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      }
+    ]
+  },
+  {
+    "id": "82908f01-6ba8-4ad5-98f7-cde5aff78e93",
+    "numero": "A10059",
+    "date": "2025-02-03T16:41:29.107743",
+    "client": {
+      "nom": "Marc Blanc",
+      "email": "marc.blanc@example.com",
+      "avatar": "https://randomuser.me/api/portraits/men/68.jpg"
+    },
+    "montant": 59.99,
+    "status": "expediee",
+    "paiement": "remboursé",
+    "produits": 1,
+    "adresseLivraison": {
+      "rue": "rue Lafayette",
+      "ville": "Lyon",
+      "codePostal": "48243",
+      "pays": "France"
+    },
+    "adresseFacturation": {
+      "rue": "rue Lafayette",
+      "ville": "Toulouse",
+      "codePostal": "78779",
+      "pays": "France"
+    },
+    "methodePaiement": "Carte bancaire",
+    "detailsProduits": [
+      {
+        "nom": "Souris Gaming",
+        "sku": "SRS-456",
+        "prix": 59.99,
+        "image": "https://example.com/img2.png",
+        "id": "5f224230-47ae-420f-8f6e-0cce526424af",
+        "quantite": 1
+      }
+    ],
+    "notes": "Livrer en soirée",
+    "historique": [
+      {
+        "date": "2025-02-03T16:41:29.107743",
+        "statut": "expediee",
+        "description": "Statut changé à expediee"
+      },
+      {
+        "date": "2025-02-04T16:41:29.107743",
+        "statut": "annulee",
+        "description": "Statut changé à annulee"
+      },
+      {
+        "date": "2025-02-05T16:41:29.107743",
+        "statut": "en-preparation",
+        "description": "Statut changé à en-preparation"
+      }
+    ]
+  }
+]

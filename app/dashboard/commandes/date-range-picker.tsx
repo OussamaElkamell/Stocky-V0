@@ -11,12 +11,15 @@ import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 
-export function DateRangePicker({ className }: React.HTMLAttributes<HTMLDivElement>) {
-  const [date, setDate] = React.useState<DateRange | undefined>({
-    from: new Date(2023, 0, 1),
-    to: new Date(),
-  })
-
+export function DateRangePicker({
+  className,
+  value,
+  onChange,
+}: {
+  className?: string
+  value: DateRange | undefined
+  onChange: (range: DateRange | undefined) => void
+}) {
   return (
     <div className={cn("grid gap-2", className)}>
       <Popover>
@@ -24,16 +27,16 @@ export function DateRangePicker({ className }: React.HTMLAttributes<HTMLDivEleme
           <Button
             id="date"
             variant={"outline"}
-            className={cn("w-[240px] justify-start text-left font-normal", !date && "text-muted-foreground")}
+            className={cn("w-[240px] justify-start text-left font-normal", !value && "text-muted-foreground")}
           >
             <CalendarIcon className="mr-2 h-4 w-4" />
-            {date?.from ? (
-              date.to ? (
+            {value?.from ? (
+              value.to ? (
                 <>
-                  {format(date.from, "d LLL y", { locale: fr })} - {format(date.to, "d LLL y", { locale: fr })}
+                  {format(value.from, "d LLL y", { locale: fr })} - {format(value.to, "d LLL y", { locale: fr })}
                 </>
               ) : (
-                format(date.from, "d LLL y", { locale: fr })
+                format(value.from, "d LLL y", { locale: fr })
               )
             ) : (
               <span>Sélectionner une période</span>
@@ -44,9 +47,9 @@ export function DateRangePicker({ className }: React.HTMLAttributes<HTMLDivEleme
           <Calendar
             initialFocus
             mode="range"
-            defaultMonth={date?.from}
-            selected={date}
-            onSelect={setDate}
+            defaultMonth={value?.from}
+            selected={value}
+            onSelect={onChange}
             numberOfMonths={2}
             locale={fr}
           />

@@ -11,8 +11,20 @@ import { CommandesTableSkeleton } from "./commandes-table-skeleton"
 import { DateRangePicker } from "./date-range-picker"
 import { CommandesStats } from "./commandes-stats"
 import { CommandesFilters } from "./commandes-filters"
+import type { DateRange } from "react-day-picker"
+import { useState } from "react"
+import { date } from "zod"
 
 export default function CommandesPage() {
+  const [dateRange, setDateRange] = useState<DateRange | undefined>({
+    from: new Date(2023, 0, 1),
+    to: new Date(),
+  })
+  const [facetFilters, setFacetFilters] = useState<Record<string, string[]>>({});
+  const updateFacetFilters = (filters: Record<string, string[]>) => {
+    setFacetFilters(filters);
+  };
+  
   return (
     <div className="flex flex-col space-y-6 p-6">
       <div className="flex flex-col space-y-2">
@@ -36,11 +48,7 @@ export default function CommandesPage() {
               <SearchIcon className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input type="search" placeholder="Rechercher..." className="w-full sm:w-[200px] pl-8" />
             </div>
-            <Button variant="outline" size="icon">
-              <FilterIcon className="h-4 w-4" />
-              <span className="sr-only">Filtrer</span>
-            </Button>
-            <DateRangePicker />
+            <DateRangePicker value={dateRange} onChange={setDateRange} />
             <Button variant="outline" size="icon">
               <DownloadIcon className="h-4 w-4" />
               <span className="sr-only">Exporter</span>
@@ -52,7 +60,7 @@ export default function CommandesPage() {
           </div>
         </div>
 
-        <CommandesFilters />
+        <CommandesFilters value={facetFilters} onChange={setFacetFilters}/>
 
         <TabsContent value="toutes" className="mt-0">
           <Card>
@@ -62,7 +70,7 @@ export default function CommandesPage() {
             </CardHeader>
             <CardContent className="p-0">
               <Suspense fallback={<CommandesTableSkeleton />}>
-                <CommandesTable />
+                <CommandesTable dateRange={dateRange} facetFilters={facetFilters} />
               </Suspense>
             </CardContent>
           </Card>
@@ -76,7 +84,7 @@ export default function CommandesPage() {
             </CardHeader>
             <CardContent className="p-0">
               <Suspense fallback={<CommandesTableSkeleton />}>
-                <CommandesTable status="en-cours" />
+                <CommandesTable status="en-cours" dateRange={dateRange}  facetFilters={facetFilters} />
               </Suspense>
             </CardContent>
           </Card>
@@ -90,7 +98,7 @@ export default function CommandesPage() {
             </CardHeader>
             <CardContent className="p-0">
               <Suspense fallback={<CommandesTableSkeleton />}>
-                <CommandesTable status="expediees" />
+                <CommandesTable status="expediees" dateRange={dateRange} facetFilters={facetFilters} />
               </Suspense>
             </CardContent>
           </Card>
@@ -104,7 +112,7 @@ export default function CommandesPage() {
             </CardHeader>
             <CardContent className="p-0">
               <Suspense fallback={<CommandesTableSkeleton />}>
-                <CommandesTable status="livrees" />
+                <CommandesTable status="livrees" dateRange={dateRange} facetFilters={facetFilters} />
               </Suspense>
             </CardContent>
           </Card>
@@ -118,7 +126,7 @@ export default function CommandesPage() {
             </CardHeader>
             <CardContent className="p-0">
               <Suspense fallback={<CommandesTableSkeleton />}>
-                <CommandesTable status="annulees" />
+                <CommandesTable status="annulees" dateRange={dateRange} facetFilters={facetFilters} />
               </Suspense>
             </CardContent>
           </Card>
