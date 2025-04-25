@@ -53,7 +53,7 @@ const useAuth = () => {
       const { token, user } = await authService.signup(data);
       localStorage.setItem('token', token);
       setAuthState({ user, token, loading: false, error: null });
-      router.push('/dashboard');
+      router.push('/onboarding');
     } catch (error: any) {
       setAuthState({ user: null, token: null, loading: false, error: error.message });
     }
