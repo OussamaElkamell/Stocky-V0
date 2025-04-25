@@ -1,17 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
   ArrowUpDownIcon,
-  CheckCircleIcon,
-  ClockIcon,
   EyeIcon,
   MoreHorizontalIcon,
-  PackageIcon,
   TruckIcon,
   XCircleIcon,
 } from "lucide-react";
-import { format } from "date-fns";
+import { format} from "date-fns";
 import { fr } from "date-fns/locale";
 
 import { Button } from "@/components/ui/button";
@@ -32,7 +29,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Dialog,
@@ -45,18 +41,17 @@ import {
 import { CommandeDetails } from "./commande-details";
 import type { DateRange } from "react-day-picker";
 import rawCommandes from "./data/commandes.json";
-import  { Commande} from "./models/commande";
-import type { CommandeStatus } from "./models/commande";
+import { Commande } from "./models/commande";
 import { convertCommandes } from "./models/commande";
-// Données de démonstration
-const commandes: Commande[] = convertCommandes(rawCommandes);
-
+import StatusBadge from "./status-badge";
+import StatusUpdateDialog from "./update-status";
 
 function filtrerCommandes(
   commandes: Commande[],
   status?: string,
   dateRange?: DateRange,
-  facetFilters?: Record<string, string[]>
+  facetFilters?: Record<string, string[]>,
+  searchTerm?: string
 ): Commande[] {
   const statusMap: Record<string, string[]> = {
     "en-cours": ["en-attente", "en-preparation", "expediee"],
@@ -75,6 +70,18 @@ function filtrerCommandes(
       );
     }
   }
+  if (searchTerm) {
+    const term = searchTerm.toLowerCase();
+    filtered = filtered.filter((commande) => {
+      return (
+        commande.numero.toLowerCase().includes(term) ||
+        commande.client.nom.toLowerCase().includes(term) ||
+        commande.client.email.toLowerCase().includes(term) ||
+        commande.status.toLowerCase().includes(term)
+      );
+    });
+  }
+
   if (dateRange?.from || dateRange?.to) {
     filtered = filtered.filter((commande) => {
       const time = commande.date.getTime();
@@ -133,90 +140,86 @@ function filtrerCommandes(
       );
     });
   }
+
   return filtered;
 }
 
-// Composant pour afficher le statut avec une icône et une couleur appropriée
-function StatusBadge({ status }: { status: CommandeStatus }) {
-  switch (status) {
-    case "en-attente":
-      return (
-        <Badge
-          variant="outline"
-          className="flex items-center gap-1 text-amber-500 border-amber-200 bg-amber-50"
-        >
-          <ClockIcon className="h-3 w-3" />
-          En attente
-        </Badge>
-      );
-    case "en-preparation":
-      return (
-        <Badge
-          variant="outline"
-          className="flex items-center gap-1 text-blue-500 border-blue-200 bg-blue-50"
-        >
-          <PackageIcon className="h-3 w-3" />
-          En préparation
-        </Badge>
-      );
-    case "expediee":
-      return (
-        <Badge
-          variant="outline"
-          className="flex items-center gap-1 text-purple-500 border-purple-200 bg-purple-50"
-        >
-          <TruckIcon className="h-3 w-3" />
-          Expédiée
-        </Badge>
-      );
-    case "livree":
-      return (
-        <Badge
-          variant="outline"
-          className="flex items-center gap-1 text-emerald-500 border-emerald-200 bg-emerald-50"
-        >
-          <CheckCircleIcon className="h-3 w-3" />
-          Livrée
-        </Badge>
-      );
-    case "annulee":
-      return (
-        <Badge
-          variant="outline"
-          className="flex items-center gap-1 text-rose-500 border-rose-200 bg-rose-50"
-        >
-          <XCircleIcon className="h-3 w-3" />
-          Annulée
-        </Badge>
-      );
-  }
-}
+
 
 export function CommandesTable({
   status,
   dateRange,
   facetFilters,
+  search = "",
 }: {
   status?: string;
   dateRange?: DateRange;
   facetFilters?: Record<string, string[]>;
+  search?: string;
 }) {
+  const [commandesState, setCommandesState] = useState<Commande[]>(
+    convertCommandes(rawCommandes)
+  );
   const [selectedCommandes, setSelectedCommandes] = useState<string[]>([]);
   const [selectedCommande, setSelectedCommande] = useState<Commande | null>(
     null
   );
+  const [sortField, setSortField] = useState<"numero" | "date" | "montant">(
+    "numero"
+  );
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc" | null>(null);
+  const [dialogType, setDialogType] = useState<"details" | "edit" | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
-  const commandesFiltrees = filtrerCommandes(commandes, status, dateRange, facetFilters);
+  const commandesFiltrees = useMemo(() => {
+    return filtrerCommandes(commandesState, status, dateRange, facetFilters, search);
+  }, [commandesState, status, dateRange, facetFilters, search]); 
+  
+  const commandesTrieesEtFiltrees = useMemo(() => {
+    const data = [...commandesFiltrees];
+    return data.sort((a, b) => {
+      let valA: number | string = "";
+      let valB: number | string = "";
+  
+      switch (sortField) {
+        case "numero":
+          valA = parseInt(a.numero.slice(1));
+          valB = parseInt(b.numero.slice(1));
+          break;
+        case "date":
+          valA = a.date.getTime();
+          valB = b.date.getTime();
+          break;
+        case "montant":
+          valA = a.montant;
+          valB = b.montant;
+          break;
+      }
+  
+      if (valA < valB) return sortOrder === "asc" ? -1 : 1;
+      if (valA > valB) return sortOrder === "asc" ? 1 : -1;
+      return 0;
+    });
+  }, [commandesFiltrees, sortField, sortOrder]);
+  
+  const currentCommandes = useMemo(() => {
+    const start = (currentPage - 1) * itemsPerPage;
+    return commandesTrieesEtFiltrees.slice(start, start + itemsPerPage);
+  }, [commandesTrieesEtFiltrees, currentPage]);
+  
+  
 
   const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentCommandes = commandesFiltrees.slice(
-    indexOfFirstItem,
-    indexOfLastItem
-  );
 
+  const toggleSort = (field: typeof sortField) => {
+    if (sortField === field) {
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    } else {
+      setSortField(field);
+      setSortOrder("asc");
+    }
+  };
   const toggleSelectAll = () => {
     if (selectedCommandes.length === commandesFiltrees.length) {
       setSelectedCommandes([]);
@@ -226,11 +229,9 @@ export function CommandesTable({
   };
 
   const toggleSelectCommande = (id: string) => {
-    if (selectedCommandes.includes(id)) {
-      setSelectedCommandes(selectedCommandes.filter((c) => c !== id));
-    } else {
-      setSelectedCommandes([...selectedCommandes, id]);
-    }
+    setSelectedCommandes((prev) =>
+      prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id]
+    );
   };
 
   const goToNextPage = () => {
@@ -260,23 +261,32 @@ export function CommandesTable({
               />
             </TableHead>
             <TableHead className="w-[120px]">
-              <Button variant="ghost" className="p-0 hover:bg-transparent">
-                <span>Numéro</span>
-                <ArrowUpDownIcon className="ml-2 h-4 w-4" />
+              <Button
+                variant="ghost"
+                onClick={() => toggleSort("numero")}
+                className="flex items-center gap-1"
+              >
+                N° Commande <ArrowUpDownIcon className="w-3 h-3" />
               </Button>
             </TableHead>
             <TableHead>Client</TableHead>
             <TableHead>
-              <Button variant="ghost" className="p-0 hover:bg-transparent">
-                <span>Date</span>
-                <ArrowUpDownIcon className="ml-2 h-4 w-4" />
+              <Button
+                variant="ghost"
+                onClick={() => toggleSort("date")}
+                className="flex items-center gap-1"
+              >
+                Date <ArrowUpDownIcon className="w-3 h-3" />
               </Button>
             </TableHead>
             <TableHead>Statut</TableHead>
             <TableHead>
-              <Button variant="ghost" className="p-0 hover:bg-transparent">
-                <span>Montant</span>
-                <ArrowUpDownIcon className="ml-2 h-4 w-4" />
+              <Button
+                variant="ghost"
+                onClick={() => toggleSort("montant")}
+                className="flex items-center gap-1"
+              >
+                Montant <ArrowUpDownIcon className="w-3 h-3" />
               </Button>
             </TableHead>
             <TableHead className="text-right">Actions</TableHead>
@@ -345,17 +355,29 @@ export function CommandesTable({
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
                         <DialogTrigger
                           asChild
-                          onClick={() => setSelectedCommande(commande)}
+                          onClick={() => {
+                            setSelectedCommande(commande);
+                            setDialogType("details");
+                          }}
                         >
                           <DropdownMenuItem>
                             <EyeIcon className="mr-2 h-4 w-4" />
                             Voir les détails
                           </DropdownMenuItem>
                         </DialogTrigger>
-                        <DropdownMenuItem>
-                          <TruckIcon className="mr-2 h-4 w-4" />
-                          Mettre à jour le statut
-                        </DropdownMenuItem>
+                        <DialogTrigger
+                          asChild
+                          onClick={() => {
+                            setSelectedCommande(commande);
+                            setDialogType("edit");
+                          }}
+                        >
+                          <DropdownMenuItem>
+                            <TruckIcon className="mr-2 h-4 w-4" />
+                            Mettre à jour le statut
+                          </DropdownMenuItem>
+                        </DialogTrigger>
+
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>
                           <XCircleIcon className="mr-2 h-4 w-4" />
@@ -363,7 +385,7 @@ export function CommandesTable({
                         </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
-                    {selectedCommande && (
+                    {selectedCommande && dialogType === "details" && (
                       <DialogContent className="sm:max-w-[700px]">
                         <DialogHeader>
                           <DialogTitle>
@@ -376,8 +398,18 @@ export function CommandesTable({
                             })}
                           </DialogDescription>
                         </DialogHeader>
-                        <CommandeDetails commande={selectedCommande} />
+                        <CommandeDetails commande={selectedCommande} setDialogType={setDialogType} commandesState={commandesState} setCommandesState={setCommandesState}/>
                       </DialogContent>
+                    )}
+                    {selectedCommande && dialogType === "edit" && (
+                      <StatusUpdateDialog
+                      selectedCommande={selectedCommande}
+                      dialogType={dialogType}
+                      setDialogType={setDialogType}
+                      setSelectedCommande={(commande) => setSelectedCommande(commande)}
+                      commandesState={commandesState}
+                      setCommandesState={setCommandesState}
+                    />
                     )}
                   </Dialog>
                 </TableCell>

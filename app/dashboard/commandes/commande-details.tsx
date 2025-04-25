@@ -21,6 +21,8 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Commande, CommandeStatus } from "./models/commande";
+import StatusUpdateDialog from "./update-status";
+import { useState } from "react";
 
 // Fonction pour obtenir l'icône et la couleur du statut
 function getStatusInfo(status: CommandeStatus) {
@@ -68,8 +70,15 @@ function getStatusInfo(status: CommandeStatus) {
   }
 }
 
-export function CommandeDetails({ commande }: { commande: Commande }) {
-  // Enrichir la commande avec des données de démonstration si nécessaire
+export function CommandeDetails ({ commande,
+  commandesState,
+  setCommandesState,
+  setDialogType,
+}: { commande: Commande 
+  commandesState: Commande[],
+  setCommandesState : React.Dispatch<React.SetStateAction<Commande[]>>,
+  setDialogType : React.Dispatch<React.SetStateAction<"details" | "edit" | null>>,
+}) {
   const commandeComplete: Commande = {
     ...commande,
     adresseLivraison: commande.adresseLivraison,
@@ -77,6 +86,10 @@ export function CommandeDetails({ commande }: { commande: Commande }) {
     detailsProduits: commande.detailsProduits,
     historique: commande.historique,
   };
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [selectedCommande, setSelectedCommande] = useState<Commande | null>(
+    null
+  );
 
   const statusInfo = getStatusInfo(commandeComplete.status);
   const StatusIcon = statusInfo.icon;
@@ -129,7 +142,26 @@ export function CommandeDetails({ commande }: { commande: Commande }) {
             <DownloadIcon className="mr-2 h-4 w-4" />
             Exporter
           </Button>
-          <Button size="sm">Mettre à jour le statut</Button>
+          <Button
+            size="sm"
+            onClick={() => {
+              setSelectedCommande(commande);
+              setIsDialogOpen(true);
+            }}
+          >
+            Mettre à jour le statut
+          </Button>
+          {isDialogOpen && selectedCommande && (
+            <StatusUpdateDialog
+                      selectedCommande={selectedCommande}
+                      dialogType={"edit"}
+                      setDialogType={setDialogType}
+                      setSelectedCommande={(commande) => setSelectedCommande(commande)}
+                      commandesState={commandesState}
+                      setCommandesState={setCommandesState}
+                    />
+              
+          )}
         </div>
       </div>
 
@@ -340,7 +372,9 @@ export function CommandeDetails({ commande }: { commande: Commande }) {
             <CardContent className="p-4">
               <div className="space-y-4">
                 {commandeComplete.historique?.map((event, index) => {
-                  const statusInfo = getStatusInfo(event.statut as CommandeStatus);
+                  const statusInfo = getStatusInfo(
+                    event.statut as CommandeStatus
+                  );
                   return (
                     <div key={index} className="flex gap-4">
                       <div className="flex flex-col items-center">

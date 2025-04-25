@@ -25,7 +25,7 @@ interface Commande {
       pays: string;
     };
     methodePaiement?:
-      | "carte de bancaire"
+      | "carte bancaire"
       | "PayPal"
       | "virement bancaire"
       | "espèces";

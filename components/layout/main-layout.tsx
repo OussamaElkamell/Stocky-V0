@@ -58,31 +58,17 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
     setIsMobileSidebarOpen(false)
   }, [pathname])
 
-  // Get current page title
-  const getPageTitle = () => {
-    if (pathname.includes("/dashboard/inventory")) return "Produits"
-    if (pathname.includes("/dashboard/commandes")) return "Commandes"
-    if (pathname.includes("/dashboard/analytics")) return "Analytiques"
-    if (pathname.includes("/dashboard/espace-client")) return "Clients"
-    if (pathname.includes("/dashboard/caisse")) return "Caisse"
-    if (pathname.includes("/dashboard/rfid")) {
-      if (pathname.includes("/code-generator")) return "Générateur de Codes"
-      return "Géolocalisation RFID/NFC"
-    }
-    if (pathname.includes("/dashboard/website-builder")) return "Website Builder"
-    if (pathname.includes("/dashboard/settings/livraison")) return "Paramètres de Livraison"
-    if (pathname.includes("/dashboard/settings/marketing")) return "Intégrations Marketing"
-    if (pathname.includes("/dashboard/settings")) return "Paramètres"
-    if (pathname.includes("/walkie-talkie")) return "Walkie-Talkie"
-    return "Tableau de bord"
-  }
-
   // Navigation items
   const navItems = [
     {
       icon: <Home />,
       label: "Tableau de bord",
       href: "/dashboard",
+    },
+    {
+      icon: <CreditCard />,
+      label: "Caisse",
+      href: "/dashboard/caisse",
     },
     {
       icon: <Package />,
@@ -95,23 +81,18 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
       href: "/dashboard/commandes",
     },
     {
-      icon: <LineChart />,
-      label: "Analytiques",
-      href: "/dashboard/analytics",
-    },
-    {
       icon: <Users />,
       label: "Clients",
       href: "/dashboard/espace-client",
     },
     {
-      icon: <CreditCard />,
-      label: "Caisse",
-      href: "/dashboard/caisse",
+      icon: <LineChart />,
+      label: "Analytiques",
+      href: "/dashboard/analytics",
     },
     {
       icon: <Smartphone />,
-      label: "RFID/NFC",
+      label: "Inventaire & Localisation",
       href: "/dashboard/rfid",
     },
     {
@@ -121,7 +102,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
     },
     {
       icon: <Radio />,
-      label: "Walkie-Talkie",
+      label: "Communication",
       href: "/walkie-talkie",
     },
     {
@@ -231,10 +212,6 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
             <div className="flex items-center md:hidden">
               <Store className="h-6 w-6 text-emerald-400" />
               <span className="font-bold text-xl ml-2">Storei</span>
-            </div>
-
-            <div className="hidden md:block">
-              <h1 className="text-xl font-bold">{getPageTitle()}</h1>
             </div>
 
             <div className="mx-auto relative w-full max-w-md">

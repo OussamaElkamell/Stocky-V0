@@ -1,35 +1,43 @@
-"use client"
+"use client";
 
-import { Suspense } from "react"
-import { DownloadIcon, FilterIcon, PlusIcon, SearchIcon } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { CommandesTable } from "./commandes-table"
-import { CommandesTableSkeleton } from "./commandes-table-skeleton"
-import { DateRangePicker } from "./date-range-picker"
-import { CommandesStats } from "./commandes-stats"
-import { CommandesFilters } from "./commandes-filters"
-import type { DateRange } from "react-day-picker"
-import { useState } from "react"
-import { date } from "zod"
+import { Suspense } from "react";
+import { DownloadIcon, FilterIcon, PlusIcon, SearchIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CommandesTable } from "./commandes-table";
+import { CommandesTableSkeleton } from "./commandes-table-skeleton";
+import { DateRangePicker } from "./date-range-picker";
+import { CommandesStats } from "./commandes-stats";
+import { CommandesFilters } from "./commandes-filters";
+import type { DateRange } from "react-day-picker";
+import { useState } from "react";
+import { date } from "zod";
 
 export default function CommandesPage() {
   const [dateRange, setDateRange] = useState<DateRange | undefined>({
     from: new Date(2023, 0, 1),
     to: new Date(),
-  })
-  const [facetFilters, setFacetFilters] = useState<Record<string, string[]>>({});
-  const updateFacetFilters = (filters: Record<string, string[]>) => {
-    setFacetFilters(filters);
-  };
-  
+  });
+  const [facetFilters, setFacetFilters] = useState<Record<string, string[]>>(
+    {}
+  );
+  const [searchTerm, setSearchTerm] = useState<string>("");
+
   return (
     <div className="flex flex-col space-y-6 p-6">
       <div className="flex flex-col space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">Commandes</h1>
-        <p className="text-muted-foreground">Gérez et suivez toutes les commandes de votre boutique.</p>
+        <p className="text-muted-foreground">
+          Gérez et suivez toutes les commandes de votre boutique.
+        </p>
       </div>
 
       <CommandesStats />
@@ -46,7 +54,13 @@ export default function CommandesPage() {
           <div className="flex items-center gap-2 w-full sm:w-auto">
             <div className="relative w-full sm:w-auto">
               <SearchIcon className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-              <Input type="search" placeholder="Rechercher..." className="w-full sm:w-[200px] pl-8" />
+              <Input
+                type="search"
+                placeholder="Rechercher..."
+                className="w-full sm:w-[200px] pl-8"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
             </div>
             <DateRangePicker value={dateRange} onChange={setDateRange} />
             <Button variant="outline" size="icon">
@@ -60,17 +74,23 @@ export default function CommandesPage() {
           </div>
         </div>
 
-        <CommandesFilters value={facetFilters} onChange={setFacetFilters}/>
+        <CommandesFilters value={facetFilters} onChange={setFacetFilters} />
 
         <TabsContent value="toutes" className="mt-0">
           <Card>
             <CardHeader className="p-4">
               <CardTitle>Toutes les commandes</CardTitle>
-              <CardDescription>Liste complète de toutes les commandes de votre boutique.</CardDescription>
+              <CardDescription>
+                Liste complète de toutes les commandes de votre boutique.
+              </CardDescription>
             </CardHeader>
             <CardContent className="p-0">
               <Suspense fallback={<CommandesTableSkeleton />}>
-                <CommandesTable dateRange={dateRange} facetFilters={facetFilters} />
+                <CommandesTable
+                  dateRange={dateRange}
+                  facetFilters={facetFilters}
+                  search={searchTerm}
+                />
               </Suspense>
             </CardContent>
           </Card>
@@ -80,11 +100,18 @@ export default function CommandesPage() {
           <Card>
             <CardHeader className="p-4">
               <CardTitle>Commandes en cours</CardTitle>
-              <CardDescription>Commandes qui sont en cours de traitement ou d'expédition.</CardDescription>
+              <CardDescription>
+                Commandes qui sont en cours de traitement ou d'expédition.
+              </CardDescription>
             </CardHeader>
             <CardContent className="p-0">
               <Suspense fallback={<CommandesTableSkeleton />}>
-                <CommandesTable status="en-cours" dateRange={dateRange}  facetFilters={facetFilters} />
+                <CommandesTable
+                  status="en-cours"
+                  dateRange={dateRange}
+                  facetFilters={facetFilters}
+                  search={searchTerm}
+                />
               </Suspense>
             </CardContent>
           </Card>
@@ -94,11 +121,18 @@ export default function CommandesPage() {
           <Card>
             <CardHeader className="p-4">
               <CardTitle>Commandes expédiées</CardTitle>
-              <CardDescription>Commandes qui ont été expédiées mais pas encore livrées.</CardDescription>
+              <CardDescription>
+                Commandes qui ont été expédiées mais pas encore livrées.
+              </CardDescription>
             </CardHeader>
             <CardContent className="p-0">
               <Suspense fallback={<CommandesTableSkeleton />}>
-                <CommandesTable status="expediees" dateRange={dateRange} facetFilters={facetFilters} />
+                <CommandesTable
+                  status="expediees"
+                  dateRange={dateRange}
+                  facetFilters={facetFilters}
+                  search={searchTerm}
+                />
               </Suspense>
             </CardContent>
           </Card>
@@ -108,11 +142,18 @@ export default function CommandesPage() {
           <Card>
             <CardHeader className="p-4">
               <CardTitle>Commandes livrées</CardTitle>
-              <CardDescription>Commandes qui ont été livrées avec succès.</CardDescription>
+              <CardDescription>
+                Commandes qui ont été livrées avec succès.
+              </CardDescription>
             </CardHeader>
             <CardContent className="p-0">
               <Suspense fallback={<CommandesTableSkeleton />}>
-                <CommandesTable status="livrees" dateRange={dateRange} facetFilters={facetFilters} />
+                <CommandesTable
+                  status="livrees"
+                  dateRange={dateRange}
+                  facetFilters={facetFilters}
+                  search={searchTerm}
+                />
               </Suspense>
             </CardContent>
           </Card>
@@ -122,16 +163,23 @@ export default function CommandesPage() {
           <Card>
             <CardHeader className="p-4">
               <CardTitle>Commandes annulées</CardTitle>
-              <CardDescription>Commandes qui ont été annulées par le client ou par vous.</CardDescription>
+              <CardDescription>
+                Commandes qui ont été annulées par le client ou par vous.
+              </CardDescription>
             </CardHeader>
             <CardContent className="p-0">
               <Suspense fallback={<CommandesTableSkeleton />}>
-                <CommandesTable status="annulees" dateRange={dateRange} facetFilters={facetFilters} />
+                <CommandesTable
+                  status="annulees"
+                  dateRange={dateRange}
+                  facetFilters={facetFilters}
+                  search={searchTerm}
+                />
               </Suspense>
             </CardContent>
           </Card>
         </TabsContent>
       </Tabs>
     </div>
-  )
+  );
 }
