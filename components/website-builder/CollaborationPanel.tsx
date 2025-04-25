@@ -83,7 +83,6 @@ export const CollaborationPanel = () => {
       setNewComment("")
     }
   }
-
   if (!showCollaborationPanel) return null
 
   return (
