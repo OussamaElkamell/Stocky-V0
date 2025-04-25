@@ -73,11 +73,9 @@ function getStatusInfo(status: CommandeStatus) {
 export function CommandeDetails ({ commande,
   commandesState,
   setCommandesState,
-  setDialogType,
 }: { commande: Commande 
   commandesState: Commande[],
   setCommandesState : React.Dispatch<React.SetStateAction<Commande[]>>,
-  setDialogType : React.Dispatch<React.SetStateAction<"details" | "edit" | null>>,
 }) {
   const commandeComplete: Commande = {
     ...commande,
@@ -154,13 +152,10 @@ export function CommandeDetails ({ commande,
           {isDialogOpen && selectedCommande && (
             <StatusUpdateDialog
                       selectedCommande={selectedCommande}
-                      dialogType={"edit"}
-                      setDialogType={setDialogType}
                       setSelectedCommande={(commande) => setSelectedCommande(commande)}
                       commandesState={commandesState}
                       setCommandesState={setCommandesState}
-                    />
-              
+                    />              
           )}
         </div>
       </div>

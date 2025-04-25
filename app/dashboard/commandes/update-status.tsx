@@ -7,8 +7,6 @@ import type { Commande, CommandeStatus } from "./models/commande";
 
 interface StatusUpdateDialogProps {
   selectedCommande: Commande | null;
-  dialogType: "edit" | null;
-  setDialogType: (type: "edit" | null) => void;
   setSelectedCommande: (commande: Commande | null) => void;
   commandesState: Commande[];
   setCommandesState: React.Dispatch<React.SetStateAction<Commande[]>>;
@@ -16,8 +14,6 @@ interface StatusUpdateDialogProps {
 
 const StatusUpdateDialog: React.FC<StatusUpdateDialogProps> = ({
   selectedCommande,
-  dialogType,
-  setDialogType,
   setSelectedCommande,
   commandesState,
   setCommandesState,
@@ -34,13 +30,12 @@ const StatusUpdateDialog: React.FC<StatusUpdateDialogProps> = ({
       console.error("Invalid status update:", newStatus);
     }
 
-    setDialogType(null);
     setNewStatus("");
     setSelectedCommande(null);
   };
 
   return (
-    selectedCommande && dialogType === "edit" && (
+    selectedCommande  && (
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Mettre à jour le statut</DialogTitle>

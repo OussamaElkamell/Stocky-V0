@@ -161,14 +161,11 @@ export function CommandesTable({
     convertCommandes(rawCommandes)
   );
   const [selectedCommandes, setSelectedCommandes] = useState<string[]>([]);
-  const [selectedCommande, setSelectedCommande] = useState<Commande | null>(
-    null
-  );
-  const [sortField, setSortField] = useState<"numero" | "date" | "montant">(
-    "numero"
-  );
+  const [selectedCommande, setSelectedCommande] = useState<Commande | null>(null);
+  const [sortField, setSortField] = useState<"numero" | "date" | "montant">("numero");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc" | null>(null);
-  const [dialogType, setDialogType] = useState<"details" | "edit" | null>(null);
+  const [isDetailsDialogOpen, setIsDetailsDialogOpen] = useState(false);
+  const [isStatusDialogOpen, setIsStatusDialogOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
@@ -357,7 +354,8 @@ export function CommandesTable({
                           asChild
                           onClick={() => {
                             setSelectedCommande(commande);
-                            setDialogType("details");
+                            setIsDetailsDialogOpen(true);
+                            setIsStatusDialogOpen(false);
                           }}
                         >
                           <DropdownMenuItem>
@@ -369,7 +367,8 @@ export function CommandesTable({
                           asChild
                           onClick={() => {
                             setSelectedCommande(commande);
-                            setDialogType("edit");
+                            setIsStatusDialogOpen(true);
+                            setIsDetailsDialogOpen(false);
                           }}
                         >
                           <DropdownMenuItem>
@@ -385,7 +384,7 @@ export function CommandesTable({
                         </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
-                    {selectedCommande && dialogType === "details" && (
+                    {selectedCommande && isDetailsDialogOpen && (
                       <DialogContent className="sm:max-w-[700px]">
                         <DialogHeader>
                           <DialogTitle>
@@ -398,14 +397,12 @@ export function CommandesTable({
                             })}
                           </DialogDescription>
                         </DialogHeader>
-                        <CommandeDetails commande={selectedCommande} setDialogType={setDialogType} commandesState={commandesState} setCommandesState={setCommandesState}/>
+                        <CommandeDetails commande={selectedCommande} commandesState={commandesState} setCommandesState={setCommandesState}/>
                       </DialogContent>
                     )}
-                    {selectedCommande && dialogType === "edit" && (
+                    {selectedCommande && isStatusDialogOpen && (
                       <StatusUpdateDialog
                       selectedCommande={selectedCommande}
-                      dialogType={dialogType}
-                      setDialogType={setDialogType}
                       setSelectedCommande={(commande) => setSelectedCommande(commande)}
                       commandesState={commandesState}
                       setCommandesState={setCommandesState}
