@@ -45,11 +45,11 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
-import useAuth from '@/hooks/useAuth'
+
 export function MainLayout({ children }: { children: React.ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   const pathname = usePathname()
-  const { logout } = useAuth()
+
   // Handle mobile sidebar
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false)
 
@@ -121,7 +121,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
     },
     {
       icon: <Radio />,
-      label: "Walkie-Talkie",
+      label: "Communication",
       href: "/walkie-talkie",
     },
     {
@@ -134,8 +134,17 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
   // Add a new state for the logout confirmation dialog
   const [showLogoutConfirmation, setShowLogoutConfirmation] = useState(false)
 
-  const handleLogout = async () => {
-    await logout()
+  // Add a function to handle the actual logout
+  const handleLogout = () => {
+    // Clear any stored authentication data
+    localStorage.removeItem("storei-auth-token")
+    sessionStorage.removeItem("storei-auth-token")
+
+    // In a real app, you might also want to call a logout API endpoint
+    // fetch("/api/auth/logout", { method: "POST" });
+
+    // Redirect to landing page
+    window.location.href = "/landing"
   }
 
   return (
@@ -324,13 +333,13 @@ function NavItem({
   const isRfid = href === "/dashboard/rfid"
   const isAnalytics = href === "/dashboard/analytics"
   const isSettings = href === "/dashboard/settings"
-  const hasSubpages = isCommandes || isWebsiteBuilder || isRfid || isAnalytics || isSettings
+  const hasSubpages =  isWebsiteBuilder || isRfid || isAnalytics || isSettings
 
   // Define subpages based on the nav item
   const subpages = isCommandes
     ? []
     : isWebsiteBuilder
-      ? [{ label: "Build with AI", href: "/dashboard/website-builder/build-with-ai" }]
+      ? [{ label: "Build with AI", href: "/dashboard/website-builder/build-with-ai" },{ label: "Create my store", href: "/dashboard/website-builder" }]
       : isRfid
         ? [
             {
@@ -362,7 +371,8 @@ function NavItem({
   )
 
   // Determine if this item should show subpages
-  const showSubpages = hasSubpages && isActive && !isCollapsed && (isOpen || hasActiveSubpage)
+  const showSubpages = hasSubpages &&(isOpen || hasActiveSubpage)
+
 
   return (
     <div>

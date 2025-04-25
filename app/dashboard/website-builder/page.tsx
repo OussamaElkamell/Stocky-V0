@@ -184,7 +184,7 @@ export default function WebsiteBuilder() {
   // Mock function to handle drag over
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault()
-    if (typeof window !== "undefined" && workspaceRef.current) {
+    if (workspaceRef.current) {
       const rect = workspaceRef.current.getBoundingClientRect()
       const x = e.clientX - rect.left
       const y = e.clientY - rect.top
@@ -1974,7 +1974,7 @@ export default function WebsiteBuilder() {
                   <div className="flex items-center gap-2">
                     <div className="relative">
                       <Avatar className="h-8 w-8">
-                        <AvatarImage src={user.avatar || "/placeholder.svg"} alt={user.name} />
+                        <AvatarImage src={user.avatar} alt={user.name} />
                         <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
                       </Avatar>
                       {user.active && (
