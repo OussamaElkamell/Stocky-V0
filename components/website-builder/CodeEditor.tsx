@@ -10,7 +10,6 @@ import { Separator } from "@/components/ui/separator"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { X, FileCode } from "lucide-react"
 
-// Code snippets data
 const codeSnippets = [
   {
     id: 1,
