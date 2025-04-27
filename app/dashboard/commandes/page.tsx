@@ -60,16 +60,18 @@ export default function CommandesPage() {
       <CommandesStats />
 
       <Tabs defaultValue="toutes" className="w-full">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
-          <TabsList>
-            <TabsTrigger value="toutes">Toutes</TabsTrigger>
-            <TabsTrigger value="en-attente">En attente</TabsTrigger>
-            <TabsTrigger value="en-preparation">En préparation</TabsTrigger>
-            <TabsTrigger value="expediees">Expédiées</TabsTrigger>
-            <TabsTrigger value="livrees">Livrées</TabsTrigger>
-            <TabsTrigger value="annulees">Annulées</TabsTrigger>
-          </TabsList>
-          <div className="flex items-center gap-2 w-full sm:w-auto">
+        <div className="flex flex-col gap-4 mb-4">
+          <div className="flex flex-wrap gap-2">
+            <TabsList className="w-full sm:w-auto overflow-x-auto">
+              <TabsTrigger value="toutes">Toutes</TabsTrigger>
+              <TabsTrigger value="en-attente">En attente</TabsTrigger>
+              <TabsTrigger value="en-preparation">En préparation</TabsTrigger>
+              <TabsTrigger value="expediees">Expédiées</TabsTrigger>
+              <TabsTrigger value="livrees">Livrées</TabsTrigger>
+              <TabsTrigger value="annulees">Annulées</TabsTrigger>
+            </TabsList>
+          </div>
+          <div className="flex flex-wrap sm:flex-nowrap items-center gap-2">
             <div className="relative w-full sm:w-auto">
               <SearchIcon className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input
@@ -85,20 +87,22 @@ export default function CommandesPage() {
               <DownloadIcon className="h-4 w-4" />
               <span className="sr-only">Exporter</span>
             </Button>
-            <Dialog open={open} onOpenChange={setOpen}>
-              <DialogTrigger asChild>
-                <Button onClick={() => setOpen(true)}>
-                  <PlusIcon className="h-4 w-4 mr-2" />
-                  Nouvelle commande
-                </Button>
-              </DialogTrigger>
-              <DialogContent>
-                <CommandeForm
-                  onClose={() => setOpen(false)}
-                  onAddCommande={addCommande}
-                />
-              </DialogContent>
-            </Dialog>
+            <div className="flex justify-start overflow-y-auto">
+              <Dialog open={open} onOpenChange={setOpen}>
+                <DialogTrigger asChild>
+                  <Button onClick={() => setOpen(true)}>
+                    <PlusIcon className="h-4 w-4 mr-2" />
+                    Nouvelle commande
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-h-[100vh] overflow-y-auto">
+                  <CommandeForm
+                    onClose={() => setOpen(false)}
+                    onAddCommande={addCommande}
+                  />
+                </DialogContent>
+              </Dialog>
+            </div>
           </div>
         </div>
 
@@ -183,8 +187,8 @@ export default function CommandesPage() {
             <CardContent className="p-0">
               <Suspense fallback={<CommandesTableSkeleton />}>
                 <CommandesTable
-                commandesState={commandes}
-                setCommandesState={setCommandes}
+                  commandesState={commandes}
+                  setCommandesState={setCommandes}
                   status="expediees"
                   dateRange={dateRange}
                   facetFilters={facetFilters}
@@ -206,8 +210,8 @@ export default function CommandesPage() {
             <CardContent className="p-0">
               <Suspense fallback={<CommandesTableSkeleton />}>
                 <CommandesTable
-                commandesState={commandes}
-                setCommandesState={setCommandes}
+                  commandesState={commandes}
+                  setCommandesState={setCommandes}
                   status="livrees"
                   dateRange={dateRange}
                   facetFilters={facetFilters}
@@ -229,8 +233,8 @@ export default function CommandesPage() {
             <CardContent className="p-0">
               <Suspense fallback={<CommandesTableSkeleton />}>
                 <CommandesTable
-                commandesState={commandes}
-                setCommandesState={setCommandes}
+                  commandesState={commandes}
+                  setCommandesState={setCommandes}
                   status="annulees"
                   dateRange={dateRange}
                   facetFilters={facetFilters}

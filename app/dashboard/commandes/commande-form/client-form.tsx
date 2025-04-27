@@ -106,7 +106,6 @@ export function ClientForm({ commande, setCommande }: ClientFormProps) {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log("Form submitted with:", commande.client);
   }
 
   return (

@@ -84,7 +84,6 @@ export function ProductsForm({ commande, setCommande }: ProductsFormProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(selectedProduits);
   };
 
   return (
