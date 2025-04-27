@@ -71,18 +71,20 @@ export default function CommandesPage() {
               <TabsTrigger value="annulees">Annulées</TabsTrigger>
             </TabsList>
           </div>
-          <div className="flex flex-wrap sm:flex-nowrap items-center gap-2">
-            <div className="relative w-full sm:w-auto">
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="relative flex-1 min-w-[200px]">
               <SearchIcon className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input
                 type="search"
                 placeholder="Rechercher..."
-                className="w-full sm:w-[200px] pl-8"
+                className="w-full sm:w-[300px] pl-8"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
-            <DateRangePicker value={dateRange} onChange={setDateRange} />
+            <div className="flex-shrink-0">
+              <DateRangePicker value={dateRange} onChange={setDateRange} />
+            </div>
             <Button variant="outline" size="icon">
               <DownloadIcon className="h-4 w-4" />
               <span className="sr-only">Exporter</span>
