@@ -9,7 +9,6 @@ import { Textarea } from "@/components/ui/textarea"
 import { Separator } from "@/components/ui/separator"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { X, FileCode } from "lucide-react"
-
 const codeSnippets = [
   {
     id: 1,
