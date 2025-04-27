@@ -20,6 +20,11 @@ import { CommandesFilters } from "./commandes-filters";
 import type { DateRange } from "react-day-picker";
 import { useState } from "react";
 import { date } from "zod";
+import { Commande } from "./models/commande";
+import { convertCommandes } from "./models/commande";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { CommandeForm } from "./commande-form/commande-form";
+import rawCommandes from "./data/commandes.json";
 
 export default function CommandesPage() {
   const [dateRange, setDateRange] = useState<DateRange | undefined>({
@@ -30,6 +35,18 @@ export default function CommandesPage() {
     {}
   );
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [open, setOpen] = useState(false);
+  const [commandes, setCommandes] = useState<Commande[]>(
+    convertCommandes(rawCommandes)
+  );
+
+  const addCommande = (newCommande: Commande) => {
+    setCommandes((prevCommandes) => {
+      const updatedCommandes = [...prevCommandes, newCommande];
+      console.log("Updated Commandes:", updatedCommandes); // Debugging
+      return updatedCommandes;
+    });
+  };
 
   return (
     <div className="flex flex-col space-y-6 p-6">
@@ -46,7 +63,8 @@ export default function CommandesPage() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
           <TabsList>
             <TabsTrigger value="toutes">Toutes</TabsTrigger>
-            <TabsTrigger value="en-cours">En cours</TabsTrigger>
+            <TabsTrigger value="en-attente">En attente</TabsTrigger>
+            <TabsTrigger value="en-preparation">En préparation</TabsTrigger>
             <TabsTrigger value="expediees">Expédiées</TabsTrigger>
             <TabsTrigger value="livrees">Livrées</TabsTrigger>
             <TabsTrigger value="annulees">Annulées</TabsTrigger>
@@ -67,10 +85,20 @@ export default function CommandesPage() {
               <DownloadIcon className="h-4 w-4" />
               <span className="sr-only">Exporter</span>
             </Button>
-            <Button>
-              <PlusIcon className="h-4 w-4 mr-2" />
-              Nouvelle commande
-            </Button>
+            <Dialog open={open} onOpenChange={setOpen}>
+              <DialogTrigger asChild>
+                <Button onClick={() => setOpen(true)}>
+                  <PlusIcon className="h-4 w-4 mr-2" />
+                  Nouvelle commande
+                </Button>
+              </DialogTrigger>
+              <DialogContent>
+                <CommandeForm
+                  onClose={() => setOpen(false)}
+                  onAddCommande={addCommande}
+                />
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
 
@@ -87,6 +115,8 @@ export default function CommandesPage() {
             <CardContent className="p-0">
               <Suspense fallback={<CommandesTableSkeleton />}>
                 <CommandesTable
+                  commandesState={commandes}
+                  setCommandesState={setCommandes}
                   dateRange={dateRange}
                   facetFilters={facetFilters}
                   search={searchTerm}
@@ -96,18 +126,43 @@ export default function CommandesPage() {
           </Card>
         </TabsContent>
 
-        <TabsContent value="en-cours" className="mt-0">
+        <TabsContent value="en-attente" className="mt-0">
           <Card>
             <CardHeader className="p-4">
-              <CardTitle>Commandes en cours</CardTitle>
+              <CardTitle>Commandes en attente</CardTitle>
               <CardDescription>
-                Commandes qui sont en cours de traitement ou d'expédition.
+                Commandes qui sont en cours de traitement.
               </CardDescription>
             </CardHeader>
             <CardContent className="p-0">
               <Suspense fallback={<CommandesTableSkeleton />}>
                 <CommandesTable
-                  status="en-cours"
+                  commandesState={commandes}
+                  setCommandesState={setCommandes}
+                  status="en-attente"
+                  dateRange={dateRange}
+                  facetFilters={facetFilters}
+                  search={searchTerm}
+                />
+              </Suspense>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="en-preparation" className="mt-0">
+          <Card>
+            <CardHeader className="p-4">
+              <CardTitle>Commandes en préparation</CardTitle>
+              <CardDescription>
+                Commandes qui sont en cours de préparation.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="p-0">
+              <Suspense fallback={<CommandesTableSkeleton />}>
+                <CommandesTable
+                  commandesState={commandes}
+                  setCommandesState={setCommandes}
+                  status="en-preparation"
                   dateRange={dateRange}
                   facetFilters={facetFilters}
                   search={searchTerm}
@@ -128,6 +183,8 @@ export default function CommandesPage() {
             <CardContent className="p-0">
               <Suspense fallback={<CommandesTableSkeleton />}>
                 <CommandesTable
+                commandesState={commandes}
+                setCommandesState={setCommandes}
                   status="expediees"
                   dateRange={dateRange}
                   facetFilters={facetFilters}
@@ -149,6 +206,8 @@ export default function CommandesPage() {
             <CardContent className="p-0">
               <Suspense fallback={<CommandesTableSkeleton />}>
                 <CommandesTable
+                commandesState={commandes}
+                setCommandesState={setCommandes}
                   status="livrees"
                   dateRange={dateRange}
                   facetFilters={facetFilters}
@@ -170,6 +229,8 @@ export default function CommandesPage() {
             <CardContent className="p-0">
               <Suspense fallback={<CommandesTableSkeleton />}>
                 <CommandesTable
+                commandesState={commandes}
+                setCommandesState={setCommandes}
                   status="annulees"
                   dateRange={dateRange}
                   facetFilters={facetFilters}

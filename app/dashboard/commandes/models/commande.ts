@@ -5,19 +5,21 @@ interface Commande {
     date: Date;
     client: {
       nom: string;
+      prenom ?: string;
       email: string;
       avatar?: string;
+      adresseLivraison: {
+        rue: string;
+        ville: string;
+        codePostal: string;
+        pays: string;
+      };
+      canalDeVente?: "site web" | "téléphone" | "marketplace" | "boutique physique";
     };
     montant: number;
     status: CommandeStatus;
     paiement: "payé" | "en attente" | "remboursé";
     produits: number;
-    adresseLivraison?: {
-      rue: string;
-      ville: string;
-      codePostal: string;
-      pays: string;
-    };
     adresseFacturation?: {
       rue: string;
       ville: string;
@@ -36,7 +38,10 @@ interface Commande {
       statut: string;
       description: string;
     }[];
-    canalDeVente?: "site web" | "téléphone" | "marketplace" | "boutique physique";
+    informationsLivraison?: {
+      methodeLivraison: string;
+      numeroSuivi: string;
+    };
   }
 
   type CommandeStatus =

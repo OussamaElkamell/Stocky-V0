@@ -40,11 +40,10 @@ import {
 } from "@/components/ui/dialog";
 import { CommandeDetails } from "./commande-details";
 import type { DateRange } from "react-day-picker";
-import rawCommandes from "./data/commandes.json";
 import { Commande } from "./models/commande";
-import { convertCommandes } from "./models/commande";
 import StatusBadge from "./status-badge";
 import StatusUpdateDialog from "./update-status";
+import { useEffect } from "react";
 
 function filtrerCommandes(
   commandes: Commande[],
@@ -54,7 +53,8 @@ function filtrerCommandes(
   searchTerm?: string
 ): Commande[] {
   const statusMap: Record<string, string[]> = {
-    "en-cours": ["en-attente", "en-preparation", "expediee"],
+    "en-attente": ["en-attente"],
+    "en-preparation": ["en-preparation"],
     expediees: ["expediee"],
     livrees: ["livree"],
     annulees: ["annulee"],
@@ -82,17 +82,32 @@ function filtrerCommandes(
     });
   }
 
+  const resetTimeToMidnight = (date: Date): number => {
+    const newDate = new Date(date);
+    newDate.setHours(0, 0, 0, 0); 
+    return newDate.getTime();
+  };
+  
   if (dateRange?.from || dateRange?.to) {
+
+  
     filtered = filtered.filter((commande) => {
-      const time = commande.date.getTime();
+      const time = resetTimeToMidnight(commande.date);
+  
       const afterStart = dateRange.from
-        ? time >= dateRange.from.getTime()
+        ? resetTimeToMidnight(dateRange.from) <= time
         : true;
-      const beforeEnd = dateRange.to ? time <= dateRange.to.getTime() : true;
+
+      const beforeEnd = dateRange.to
+        ? resetTimeToMidnight(dateRange.to) >= time
+        : true;
+  
       return afterStart && beforeEnd;
     });
   }
-
+  
+  
+  
   if (facetFilters && Object.keys(facetFilters).length > 0) {
     filtered = filtered.filter((commande) => {
       return Object.entries(facetFilters).every(
@@ -130,7 +145,7 @@ function filtrerCommandes(
                 boutique: "boutique physique",
               };
               return selectedOptions.some(
-                (option) => commande.canalDeVente === canalMap[option]
+                (option) => commande.client.canalDeVente === canalMap[option]
               );
 
             default:
@@ -147,19 +162,20 @@ function filtrerCommandes(
 
 
 export function CommandesTable({
+  commandesState,
+  setCommandesState,
   status,
   dateRange,
   facetFilters,
   search = "",
 }: {
+  commandesState: Commande[];
+  setCommandesState: React.Dispatch<React.SetStateAction<Commande[]>>;
   status?: string;
   dateRange?: DateRange;
   facetFilters?: Record<string, string[]>;
   search?: string;
 }) {
-  const [commandesState, setCommandesState] = useState<Commande[]>(
-    convertCommandes(rawCommandes)
-  );
   const [selectedCommandes, setSelectedCommandes] = useState<string[]>([]);
   const [selectedCommande, setSelectedCommande] = useState<Commande | null>(null);
   const [sortField, setSortField] = useState<"numero" | "date" | "montant">("numero");
@@ -204,8 +220,10 @@ export function CommandesTable({
     const start = (currentPage - 1) * itemsPerPage;
     return commandesTrieesEtFiltrees.slice(start, start + itemsPerPage);
   }, [commandesTrieesEtFiltrees, currentPage]);
-  
-  
+
+  useEffect(() => {
+    setCurrentPage(1); 
+  }, [commandesFiltrees, status, dateRange, facetFilters, search]);
 
   const indexOfLastItem = currentPage * itemsPerPage;
 
