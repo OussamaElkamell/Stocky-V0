@@ -61,8 +61,8 @@ export default function CommandesPage() {
 
       <Tabs defaultValue="toutes" className="w-full">
         <div className="flex flex-col gap-4 mb-4">
-          <div className="flex flex-wrap gap-2">
-            <TabsList className="w-full sm:w-auto overflow-x-auto">
+          <div className="overflow-x-auto">
+            <TabsList className="inline-flex min-w-max gap-2">
               <TabsTrigger value="toutes">Toutes</TabsTrigger>
               <TabsTrigger value="en-attente">En attente</TabsTrigger>
               <TabsTrigger value="en-preparation">En préparation</TabsTrigger>
