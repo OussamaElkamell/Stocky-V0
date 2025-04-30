@@ -85,10 +85,6 @@ body {
   }
 }
 
-.bg-background,
-.bg-muted,
-.bg-card,
-.bg-popover,
 .bg-input,
 .bg-button {
   background-color: transparent !important;
