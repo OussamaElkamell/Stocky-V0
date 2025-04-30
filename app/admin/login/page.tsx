@@ -28,22 +28,7 @@ export default function AdminLoginPage() {
   // Récupérer l'URL de redirection si elle existe
   const redirectUrl =  "/admin/overview"
 
-  // Vérifier si l'utilisateur est déjà connecté lors du chargement initial
-  // useEffect(() => {
-  //   const checkAuth = () => {
-  //     try {
-  //       if (isAdminLoggedIn()) {
-  //         router.push(redirectUrl)
-  //       }
-  //     } catch (error) {
-  //       console.error("Erreur lors de la vérification de l'authentification:", error)
-  //     } finally {
-  //       setIsCheckingAuth(false)
-  //     }
-  //   }
-
-  //   checkAuth()
-  // }, [router, redirectUrl])
+  
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -67,17 +52,7 @@ export default function AdminLoginPage() {
     }
   }
 
-  // Afficher un indicateur de chargement pendant la vérification d'authentification
-  if (isCheckingAuth) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-slate-900">
-        <div className="text-center">
-          <Loader2 className="h-8 w-8 animate-spin text-emerald-500 mx-auto mb-4" />
-          <p className="text-slate-300">Vérification de l'authentification...</p>
-        </div>
-      </div>
-    )
-  }
+  
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-900 p-4">
