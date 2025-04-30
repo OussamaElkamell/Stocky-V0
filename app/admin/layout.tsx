@@ -15,7 +15,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const closeMobileSidebar = () => setIsMobileSidebarOpen(false)
 
   return (
-    <ProtectedAdminRoute>
+
       <div className="flex min-h-screen bg-background">
         {/* Desktop Sidebar */}
         <div className="">
@@ -40,6 +40,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <main className="flex-1 overflow-auto">{children}</main>
         </div>
       </div>
-    </ProtectedAdminRoute>
+
   )
 }
