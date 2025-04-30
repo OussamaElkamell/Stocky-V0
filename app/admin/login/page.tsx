@@ -23,27 +23,27 @@ export default function AdminLoginPage() {
   const [rememberMe, setRememberMe] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
-  const [isCheckingAuth, setIsCheckingAuth] = useState(true)
+  const [isCheckingAuth, setIsCheckingAuth] = useState(false)
 
   // Récupérer l'URL de redirection si elle existe
   const redirectUrl = searchParams.get("redirect") || "/admin/overview"
 
   // Vérifier si l'utilisateur est déjà connecté lors du chargement initial
-  useEffect(() => {
-    const checkAuth = () => {
-      try {
-        if (isAdminLoggedIn()) {
-          router.push(redirectUrl)
-        }
-      } catch (error) {
-        console.error("Erreur lors de la vérification de l'authentification:", error)
-      } finally {
-        setIsCheckingAuth(false)
-      }
-    }
+  // useEffect(() => {
+  //   const checkAuth = () => {
+  //     try {
+  //       if (isAdminLoggedIn()) {
+  //         router.push(redirectUrl)
+  //       }
+  //     } catch (error) {
+  //       console.error("Erreur lors de la vérification de l'authentification:", error)
+  //     } finally {
+  //       setIsCheckingAuth(false)
+  //     }
+  //   }
 
-    checkAuth()
-  }, [router, redirectUrl])
+  //   checkAuth()
+  // }, [router, redirectUrl])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
