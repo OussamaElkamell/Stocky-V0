@@ -3,7 +3,6 @@
 import type React from "react"
 
 import { useState } from "react"
-import { ProtectedAdminRoute } from "@/components/admin/protected-admin-route"
 import { AdminSidebar } from "@/components/admin/admin-sidebar"
 import { AdminTopbar } from "@/components/admin/admin-topbar"
 
