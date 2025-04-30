@@ -254,7 +254,7 @@ export function ClientForm({ clients, addClient, updateClient, mode, initialClie
             </div>
 
             <div className="space-y-2">
-              <Label>Dépenses Totales (€)</Label>
+              <Label>Dépenses Totales (TND)</Label>
               <Input
                 type="number"
                 step="0.01"

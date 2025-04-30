@@ -85,11 +85,12 @@ body {
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+.bg-background,
+.bg-muted,
+.bg-card,
+.bg-popover,
+.bg-input,
+.bg-button {
+  background-color: transparent !important;
 }
+

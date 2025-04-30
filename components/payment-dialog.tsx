@@ -54,7 +54,7 @@ export function PaymentDialog({ open, onOpenChange, totalAmount, onPaymentComple
         <div className="grid gap-4 py-4">
           <div className="flex justify-between items-center font-medium">
             <span>Total à payer:</span>
-            <span className="text-xl">{totalAmount.toFixed(2)} €</span>
+            <span className="text-xl">{totalAmount.toFixed(2)} TND</span>
           </div>
 
           <Separator />
@@ -88,7 +88,7 @@ export function PaymentDialog({ open, onOpenChange, totalAmount, onPaymentComple
               />
               <div className="flex justify-between text-sm">
                 <span>Monnaie à rendre:</span>
-                <span className="font-medium">{calculateChange()} €</span>
+                <span className="font-medium">{calculateChange()} TND</span>
               </div>
             </div>
           )}

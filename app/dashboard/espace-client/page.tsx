@@ -67,11 +67,11 @@ import type { ClientStatus } from "./models/client";
 const clientList: Client[] = [
   {
     id: "CLI-001",
-    name: "Entreprise Martin",
+    name: "Entreprise Sami",
     type: "b2b",
-    contact: "Sophie Martin",
-    email: "contact@entreprisemartin.com",
-    phone: "+33 1 23 45 67 89",
+    contact: "Sami Binous",
+    email: "contact@entreprisesami.com",
+    phone: "+26 23 456 789",
     status: "active",
     lastOrder: new Date("2023-04-01T10:23:00"),
     totalOrders: 24,
@@ -81,11 +81,11 @@ const clientList: Client[] = [
   },
   {
     id: "CLI-002",
-    name: "Thomas Dubois",
-    type: "b2c",
-    contact: "Thomas Dubois",
-    email: "thomas.dubois@example.com",
-    phone: "+33 6 98 76 54 32",
+    name: "Entreprise Gasmi",
+    type: "b2b",
+    contact: "Fathi Gasmi",
+    email: "Fathi.Gasmi@example.com",
+    phone: "+216 98 765 432",
     status: "active",
     lastOrder: new Date("2023-04-01T09:42:00"),
     totalOrders: 5,
@@ -97,9 +97,9 @@ const clientList: Client[] = [
     id: "CLI-003",
     name: "Boutique Élégance",
     type: "b2b",
-    contact: "Emma Petit",
+    contact: "Emna Talbi",
     email: "contact@boutique-elegance.com",
-    phone: "+33 4 56 78 90 12",
+    phone: "+216 56 789 012",
     status: "active",
     lastOrder: new Date("2023-04-01T08:15:00"),
     totalOrders: 18,
@@ -109,11 +109,11 @@ const clientList: Client[] = [
   },
   {
     id: "CLI-004",
-    name: "Lucas Bernard",
+    name: "Kamel Karoui",
     type: "b2c",
-    contact: "Lucas Bernard",
-    email: "lucas.bernard@example.com",
-    phone: "+33 6 34 56 78 90",
+    contact: "Kamel Karoui",
+    email: "Kamel.Karoui@example.com",
+    phone: "+216 94 567 890",
     status: "inactive",
     lastOrder: new Date("2023-03-15T16:30:00"),
     totalOrders: 2,
@@ -125,9 +125,9 @@ const clientList: Client[] = [
     id: "CLI-005",
     name: "Magasin Central",
     type: "b2b",
-    contact: "Chloé Moreau",
+    contact: "Samira Ben Ali",
     email: "contact@magasincentral.com",
-    phone: "+33 5 67 89 01 23",
+    phone: "+216 56 789 013",
     status: "active",
     lastOrder: new Date("2023-03-31T14:45:00"),
     totalOrders: 32,
@@ -137,11 +137,11 @@ const clientList: Client[] = [
   },
   {
     id: "CLI-006",
-    name: "Antoine Lefebvre",
+    name: "Mohamed Ben Salah",
     type: "b2c",
-    contact: "Antoine Lefebvre",
-    email: "antoine.lefebvre@example.com",
-    phone: "+33 6 56 78 90 12",
+    contact: "Mohamed Ben Salah",
+    email: "Mohamed.Salah@example.com",
+    phone: "+216 56 789 012",
     status: "active",
     lastOrder: new Date("2023-03-31T11:20:00"),
     totalOrders: 8,
@@ -450,7 +450,7 @@ export default function ClientSpacePage() {
                         {formatDate(client.lastOrder)}
                       </TableCell>
                       <TableCell className="text-right font-medium">
-                        {client.totalSpent} €
+                        {client.totalSpent} TND
                       </TableCell>
                       <TableCell>
                         <Badge

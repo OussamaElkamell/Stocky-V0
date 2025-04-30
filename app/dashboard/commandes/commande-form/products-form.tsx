@@ -147,7 +147,7 @@ export function ProductsForm({ commande, setCommande }: ProductsFormProps) {
                     <span>
                       {produit.prix.toLocaleString("fr-FR", {
                         style: "currency",
-                        currency: "EUR",
+                        currency: "TND",
                       })}
                     </span>
                   </div>
@@ -155,7 +155,7 @@ export function ProductsForm({ commande, setCommande }: ProductsFormProps) {
                 <div className="font-medium text-sm">
                   {(produit.prix * produit.quantite).toLocaleString("fr-FR", {
                     style: "currency",
-                    currency: "EUR",
+                    currency: "TND",
                   })}
                 </div>
                 <Button
@@ -179,7 +179,7 @@ export function ProductsForm({ commande, setCommande }: ProductsFormProps) {
               <span>
                 {total.toLocaleString("fr-FR", {
                   style: "currency",
-                  currency: "EUR",
+                  currency: "TND",
                 })}
               </span>
             </div>
@@ -192,7 +192,7 @@ export function ProductsForm({ commande, setCommande }: ProductsFormProps) {
               <span>
                 {(total * 0.2).toLocaleString("fr-FR", {
                   style: "currency",
-                  currency: "EUR",
+                  currency: "TND",
                 })}
               </span>
             </div>
@@ -202,7 +202,7 @@ export function ProductsForm({ commande, setCommande }: ProductsFormProps) {
               <span>
                 {(total * 1.2).toLocaleString("fr-FR", {
                   style: "currency",
-                  currency: "EUR",
+                  currency: "TND",
                 })}
               </span>
             </div>
