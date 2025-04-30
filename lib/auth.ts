@@ -61,7 +61,8 @@ export function getAdminSession(): AdminSession | null {
       }
     }
 
-    const tokenString = localStorage.getItem(ADMIN_TOKEN_KEY) || sessionStorage.getItem(ADMIN_TOKEN_KEY)
+    const tokenString =
+      localStorage.getItem(ADMIN_TOKEN_KEY) || sessionStorage.getItem(ADMIN_TOKEN_KEY)
     if (!tokenString) return null
 
     return JSON.parse(tokenString) as AdminSession
