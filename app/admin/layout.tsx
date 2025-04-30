@@ -18,7 +18,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     <ProtectedAdminRoute>
       <div className="flex min-h-screen bg-background">
         {/* Desktop Sidebar */}
-        <div className="hidden md:block">
+        <div className="">
           <AdminSidebar />
         </div>
 

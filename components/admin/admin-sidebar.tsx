@@ -105,14 +105,14 @@ export function AdminSidebar({ isMobile = false, onClose }: AdminSidebarProps) {
 
   return (
     <div
-      className={`${
-        isMobile
-          ? "fixed inset-y-0 left-0 z-50 w-64 transform transition-transform duration-300"
-          : isCollapsed
-            ? "w-20"
-            : "w-64"
-      } bg-slate-900 text-white transition-all duration-300`}
-    >
+    className={` 
+      ${isMobile ? "fixed inset-0 z-50 w-64" : "sticky top-0"} 
+      ${isCollapsed && !isMobile ? "w-20" : !isMobile ? "w-64" : ""} 
+      bg-slate-900 text-white transform transition-all duration-300 
+      h-screen
+    `}
+  >
+  
       <div className="p-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Shield className="h-6 w-6 text-emerald-400" />
@@ -130,15 +130,7 @@ export function AdminSidebar({ isMobile = false, onClose }: AdminSidebarProps) {
 
       <div className="mt-6 px-2">
         <nav className="space-y-1">
-          <Link
-            href="/dashboard"
-            className="flex items-center gap-3 rounded-lg px-3 py-2 transition-all text-slate-300 hover:bg-slate-800 hover:text-white mb-4"
-          >
-            <span className="flex h-6 w-6 items-center justify-center">
-              <Store />
-            </span>
-            {!(isCollapsed && !isMobile) && <span>Retour au Dashboard</span>}
-          </Link>
+
 
           {adminNavItems.map((item) => (
             <NavItem

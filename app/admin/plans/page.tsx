@@ -312,7 +312,7 @@ export default function PlansPage() {
                 <CardDescription>Estimation basée sur les plans actifs</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold">{totalRevenue.toFixed(2)} €</div>
+                <div className="text-3xl font-bold">{totalRevenue.toFixed(2)} TND</div>
                 <div className="text-xs text-muted-foreground mt-1">
                   <span className="text-green-500 font-medium">+8.5%</span> depuis le mois dernier
                 </div>
