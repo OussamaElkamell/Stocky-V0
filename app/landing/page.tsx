@@ -776,19 +776,19 @@ export default function LandingPage() {
   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
     <TestimonialCard
       quote="Storei a transformé notre gestion des stocks. Nous avons réduit les ruptures de stock de 85% et augmenté nos ventes de 30%."
-      author="Sarah Johnson"
+      author="Sarah hmidi"
       company="Fashion Forward"
       image="/placeholder.svg?height=80&width=80"
     />
     <TestimonialCard
       quote="L'intégration RFID est un véritable changement. Nous pouvons maintenant localiser n'importe quel produit dans notre entrepôt en quelques secondes."
-      author="Michael Chen"
+      author="Aymen bouraoui"
       company="Tech Innovations"
       image="/placeholder.svg?height=80&width=80"
     />
     <TestimonialCard
       quote="La mise en place de notre boutique en ligne a été incroyablement facile. Nous étions opérationnels en moins d'une journée."
-      author="Emma Rodriguez"
+      author="immen dhaoui"
       company="Gourmet Delights"
       image="/placeholder.svg?height=80&width=80"
     />
