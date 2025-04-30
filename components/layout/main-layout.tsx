@@ -358,7 +358,7 @@ function NavItem({
           label: "Build with AI",
           href: "/dashboard/website-builder/build-with-ai",
         },
-        { label: "Create my store", href: "/dashboard/website-builder" },
+        { label: "Create my store", href: "/dashboard/website-builder/create-store" },
       ]
     : isRfid
     ? [
