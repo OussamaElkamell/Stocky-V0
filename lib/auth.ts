@@ -50,15 +50,13 @@ export function getAdminSession(): AdminSession | null {
   if (typeof window === "undefined") return null
 
   try {
-    // Pour la prévisualisation/développement, simuler une session
-    if (process.env.NODE_ENV === "development") {
-      return {
-        token: "dev-token",
-        role: "super_admin",
-        expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(), // 24h
-        name: "Admin Dev",
-        email: "admin@storei.dev",
-      }
+    // Simuler une session pour test en dev ou prod
+    return {
+      token: "dev-token",
+      role: "super_admin",
+      expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(), // 24h
+      name: "Admin Dev",
+      email: "admin@storei.dev",
     }
 
     const tokenString =
@@ -71,6 +69,7 @@ export function getAdminSession(): AdminSession | null {
     return null
   }
 }
+
 
 /**
  * Récupère le rôle de l'administrateur
