@@ -504,7 +504,7 @@ export default function OnboardingPage() {
                     <h2>Preferences</h2>
                   </div>
 
-                  <FormField
+                  {/* <FormField
                     control={form.control}
                     name="notifications"
                     render={() => (
@@ -540,7 +540,7 @@ export default function OnboardingPage() {
                         <FormMessage />
                       </FormItem>
                     )}
-                  />
+                  /> */}
 
                   <FormField
                     control={form.control}
