@@ -312,7 +312,7 @@ export default function PlansPage() {
                 <CardDescription>Estimation basée sur les plans actifs</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold">{totalRevenue.toFixed(2)} €</div>
+                <div className="text-3xl font-bold">{totalRevenue.toFixed(2)} TND</div>
                 <div className="text-xs text-muted-foreground mt-1">
                   <span className="text-green-500 font-medium">+8.5%</span> depuis le mois dernier
                 </div>
@@ -709,7 +709,7 @@ export default function PlansPage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-baseline">
-                    <span className="text-3xl font-bold">{plan.price.toFixed(2)} €</span>
+                    <span className="text-3xl font-bold">{plan.price.toFixed(2)} TND</span>
                     <span className="text-muted-foreground ml-1">/mois</span>
                   </div>
 
@@ -861,7 +861,7 @@ export default function PlansPage() {
                   </p>
                   <p>
                     <span className="text-muted-foreground">Montant:</span>{" "}
-                    {planDetails.find((p) => p.name === selectedSubscriber?.plan)?.price.toFixed(2)} €
+                    {planDetails.find((p) => p.name === selectedSubscriber?.plan)?.price.toFixed(2)} TND
                   </p>
                 </div>
               </div>
@@ -882,7 +882,7 @@ export default function PlansPage() {
                     {selectedSubscriber?.paymentHistory.map((payment, index) => (
                       <TableRow key={index}>
                         <TableCell>{format(payment.date, "dd/MM/yyyy")}</TableCell>
-                        <TableCell>{payment.amount.toFixed(2)} €</TableCell>
+                        <TableCell>{payment.amount.toFixed(2)} TND</TableCell>
                         <TableCell>
                           <Badge
                             variant="outline"
@@ -968,7 +968,7 @@ export default function PlansPage() {
               <Input id="new-plan-description" placeholder="Description courte du plan" />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="new-plan-price">Prix mensuel (€)</Label>
+              <Label htmlFor="new-plan-price">Prix mensuel (TND)</Label>
               <div className="relative">
                 <DollarSign className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                 <Input id="new-plan-price" type="number" step="0.01" min="0" className="pl-8" />

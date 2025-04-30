@@ -28,7 +28,7 @@ export function CommandesStats() {
           <DollarSignIcon className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">€24,568.78</div>
+          <div className="text-2xl font-bold">24,568.78 TND</div>
           <p className="text-xs text-muted-foreground">
             <span className="text-emerald-500 font-medium inline-flex items-center">
               <ArrowUpIcon className="h-3 w-3 mr-1" /> +18.2%

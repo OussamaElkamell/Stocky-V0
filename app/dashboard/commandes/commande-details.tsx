@@ -191,7 +191,7 @@ export function CommandeDetails ({ commande,
                         <span className="text-sm">
                           {produit.prix.toLocaleString("fr-FR", {
                             style: "currency",
-                            currency: "EUR",
+                            currency: "TND",
                           })}
                         </span>
                         <span className="text-sm text-muted-foreground">×</span>
@@ -203,7 +203,7 @@ export function CommandeDetails ({ commande,
                         "fr-FR",
                         {
                           style: "currency",
-                          currency: "EUR",
+                          currency: "TND",
                         }
                       )}
                     </div>
@@ -216,7 +216,7 @@ export function CommandeDetails ({ commande,
                     <span>
                       {commandeComplete.montant.toLocaleString("fr-FR", {
                         style: "currency",
-                        currency: "EUR",
+                        currency: "TND",
                       })}
                     </span>
                   </div>
@@ -229,7 +229,7 @@ export function CommandeDetails ({ commande,
                     <span>
                       {(commandeComplete.montant * 0.2).toLocaleString(
                         "fr-FR",
-                        { style: "currency", currency: "EUR" }
+                        { style: "currency", currency: "TND" }
                       )}
                     </span>
                   </div>
@@ -239,7 +239,7 @@ export function CommandeDetails ({ commande,
                     <span>
                       {commandeComplete.montant.toLocaleString("fr-FR", {
                         style: "currency",
-                        currency: "EUR",
+                        currency: "TND",
                       })}
                     </span>
                   </div>

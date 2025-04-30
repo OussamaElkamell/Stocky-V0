@@ -162,8 +162,9 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
                 label={item.label}
                 href={item.href}
                 isActive={
-                  pathname === item.href || pathname.startsWith(`${item.href}/`)
+                  pathname === item.href || (pathname.startsWith(`${item.href}/`) && item.href !== "/dashboard")
                 }
+                
                 isCollapsed={!isSidebarOpen}
               />
             ))}
@@ -209,8 +210,9 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
                 label={item.label}
                 href={item.href}
                 isActive={
-                  pathname === item.href || pathname.startsWith(`${item.href}/`)
+                  pathname === item.href || (pathname.startsWith(`${item.href}/`) && item.href !== "/dashboard")
                 }
+                
                 isCollapsed={false}
               />
             ))}
@@ -246,7 +248,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
             </div>
 
             <div className="ml-auto flex items-center gap-4">
-              <Button variant="ghost" size="icon" className="relative">
+              <Button variant="ghost" size="icon" className="relative hover:bg-transparent active:bg-transparent">
                 <Bell className="h-5 w-5" />
                 <span className="absolute top-0 right-0 h-2 w-2 rounded-full bg-rose-500"></span>
               </Button>
@@ -336,9 +338,9 @@ function NavItem({
   isActive?: boolean;
   isCollapsed?: boolean;
 }) {
-  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-
+  const [isOpen, setIsOpen] = useState(false);
+  
   // Check if this is a nav item with subpages
   const isCommandes = href === "/dashboard/commandes";
   const isWebsiteBuilder = href === "/dashboard/website-builder";
@@ -395,7 +397,12 @@ function NavItem({
   );
 
   // Determine if this item should show subpages
-  const showSubpages = hasSubpages && (isOpen || hasActiveSubpage);
+  const showSubpages = hasSubpages && !isCollapsed && (isOpen || hasActiveSubpage);
+  useEffect(() => {
+    if (isCollapsed) {
+      setIsOpen(false);
+    }
+  }, [isCollapsed, hasSubpages]);
 
   return (
     <div>

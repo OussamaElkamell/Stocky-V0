@@ -338,7 +338,7 @@ export function CommandesTable({
                       </AvatarFallback>
                     </Avatar>
                     <div>
-                      <div className="font-medium">{commande.client.nom}</div>
+                      <div className="font-medium">{commande.client.nom} {commande.client.prenom}</div>
                       <div className="text-xs text-muted-foreground">
                         {commande.client.email}
                       </div>
@@ -354,7 +354,7 @@ export function CommandesTable({
                 <TableCell>
                   {commande.montant.toLocaleString("fr-FR", {
                     style: "currency",
-                    currency: "EUR",
+                    currency: "TND",
                   })}
                 </TableCell>
                 <TableCell className="text-right">

@@ -147,7 +147,7 @@ export default function CaissePage() {
                         </div>
                         <div className="font-medium">{product.name}</div>
                         <div className="text-sm text-muted-foreground">{product.category}</div>
-                        <div className="mt-1 font-bold">{product.price.toFixed(2)} €</div>
+                        <div className="mt-1 font-bold">{product.price.toFixed(2)} TND</div>
                       </CardContent>
                     </Card>
                   ))}
@@ -171,7 +171,7 @@ export default function CaissePage() {
                       <div key={item.product.id} className="flex items-center justify-between border-b pb-2">
                         <div>
                           <div className="font-medium">{item.product.name}</div>
-                          <div className="text-sm text-muted-foreground">{item.product.price.toFixed(2)} € / unité</div>
+                          <div className="text-sm text-muted-foreground">{item.product.price.toFixed(2)} TND / unité</div>
                         </div>
                         <div className="flex items-center gap-2">
                           <Button
@@ -192,7 +192,7 @@ export default function CaissePage() {
                             +
                           </Button>
                           <div className="w-20 text-right font-medium">
-                            {(item.product.price * item.quantity).toFixed(2)} €
+                            {(item.product.price * item.quantity).toFixed(2)} TND
                           </div>
                         </div>
                       </div>
@@ -203,7 +203,7 @@ export default function CaissePage() {
               <CardFooter className="flex-col items-stretch border-t pt-4">
                 <div className="flex justify-between mb-4">
                   <span className="font-medium">Total:</span>
-                  <span className="font-bold text-xl">{calculateTotal().toFixed(2)} €</span>
+                  <span className="font-bold text-xl">{calculateTotal().toFixed(2)} TND</span>
                 </div>
                 <Button
                   className="w-full"

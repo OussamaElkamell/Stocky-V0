@@ -63,6 +63,7 @@ const businessTypes = [
 
 // Currency options
 const currencies = [
+  { value: "TND", label: "Tunisian Dinar (TND)" },
   { value: "EUR", label: "Euro (€)" },
   { value: "USD", label: "US Dollar ($)" },
   { value: "GBP", label: "British Pound (£)" },
@@ -118,7 +119,7 @@ export default function OnboardingPage() {
       city: "",
       postalCode: "",
       country: "",
-      currency: "EUR",
+      currency: "TND",
       language: "fr",
       timeZone: "Europe/Paris",
       receiptFooter: "Thank you for your purchase!",
