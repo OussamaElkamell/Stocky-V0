@@ -26,7 +26,7 @@ export default function AdminLoginPage() {
   const [isCheckingAuth, setIsCheckingAuth] = useState(true)
 
   // Récupérer l'URL de redirection si elle existe
-  const redirectUrl = searchParams.get("redirect") || "/admin/overview"
+  const redirectUrl =  "/admin/overview"
 
   // Vérifier si l'utilisateur est déjà connecté lors du chargement initial
   useEffect(() => {
