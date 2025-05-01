@@ -23,7 +23,7 @@ const ADMIN_TOKEN_KEY = "storei-admin-token"
  * Vérifie si un utilisateur admin est connecté
  */
 export function isAdminLoggedIn(): boolean {
-  if (typeof window === "undefined") return true
+  if (typeof window === "undefined") return false
 
   try {
     const session = getAdminSession()
@@ -47,7 +47,7 @@ export function isAdminLoggedIn(): boolean {
  * Récupère la session admin actuelle
  */
 export function getAdminSession(): AdminSession | null {
-
+  if (typeof window === "undefined") return null
 
   try {
     // Pour la prévisualisation/développement, simuler une session

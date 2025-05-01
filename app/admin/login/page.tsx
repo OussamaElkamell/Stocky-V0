@@ -54,7 +54,8 @@ export default function AdminLoginPage() {
         console.log("hello admin ");
         
       const success = await loginAdmin(username, password, rememberMe)
-
+        console.log("sucess",success);
+        
       if (success) {
         // Redirection vers le dashboard admin ou l'URL demandée
         router.push(redirectUrl)
