@@ -1,5 +1,7 @@
 import { ProduitCommande } from "./produitCommande";
 interface Commande {
+    adresseLivraison: any;
+    adresseLivraison: any;
     id: string;
     numero: string;
     date: Date;

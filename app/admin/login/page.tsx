@@ -51,6 +51,8 @@ export default function AdminLoginPage() {
     setIsLoading(true)
 
     try {
+        console.log("hello admin ");
+        
       const success = await loginAdmin(username, password, rememberMe)
 
       if (success) {
